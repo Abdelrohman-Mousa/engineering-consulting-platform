@@ -1,0 +1,11 @@
+{
+  "navbar": {
+    "logo": "ADVAVCE",
+    "home": "Home",
+    "about": "About Us",
+    "projects": "Our Projects",
+    "request": "Consultation Request",
+    "contact": "Contact Us",
+    "signIn": "Sign In"
+  }
+}

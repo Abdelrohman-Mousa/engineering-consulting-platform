@@ -4,11 +4,16 @@ import {
   Meta,
   Outlet,
   Scripts,
-  ScrollRestoration,
+  ScrollRestoration, useLocation,
 } from "react-router";
 
 import type { Route } from "./+types/root";
 import "./app.css";
+import Navbar from "~/routes/components/navbar/Navbar";
+import Footer from "~/routes/components/footer/Footer";
+import "./i18n/config"
+import {useTranslation} from "react-i18next";
+import { useEffect } from "react";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -23,12 +28,33 @@ export const links: Route.LinksFunction = () => [
   },
 ];
 
+import { registerLicense } from "@syncfusion/ej2-base";
+
+registerLicense(import.meta.env.VITE_SYNCFUSION_LICENSE_KEY)
+
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        {/* 1️⃣ السكربت السحري لمنع الوميض (Flash) عند التحميل */}
+        <script
+            dangerouslySetInnerHTML={{
+              __html: `
+              (function() {
+                const lang = localStorage.getItem('i18nextLng') || 'en';
+                const dir = lang.startsWith('ar') ? 'rtl' : 'ltr';
+                document.documentElement.dir = dir;
+                document.documentElement.lang = lang;
+                const theme = localStorage.getItem('theme');
+                if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                  document.documentElement.classList.add('dark');
+                }
+              })();
+            `,
+            }}
+        />
         <Meta />
         <Links />
       </head>
@@ -42,7 +68,36 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  return <Outlet />;
+  // 📍 تحديد الصفحة الحالية
+  const location = useLocation();
+  const { i18n } = useTranslation(); // 👈 استخدام i18n
+
+  // 2️⃣ مراقبة تغيير اللغة وتحديث الـ DOM
+  useEffect(() => {
+    const currentLang = i18n.language || 'en';
+    const dir = currentLang.startsWith('ar') ? 'rtl' : 'ltr';
+    document.documentElement.dir = dir;
+    document.documentElement.lang = currentLang;
+  }, [i18n.language]);
+
+  // ⛔ الصفحات اللي مش عايز فيها Navbar و Footer
+  const hideLayoutRoutes = ["/signIn"];
+
+  const hideLayout = hideLayoutRoutes.some(route =>
+      location.pathname.startsWith(route)
+  );
+
+  return (
+      <>
+        {/*<AuthProvider>*/}
+          <div className="app">
+            {!hideLayout && <Navbar />}
+            <Outlet />
+            {!hideLayout && <Footer />}
+          </div>
+        {/*</AuthProvider>*/}
+      </>
+  );
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
