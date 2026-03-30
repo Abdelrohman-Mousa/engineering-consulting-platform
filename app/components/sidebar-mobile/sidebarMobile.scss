@@ -43,3 +43,16 @@
 
   }
 }
+
+
+//Dark Mode
+html.dark {
+  .box-sidebar {
+    background-color: #020617;
+    .logo-sidebar {
+      .text-logo-sidebar {
+        color: #ffffff;
+      }
+    }
+  }
+}

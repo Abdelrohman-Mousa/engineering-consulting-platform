@@ -43,14 +43,14 @@ export default function SidebarMobile() {
         >
             <div className="logo-sidebar">
                 <img src="/assets/icons/logoProjects.png" className="w-16 h-9" alt="logo" />
-                <span className="text-logo-sidebar">ADVANCE</span>
+                <span className="text-logo-sidebar">{t("navbar.logo")}</span>
             </div>
             <Divider />
 
             <div className="signIn-sidebar">
                     <Link to="/signIn" >
                        <ShinyButton>
-                        <h3>Sign In</h3>
+                        <h3>{t("navbar.signIn")}</h3>
                        </ShinyButton>
                     </Link>
             </div>
@@ -74,9 +74,9 @@ export default function SidebarMobile() {
     );
 
     return (
-        <div className="md:hidden"> {/* يظهر في الموبايل فقط */}
-            <Button onClick={toggleDrawer(true)} className="p-0 min-w-0">
-                <img src={menuIcon} alt="menu" className="size-8 dark:invert" />
+        <div className="sidebar-menu md:hidden"> {/* يظهر في الموبايل فقط */}
+            <Button onClick={toggleDrawer(true)} className="button-menu p-0 min-w-0">
+                <img src={menuIcon} alt="menu" className="size-9 dark:invert" />
             </Button>
 
             <Drawer
