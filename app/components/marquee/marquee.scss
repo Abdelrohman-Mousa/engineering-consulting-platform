@@ -1,0 +1,33 @@
+.marquee {
+  width: 100%;
+  overflow: hidden;
+  background: #111827;
+  padding: 1rem 0;
+
+  &__track {
+    display: flex;
+    gap: 50px;
+    white-space: nowrap;
+
+    span {
+      color: #fff;
+      font-weight: 600;
+      letter-spacing: 2px;
+      font-size: 14px;
+      position: relative;
+
+      &::after {
+        content: "—";
+        margin-left: 20px;
+        color: #3b82f6;
+      }
+    }
+  }
+}
+.marquee__track {
+  cursor: grab;
+
+  &:active {
+    cursor: grabbing;
+  }
+}
