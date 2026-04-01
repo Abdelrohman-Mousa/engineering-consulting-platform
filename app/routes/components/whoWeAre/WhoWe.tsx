@@ -8,6 +8,7 @@ import imgThree from "/assets/images/who-3.jpg";
 import HalfRating from "~/routes/components/material-ui/HalfRating";
 import {useTranslation} from "react-i18next";
 import {motion} from "framer-motion";
+import {Link} from "react-router";
 
 const textVariants = {
     initial: {
@@ -63,15 +64,17 @@ const WhoWe = () => {
                     <h1>{t("WhoWe.title-2")}</h1>
                     <p>{t("WhoWe.desc-2")}</p>
                 </div>
-                    <ShinyButton style={{width: "fit-content"}}>
-                <div className="who-we-btn">
+                <Link to="/about">
+                  <ShinyButton style={{width: "fit-content"}}>
+                   <div className="who-we-btn">
 
-                    <h3>{t("WhoWe.btn")}</h3>
-                    <div className="arrow-who">
-                        <img src="/assets/icons/right-arrow.png" alt="arrow" />
-                    </div>
-                </div>
-                    </ShinyButton>
+                     <h3>{t("WhoWe.btn")}</h3>
+                     <div className="arrow-who">
+                         <img src="/assets/icons/right-arrow.png" alt="arrow" />
+                     </div>
+                   </div>
+                  </ShinyButton>
+                </Link>
             </motion.div>
 
             <motion.div

@@ -98,7 +98,7 @@ const Navbar = () => {
                     <Link to="/signIn">
                       <div className="signIn">
                         <ShinyButton>
-                            {t("navbar.signIn")}
+                           <h3>{t("navbar.signIn")}</h3>
                         </ShinyButton>
                       </div>
                     </Link>

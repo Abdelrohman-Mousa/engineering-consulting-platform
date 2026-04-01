@@ -93,8 +93,10 @@
         border-radius: 1rem;
         background-color: #16406a;
         color: #ffffff;
+        font-size: 1.1rem;
         @include mobile {
           padding: 0.3rem 0.5rem;
+          font-size: 1rem;
         }
       }
     }
@@ -132,7 +134,26 @@
     }
     p {
       font-size: 1.1rem;
+    }
+  }
+}
 
+//Dark Mode
+html.dark {
+  .teamSection {
+    .teamSection-left {
+      h1 {
+        color: #ffffff;
+      }
+      p {
+        color: rgba(255, 255, 255, 0.87);
+      }
+      .teamSection-btn {
+        .teamSection-button {
+          background: linear-gradient(135deg, #6a11cb, #011b47);
+
+        }
+      }
     }
   }
 }

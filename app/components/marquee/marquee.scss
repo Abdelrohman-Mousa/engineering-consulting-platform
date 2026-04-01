@@ -18,7 +18,7 @@
 
       &::after {
         content: "—";
-        margin-left: 20px;
+        margin: 0 20px;
         color: #3b82f6;
       }
     }
@@ -29,5 +29,13 @@
 
   &:active {
     cursor: grabbing;
+  }
+}
+
+//Dark Mode
+html.dark {
+  .marquee {
+    background: linear-gradient(135deg, #6a11cb, #011b47);
+
   }
 }

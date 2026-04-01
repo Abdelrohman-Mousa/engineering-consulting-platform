@@ -94,14 +94,14 @@
 }
 
 //Dark Mode
-body.dark {
+html.dark {
   .client-feedback {
     p {
       color: #cccccc;
     }
     .feedback-cards {
       .feedback-card {
-        background-color: #2C254A;
+        background: linear-gradient(135deg, #6a11cb, #011b47);
         .client-info {
           span {
             color: rgba(204, 204, 204, 0.77);

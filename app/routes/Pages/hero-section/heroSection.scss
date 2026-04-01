@@ -239,3 +239,40 @@
     }
 }
 }
+
+
+//Dark Mode
+html.dark {
+  .hero-section {
+    .container-hero-section {
+      .hero-section-left {
+        .hero-section-logo {
+          .logo-hero-section {
+            filter: invert(1);
+          }
+          h2 {
+            color: #ffffff;
+          }
+          h3 {
+            color: #ffffff;
+          }
+          h5 {
+            color: rgba(255, 255, 255, 0.71);
+          }
+        }
+        .buttons-hero-section {
+          background: linear-gradient(135deg, #6a11cb, #011b47);
+
+        }
+      }
+
+      .hero-section-right {
+        .description {
+          p {
+            color: rgba(246, 246, 246, 0.8);
+          }
+        }
+      }
+    }
+  }
+}

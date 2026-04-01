@@ -178,3 +178,24 @@
     }
   }
 }
+
+//Dark Mode
+html.dark {
+  .who-we {
+    .left-who {
+      .who-we-are {
+        h1 {
+          color: #ffffff;
+        }
+        p {
+          color: rgba(255, 255, 255, 0.8);
+        }
+
+      }
+        .who-we-btn {
+          background: linear-gradient(135deg, #6a11cb, #011b47);
+
+        }
+    }
+  }
+}

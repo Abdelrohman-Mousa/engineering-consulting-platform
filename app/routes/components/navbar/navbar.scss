@@ -160,6 +160,12 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1),
+      0 8px 16px rgba(0, 0, 0, 0.06);
+      h3 {
+        font-size: 1rem;
+        font-weight: 500;
+      }
       @include mobile {
         display: none;
       }
@@ -177,16 +183,34 @@
 html.dark {
   .navbar {
     .container-navbar {
-      background-color: #4b6198;
+      background: linear-gradient(135deg, #6a11cb, #011b47);
       color: #ffffff;
       box-shadow: 0 5px 8px 5px rgba(87, 86, 86, 0.5);
-      //border-bottom: 1px solid #fbfdff;
+      .logo-navbar {
+        img {
+          filter: invert(1);
+        }
+        .logo-text {
+          h3 {
+            color: #ffffff;
+          }
+        }
+      }
+
       .buttons-navbar {
         .dashboard {
           img {
             filter: invert(1);
           }
         }
+      }
+
+      .signIn {
+        background-color: #0026FF;
+        color: #ffffff;
+        box-shadow: 0 20px 40px rgba(244, 244, 244, 0.1),
+        0 8px 16px rgba(255, 255, 255, 0.06);
+
       }
     }
   }
