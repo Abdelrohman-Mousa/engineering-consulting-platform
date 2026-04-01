@@ -25,12 +25,13 @@ const textVariants = {
 
 const ClientFeedback = () => {
     const { t } = useTranslation();
+
     return (
         <div>
             <div className="client-feedback">
                 <div className="title-feedback">
-                    <h2>Client Feedback</h2>
-                    <p>We’re proud to see our clients’ satisfaction reflected in their feedback. Their words inspire us to keep delivering excellence in every project.</p>
+                    <h2>{t("feedback.title")}</h2>
+                    <p>{t("feedback.pra")}</p>
                 </div>
 
                 <motion.div
@@ -41,27 +42,27 @@ const ClientFeedback = () => {
                     viewport={{ once: true, amount: 0.3 }}
                 >
                     <div className="feedback-card">
-                        <p>"Collaborating with this engineering team exceeded my expectations. Their precision, creativity, and dedication turned our vision into a remarkable project! I truly appreciate their professionalism and commitment from start to finish."</p>
+                        <p>{t("feedback.desc-1")}</p>
                         <HalfRating />
 
                         <div className="client-info">
                             <img src={client2} alt="client-1" />
                             <div>
-                                <h4>Sara Ali</h4>
-                                <span>Senior Architect</span>
+                                <h4>{t("feedback.name-1")}</h4>
+                                <span>{t("feedback.jop-1")}</span>
                             </div>
                         </div>
                     </div>
 
                     <div className="feedback-card">
-                        <p>"Working with this team was an outstanding experience. Their professionalism, attention to detail, and innovative approach made the entire process smooth and successful. I highly recommend them for anyone looking for reliable and creative engineering solutions."</p>
+                        <p>{t("feedback.desc-2")}</p>
                         <HalfRating />
 
                         <div className="client-info">
                             <img src={client1} alt="client-2" />
                             <div>
-                                <h4>Abdelrohman Marei</h4>
-                                <span>Project Owner</span>
+                                <h4>{t("feedback.name-2")}</h4>
+                                <span>{t("feedback.jop-2")}</span>
                             </div>
                         </div>
                     </div>

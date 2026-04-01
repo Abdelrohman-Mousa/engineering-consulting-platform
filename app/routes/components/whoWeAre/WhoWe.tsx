@@ -6,33 +6,27 @@ import people2 from "/assets/images/people-2.jpg";
 import people3 from "/assets/images/people-3.jpg";
 import imgThree from "/assets/images/who-3.jpg";
 import HalfRating from "~/routes/components/material-ui/HalfRating";
+import {useTranslation} from "react-i18next";
 
 const WhoWe = () => {
+    const { t } = useTranslation();
+
     return (
         <div className="who-we">
             <div className="left-who">
                <div className="who-we-are">
-                   <h1>WHO WE ARE:</h1>
-                   <p>
-                       We are an engineering consultancy firm specialized in providing innovative
-                       and comprehensive solutions in architectural, structural, electrical, and mechanical design.
-                       Our goal is to transform our clients’ ideas into real projects that combine quality, precision,
-                       and professionalism.
-                   </p>
+                   <h1>{t("WhoWe.title-1")}</h1>
+                   <p>{t("WhoWe.desc-1")}</p>
                </div>
 
                 <div className="who-we-are what-we-do">
-                    <h1>WHAT WE DO:</h1>
-                    <p>
-                        We offer our services starting from preparing drawings and designs,
-                        through project supervision and management, and up to legal consultations and licensing.
-                        Our team of engineers and experts works with a high level of experience to ensure the best results at every stage of the project.
-                    </p>
+                    <h1>{t("WhoWe.title-2")}</h1>
+                    <p>{t("WhoWe.desc-2")}</p>
                 </div>
                     <ShinyButton style={{width: "fit-content"}}>
                 <div className="who-we-btn">
 
-                    <h3>Learn More About Us</h3>
+                    <h3>{t("WhoWe.btn")}</h3>
                     <div className="arrow-who">
                         <img src="/assets/icons/right-arrow.png" alt="arrow" />
                     </div>
@@ -53,7 +47,7 @@ const WhoWe = () => {
                             <HalfRating />
                         </div>
                         <div>
-                            <p>50+ Positive Reviews We Achieved.</p>
+                            <p>{t("WhoWe.star")}</p>
                         </div>
                     </div>
                 </div>

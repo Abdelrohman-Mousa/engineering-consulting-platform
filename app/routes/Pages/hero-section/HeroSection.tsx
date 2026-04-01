@@ -4,8 +4,11 @@ import video from "/assets/video/video-build.mp4"
 import {ShinyButton} from "~/components/ui/shiny-button";
 import {Link} from "react-router";
 import Marquee from "~/components/marquee/Marquee";
+import {useTranslation} from "react-i18next";
 
 const HeroSection = () => {
+    const { t } = useTranslation();
+
     return (
         <div className="hero-section">
             <div className="hero-bg-lines">
@@ -19,24 +22,23 @@ const HeroSection = () => {
                <div className="hero-section-left">
                    <div className="hero-section-logo">
                        <img src="/assets/icons/logoProjects.png" alt="logo" className="logo-hero-section"/>
-                       <h2>ADVANCE</h2>
-                       <h3>ENGINEERING CONSULTANCY</h3>
-                       <h5>-----SINCE 2006-----</h5>
+                       <h2>{t("navbar.logo")}</h2>
+                       <h3>{t("HeroSection.title")}</h3>
+                       <h5>-----{t("HeroSection.since")}-----</h5>
                    </div>
                    <div className="hero-section-text">
                        <div className="title-hero-section">
-                         <h2>PROFESSIONAL</h2>
-                         <h1>ENGINEERING</h1>
-                         <h2>COMPANY</h2>
+                         <h2>{t("HeroSection.text-1")}</h2>
+                         <h1>{t("HeroSection.text-2")}</h1>
+                         <h2>{t("HeroSection.text-3")}</h2>
                        </div>
                        <div className="description-hero-section">
-                           <p>Elevate your property with trusted architectural services designed
-                               to match your vision and project goals.</p>
+                           <p>{t("HeroSection.para")}</p>
                        </div>
                        <Link to="/contactUs">
                            <ShinyButton>
                              <div className="buttons-hero-section">
-                                 <h3>GET IN TOUCH</h3>
+                                 <h3>{t("HeroSection.btn")}</h3>
                                  <div className="arrow-hero-section">
                                      <img src={arrow} alt="arrow" />
                                  </div>
@@ -58,13 +60,13 @@ const HeroSection = () => {
                    </video>
 
                    <div className="description">
-                       <h3>Innovative engineering consultancy delivering architectural, structural, electrical, and mechanical solutions — from design to supervision and project management.</h3>
+                       <h3>{t("HeroSection.desc")}</h3>
                        <hr style={{height: "2px", backgroundColor: "rgba(7,7,7,0.11)", margin: "5px 0"}}/>
                        <h4 className="happy-client">
                            <div>
-                               <span>10K</span> Happy Clients
+                               <span>10K</span> {t("HeroSection.client")}
                            </div>
-                           <p>Completing their dream with us</p>
+                           <p>{t("HeroSection.dream")}</p>
                        </h4>
                    </div>
                </div>

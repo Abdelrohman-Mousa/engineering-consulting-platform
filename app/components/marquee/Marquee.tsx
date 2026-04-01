@@ -1,18 +1,24 @@
 import { motion, useAnimation } from "framer-motion";
 import { useState } from "react";
 import "./marquee.scss";
+import {useTranslation} from "react-i18next";
 
-const services = [
-    "ARCHITECTURAL DESIGN",
-    "STRUCTURAL DESIGN",
-    "INTERIOR DESIGN",
-    "URBAN PLANNING",
-    "PROJECT MANAGEMENT",
-];
 
 export default function Marquee() {
+    const { t } = useTranslation();
+
     const controls = useAnimation();
     const [isHovered, setIsHovered] = useState(false);
+
+    const services = [
+        t("marquee.service-1"),
+        t("marquee.service-2"),
+        t("marquee.service-3"),
+        t("marquee.service-4"),
+        t("marquee.service-5"),
+        t("marquee.service-6"),
+        t("marquee.service-7"),
+    ];
 
     // تشغيل الحركة
     const startAnimation = () => {

@@ -7,5 +7,59 @@
     "request": "Consultation Request",
     "contact": "Contact Us",
     "signIn": "Sign In"
+  },
+
+  "HeroSection": {
+    "title": "ENGINEERING CONSULTANCY",
+    "since": "SINCE 2006",
+    "text-1": "PROFESSIONAL",
+    "text-2": "ENGINEERING",
+    "text-3": "COMPANY",
+    "para": "Elevate your property with trusted architectural services designed to match your vision and project goals.",
+    "btn": "GET IN TOUCH",
+    "desc": "Innovative engineering consultancy delivering architectural, structural, electrical, and mechanical solutions — from design to supervision and project management.",
+    "client": "Happy Clients",
+    "dream": "Completing their dream with us"
+  },
+
+  "marquee": {
+    "service-1": "ARCHITECTURAL DESIGN",
+    "service-2": "STRUCTURAL DESIGN",
+    "service-3": "INTERIOR DESIGN",
+    "service-4": "URBAN PLANNING",
+    "service-5": "PROJECT MANAGEMENT",
+    "service-6": "CONSTRUCTION SUPERVISION",
+    "service-7": "RENOVATION & REMODELING"
+  },
+
+  "WhoWe" : {
+    "title-1": "WHO WE ARE:",
+    "desc-1": "We are an engineering consultancy firm specialized in providing innovative and comprehensive solutions in architectural, structural, electrical, and mechanical design. Our goal is to transform our clients’ ideas into real projects that combine quality, precision, and professionalism.",
+    "title-2": "WHAT WE DO:",
+    "desc-2": "We offer our services starting from preparing drawings and designs, through project supervision and management, and up to legal consultations and licensing. Our team of engineers and experts works with a high level of experience to ensure the best results at every stage of the project.",
+    "btn": "Learn More About Us",
+    "star": "500+ Positive Reviews We Achieved."
+  },
+
+  "Team" : {
+    "title-1": "Building the Future with a Visionary Team",
+    "desc-1": "Our talented team combines creativity, experience, and precision to deliver innovative engineering solutions.",
+    "client-1": "Expert Engineers",
+    "client-2": "Projects Completed",
+    "btn-1": "Start Your Project",
+    "btn-2": "Contact US",
+    "title-2": "Meet Our Expert Team",
+    "big-desc": "Our team consists of highly skilled engineers and specialists in architectural, structural, electrical, and mechanical design. Each member brings years of experience and a passion for innovation, ensuring that every project we handle meets the highest standards of quality and precision. Together, we combine expertise, creativity, and teamwork to transform ideas into real, successful projects."
+  },
+
+  "feedback" : {
+    "title": "Client Feedback",
+    "pra": "We’re proud to see our clients’ satisfaction reflected in their feedback. Their words inspire us to keep delivering excellence in every project.",
+    "desc-1": "Collaborating with this engineering team exceeded my expectations. Their precision, creativity, and dedication turned our vision into a remarkable project! I truly appreciate their professionalism and commitment from start to finish.",
+    "name-1": "Sara Ali",
+    "jop-1": "Senior Architect",
+    "desc-2": "Working with this team was an outstanding experience. Their professionalism, attention to detail, and innovative approach made the entire process smooth and successful. I highly recommend them for anyone looking for reliable and creative engineering solutions.",
+    "name-2": "Tarek Ibrahim",
+    "jop-2": "Project Owner"
   }
 }

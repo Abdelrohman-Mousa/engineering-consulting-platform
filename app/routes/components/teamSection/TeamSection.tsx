@@ -2,8 +2,11 @@ import "./teamSection.scss";
 import {ShinyButton} from "~/components/ui/shiny-button";
 import {NumberTicker} from "~/components/ui/number-ticker";
 import team from "public/assets/images/team.jpg";
+import {useTranslation} from "react-i18next";
 
 const TeamSection = () => {
+    const { t } = useTranslation();
+
     return (
         <div className="teamSection">
             <div className="hero-bg-lines">
@@ -14,28 +17,24 @@ const TeamSection = () => {
                 </svg>
             </div>
             <div className="teamSection-left">
-                <h1>
-                    Building the Future with a Visionary Team
-                </h1>
-                <p>
-                    Our talented team combines creativity, experience, and precision to deliver innovative engineering solutions.
-                </p>
+                <h1>{t("Team.title-1")}</h1>
+                <p>{t("Team.desc-1")}</p>
                 <div className="teamSection-counter">
                     <div className="teamSection-export">
                         <p> <NumberTicker value={30} />+ </p>
-                        <h2>Expert Engineers</h2>
+                        <h2>{t("Team.client-1")}</h2>
                     </div>
                     <div className="teamSection-export">
                         <p> <NumberTicker value={3000} />+ </p>
-                        <h2>Projects Completed</h2>
+                        <h2>{t("Team.client-2")}</h2>
                     </div>
                 </div>
                 <div className="teamSection-btn">
                     <ShinyButton>
-                       <h3 className="teamSection-button">Start Your Project</h3>
+                       <h3 className="teamSection-button">{t("Team.btn-1")}</h3>
                     </ShinyButton>
                     <ShinyButton>
-                        <h3 className="teamSection-button">Contact US</h3>
+                        <h3 className="teamSection-button">{t("Team.btn-2")}</h3>
                     </ShinyButton>
                 </div>
             </div>
@@ -45,10 +44,8 @@ const TeamSection = () => {
             </div>
 
             <div className="teamSection-reight">
-                <h1>Meet Our Expert Team</h1>
-                <p>
-                    Our team consists of highly skilled engineers and specialists in architectural, structural, electrical, and mechanical design. Each member brings years of experience and a passion for innovation, ensuring that every project we handle meets the highest standards of quality and precision. Together, we combine expertise, creativity, and teamwork to transform ideas into real, successful projects.
-                </p>
+                <h1>{t("Team.title-2")}</h1>
+                <p>{t("Team.big-desc")}</p>
             </div>
         </div>
     )
