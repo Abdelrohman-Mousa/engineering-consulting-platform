@@ -32,6 +32,7 @@
     padding-top: 1rem;
     position: relative;
     z-index: 2;
+    padding: 0 1rem;
 
     .hero-section-left {
       display: flex;
@@ -96,7 +97,7 @@
             letter-spacing: 0.1rem;
             background-color: #16406a;
             color: #ffffff;
-            padding: 0.5rem;
+            padding: 0.3rem;
             border-radius: 0.5rem;
           }
         }
@@ -157,6 +158,8 @@
           height: 70%;
           border-radius: 1rem;
           object-fit: cover;
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1),
+          0 8px 16px rgba(0, 0, 0, 0.06);
       }
       .description {
         //background-color: rgba(85, 83, 83, 0.06);
