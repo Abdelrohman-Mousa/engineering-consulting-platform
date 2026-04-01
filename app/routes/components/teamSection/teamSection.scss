@@ -83,12 +83,18 @@
     .teamSection-btn {
       display: flex;
       gap: 1.5rem;
+      @include mobile {
+        gap: 0.5rem;
+      }
 
       .teamSection-button {
         padding: 0.5rem 1rem;
         border-radius: 1rem;
         background-color: #16406a;
         color: #ffffff;
+        @include mobile {
+          padding: 0.3rem 0.5rem;
+        }
       }
     }
   }
