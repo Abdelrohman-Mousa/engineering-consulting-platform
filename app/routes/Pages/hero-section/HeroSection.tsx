@@ -5,6 +5,41 @@ import {ShinyButton} from "~/components/ui/shiny-button";
 import {Link} from "react-router";
 import Marquee from "~/components/marquee/Marquee";
 import {useTranslation} from "react-i18next";
+import {motion} from "framer-motion";
+
+const textVariants = {
+    initial: {
+        x: 0,
+        y: -20,
+        opacity: 0,
+    },
+    animate: {
+        x: 0,
+        y: 0,
+        opacity: 1,
+        transition: {
+            duration: 1,
+            ease: "easeOut",
+        },
+    },
+};
+
+const listVariants = {
+    initial: {
+        x: -20,
+        opacity: 0,
+    },
+    animate: {
+        x: 0,
+        opacity: 1,
+        transition: {
+            duration: 1,
+            staggerChildren: 0.5,
+            ease: "easeOut",
+        },
+    },
+};
+
 
 const HeroSection = () => {
     const { t } = useTranslation();
@@ -19,13 +54,25 @@ const HeroSection = () => {
                 </svg>
             </div>
            <div className="container-hero-section">
-               <div className="hero-section-left">
-                   <div className="hero-section-logo">
+               <motion.div
+                   className="hero-section-left"
+                   variants={listVariants}
+                   initial="initial"
+                   whileInView="animate"
+                   viewport={{ once: true, amount: 0.3 }}
+               >
+                   <motion.div
+                       className="hero-section-logo"
+                       variants={textVariants}
+                       initial="initial"
+                       whileInView="animate"
+                       viewport={{ once: true, amount: 0.3 }}
+                   >
                        <img src="/assets/icons/logoProjects.png" alt="logo" className="logo-hero-section"/>
                        <h2>{t("navbar.logo")}</h2>
                        <h3>{t("HeroSection.title")}</h3>
                        <h5>-----{t("HeroSection.since")}-----</h5>
-                   </div>
+                   </motion.div>
                    <div className="hero-section-text">
                        <div className="title-hero-section">
                          <h2>{t("HeroSection.text-1")}</h2>
@@ -46,9 +93,15 @@ const HeroSection = () => {
                            </ShinyButton>
                        </Link>
                    </div>
-               </div>
+               </motion.div>
 
-               <div className="hero-section-right">
+               <motion.div
+                   className="hero-section-right"
+                   variants={textVariants}
+                   initial="initial"
+                   whileInView="animate"
+                   viewport={{ once: true, amount: 0.3 }}
+               >
                    <video
                        autoPlay
                        loop
@@ -69,7 +122,7 @@ const HeroSection = () => {
                            <p>{t("HeroSection.dream")}</p>
                        </h4>
                    </div>
-               </div>
+               </motion.div>
            </div>
             <div className="hero-section-Marquee">
                 <Marquee />

@@ -7,13 +7,53 @@ import people3 from "/assets/images/people-3.jpg";
 import imgThree from "/assets/images/who-3.jpg";
 import HalfRating from "~/routes/components/material-ui/HalfRating";
 import {useTranslation} from "react-i18next";
+import {motion} from "framer-motion";
+
+const textVariants = {
+    initial: {
+        x: 0,
+        y: -20,
+        opacity: 0,
+    },
+    animate: {
+        x: 0,
+        y: 0,
+        opacity: 1,
+        transition: {
+            duration: 1,
+            ease: "easeOut",
+        },
+    },
+};
+
+const listVariants = {
+    initial: {
+        x: -20,
+        opacity: 0,
+    },
+    animate: {
+        x: 0,
+        opacity: 1,
+        transition: {
+            duration: 1,
+            staggerChildren: 0.5,
+            ease: "easeOut",
+        },
+    },
+};
 
 const WhoWe = () => {
     const { t } = useTranslation();
 
     return (
         <div className="who-we">
-            <div className="left-who">
+            <motion.div
+                className="left-who"
+                variants={listVariants}
+                initial="initial"
+                whileInView="animate"
+                viewport={{ once: true, amount: 0.3 }}
+            >
                <div className="who-we-are">
                    <h1>{t("WhoWe.title-1")}</h1>
                    <p>{t("WhoWe.desc-1")}</p>
@@ -32,9 +72,15 @@ const WhoWe = () => {
                     </div>
                 </div>
                     </ShinyButton>
-            </div>
+            </motion.div>
 
-            <div className="right-who">
+            <motion.div
+                className="right-who"
+                variants={textVariants}
+                initial="initial"
+                whileInView="animate"
+                viewport={{ once: true, amount: 0.3 }}
+            >
                 <div className="two-img">
                     <div className="img-1">
                         <img src={imgOne} alt="img-1" />
@@ -55,7 +101,7 @@ const WhoWe = () => {
                 <div className="oneImg">
                     <img src={imgThree} alt="img-3" />
                 </div>
-            </div>
+            </motion.div>
         </div>
     )
 }

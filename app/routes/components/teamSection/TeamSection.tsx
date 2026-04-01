@@ -3,6 +3,43 @@ import {ShinyButton} from "~/components/ui/shiny-button";
 import {NumberTicker} from "~/components/ui/number-ticker";
 import team from "public/assets/images/team.jpg";
 import {useTranslation} from "react-i18next";
+import {motion} from "framer-motion";
+import {Link} from "react-router";
+
+
+const textVariants = {
+    initial: {
+        x: 0,
+        y: -20,
+        opacity: 0,
+    },
+    animate: {
+        x: 0,
+        y: 0,
+        opacity: 1,
+        transition: {
+            duration: 1,
+            ease: "easeOut",
+        },
+    },
+};
+
+const listVariants = {
+    initial: {
+        x: -20,
+        opacity: 0,
+    },
+    animate: {
+        x: 0,
+        opacity: 1,
+        transition: {
+            duration: 1,
+            staggerChildren: 0.5,
+            ease: "easeOut",
+        },
+    },
+};
+
 
 const TeamSection = () => {
     const { t } = useTranslation();
@@ -16,7 +53,13 @@ const TeamSection = () => {
                     <path d="M0 300 Q 300 400 600 300 T 1000 350" />
                 </svg>
             </div>
-            <div className="teamSection-left">
+            <motion.div
+                className="teamSection-left"
+                variants={listVariants}
+                initial="initial"
+                whileInView="animate"
+                viewport={{ once: true, amount: 0.3 }}
+            >
                 <h1>{t("Team.title-1")}</h1>
                 <p>{t("Team.desc-1")}</p>
                 <div className="teamSection-counter">
@@ -30,23 +73,39 @@ const TeamSection = () => {
                     </div>
                 </div>
                 <div className="teamSection-btn">
-                    <ShinyButton>
-                       <h3 className="teamSection-button">{t("Team.btn-1")}</h3>
-                    </ShinyButton>
-                    <ShinyButton>
-                        <h3 className="teamSection-button">{t("Team.btn-2")}</h3>
-                    </ShinyButton>
+                    <Link to="/consultationRequest">
+                      <ShinyButton>
+                         <h3 className="teamSection-button">{t("Team.btn-1")}</h3>
+                      </ShinyButton>
+                    </Link>
+                    <Link to="/contactUs">
+                      <ShinyButton>
+                          <h3 className="teamSection-button">{t("Team.btn-2")}</h3>
+                      </ShinyButton>
+                    </Link>
                 </div>
-            </div>
+            </motion.div>
 
-            <div className="teamSection-center">
+            <motion.div
+                className="teamSection-center"
+                variants={textVariants}
+                initial="initial"
+                whileInView="animate"
+                viewport={{ once: true, amount: 0.3 }}
+            >
                 <img src={team} alt="team" />
-            </div>
+            </motion.div>
 
-            <div className="teamSection-reight">
+            <motion.div
+                className="teamSection-reight"
+                variants={listVariants}
+                initial="initial"
+                whileInView="animate"
+                viewport={{ once: true, amount: 0.3 }}
+            >
                 <h1>{t("Team.title-2")}</h1>
                 <p>{t("Team.big-desc")}</p>
-            </div>
+            </motion.div>
         </div>
     )
 }
