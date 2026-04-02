@@ -74,7 +74,7 @@ export default function SidebarMobile() {
     );
 
     return (
-        <div className="sidebar-menu md:hidden"> {/* يظهر في الموبايل فقط */}
+        <div className="sidebar-menu lg:hidden"> {/* يظهر في الموبايل فقط */}
             <Button onClick={toggleDrawer(true)} className="button-menu p-0 min-w-0">
                 <img src={menuIcon} alt="menu" className="size-9 dark:invert" />
             </Button>

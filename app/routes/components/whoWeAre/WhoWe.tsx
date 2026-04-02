@@ -9,6 +9,7 @@ import HalfRating from "~/routes/components/material-ui/HalfRating";
 import {useTranslation} from "react-i18next";
 import {motion} from "framer-motion";
 import {Link} from "react-router";
+import location from "/assets/icons/location.svg";
 
 const textVariants = {
     initial: {
@@ -98,6 +99,14 @@ const WhoWe = () => {
                         <div>
                             <p>{t("WhoWe.star")}</p>
                         </div>
+                    </div>
+
+                    <div className="who-we-location">
+                        <div className="location-icon">
+                            <img src={location} alt="location" />
+                            <h2>{t("WhoWe.location")}</h2>
+                        </div>
+                            <p>{t("WhoWe.country")}</p>
                     </div>
                 </div>
 

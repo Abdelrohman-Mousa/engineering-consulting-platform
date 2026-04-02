@@ -12,6 +12,10 @@
     gap: 1rem;
     padding: 2rem 0.5rem;
   }
+  @include tablet {
+    flex-direction: column;
+    gap: 1rem;
+  }
 
   .left-who {
     display: flex;
@@ -24,7 +28,9 @@
       width: 100%;
       padding: 0.5rem;
     }
-
+    @include tablet {
+      width: 100%;
+    }
 
     .who-we-are {
       h1 {
@@ -102,6 +108,9 @@
       width: 100%;
       grid-template-columns: 1fr;
     }
+    @include tablet {
+      width: 100%;
+    }
 
     .two-img {
       display: grid;
@@ -156,6 +165,31 @@
               width: 40px;
               height: 40px;
             }
+          }
+        }
+      }
+      .who-we-location {
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08),
+        0 4px 10px rgba(0, 0, 0, 0.05);
+        border-radius: 1rem;
+        padding: 1rem;
+        gap: 1.5rem;
+        display: flex;
+        align-items: center;
+
+        .location-icon {
+          display: flex;
+          gap: 0.5rem;
+          align-items: center;
+          img {
+            width: 35px;
+            height: 35px;
+            object-fit: cover;
+            object-position: center;
+          }
+          h2 {
+            font-size: 1.2rem;
+            font-weight: 600;
           }
         }
       }
