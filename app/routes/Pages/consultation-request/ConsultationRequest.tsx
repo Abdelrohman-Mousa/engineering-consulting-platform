@@ -8,6 +8,25 @@ import DropzoneUI from "~/routes/components/material-ui/formsInput/DropzoneUI";
 import CountrySelect from "~/routes/components/material-ui/formsInput/CountrySelect";
 import sent from "/assets/icons/sent.svg";
 import {useTranslation} from "react-i18next";
+import {motion} from "framer-motion";
+
+const textVariants = {
+    initial: {
+        x: 0,
+        y: -20,
+        opacity: 0,
+    },
+    animate: {
+        x: 0,
+        y: 0,
+        opacity: 1,
+        transition: {
+            duration: 1,
+            ease: "easeOut",
+        },
+    },
+};
+
 
 const ConsultationRequest = () => {
     const { t } = useTranslation();
@@ -21,7 +40,13 @@ const ConsultationRequest = () => {
             </div>
 
             <div className="request-form">
-                <div className="form-container">
+                <motion.div
+                    className="form-container"
+                    variants={textVariants}
+                    initial="initial"
+                    whileInView="animate"
+                    viewport={{ once: true, amount: 0.3 }}
+                >
                     <div className="Name-Email">
                         <NameEmailForm />
                     </div>
@@ -43,7 +68,7 @@ const ConsultationRequest = () => {
                          </div>
                         <h3>{t("request.btn")}</h3>
                     </div>
-                </div>
+                </motion.div>
             </div>
 
         </div>
