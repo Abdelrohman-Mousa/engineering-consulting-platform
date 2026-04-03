@@ -5,6 +5,7 @@ import PictureAsPdfIcon from "@mui/icons-material/PictureAsPdf";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import "./formInput.scss";
+import {useTranslation} from "react-i18next";
 
 type FileData = {
     file: File;
@@ -12,6 +13,8 @@ type FileData = {
 };
 
 export default function MultiDropzoneForm() {
+    const { t } = useTranslation();
+
     const [files, setFiles] = React.useState<FileData[]>([]);
     const inputRef = React.useRef<HTMLInputElement | null>(null);
 
@@ -53,7 +56,7 @@ export default function MultiDropzoneForm() {
             className="dropzone-form"
         >
             {files.length === 0 && (
-                <Typography>Drag & Drop files here or click to browse</Typography>
+                <Typography>{t("request.Drag")}</Typography>
             )}
 
             {files.length > 0 && (

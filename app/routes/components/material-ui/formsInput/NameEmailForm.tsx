@@ -1,8 +1,11 @@
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import './formInput.scss';
+import {useTranslation} from "react-i18next";
 
 export default function NameEmailForm() {
+    const { t } = useTranslation();
+
     return (
         <Box
             component="form"
@@ -12,14 +15,14 @@ export default function NameEmailForm() {
         >
             <TextField
                 id="name"
-                label="Name"
+                label={t("request.name")}
                 variant="outlined"
                 className="name-input"
             />
 
             <TextField
                 id="email"
-                label="Email"
+                label={t("request.email")}
                 variant="outlined"
                 className="email-input"
             />

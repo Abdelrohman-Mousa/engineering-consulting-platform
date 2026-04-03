@@ -1,8 +1,11 @@
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import "./formInput.scss";
+import {useTranslation} from "react-i18next";
 
 export default function Description() {
+    const { t } = useTranslation();
+
     return (
         <Box
             component="form"
@@ -12,7 +15,7 @@ export default function Description() {
         >
             <TextField
                 id="outlined-basic"
-                label="Description Project"
+                label={t("request.DescriptionProject")}
                 variant="outlined"
                 className="description-input"
                 multiline

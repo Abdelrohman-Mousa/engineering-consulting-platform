@@ -92,6 +92,32 @@
   "request": {
     "title": "Get Expert Consultation",
     "pra": "Tell us about your case and our experts will get back to you with the best solution.",
-    "btn": "Request Consultation"
+    "btn": "Request Consultation",
+    "name": "Name",
+    "email": "Email",
+    "Priority": "Priority Level",
+    "level-1": "Low",
+    "level-2": "Medium",
+    "level-3": "High",
+
+    "Consultation": "Consultation Type",
+    "type-1": "Architectural Design",
+    "type-2": "Structural Design",
+    "type-3": "Interior Design",
+    "type-4": "Renovation and Redesign",
+    "type-5": "Supervision of Implementation",
+
+    "DescriptionProject": "Description Project",
+
+    "SelectEmirate": "Select Emirate",
+    "country-1": "Abu Dhabi",
+    "country-2": "Dubai",
+    "country-3": "Sharjah",
+    "country-4": "Ajman",
+    "country-5": "Umm Al Quwain",
+    "country-6": "Ras Al Khaimah",
+    "country-7": "Fujairah",
+
+    "Drag": "Drag & Drop files here or click to browse"
   }
 }
