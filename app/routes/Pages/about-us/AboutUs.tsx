@@ -9,6 +9,42 @@ import service4 from "/assets/images/servise-4.jpg";
 import service5 from "/assets/images/service-5.jpg";
 import {NumberTicker} from "~/components/ui/number-ticker";
 import {useTranslation} from "react-i18next";
+import {motion} from "framer-motion";
+
+
+const textVariants = {
+    initial: {
+        x: 0,
+        y: -20,
+        opacity: 0,
+    },
+    animate: {
+        x: 0,
+        y: 0,
+        opacity: 1,
+        transition: {
+            duration: 1,
+            ease: "easeOut",
+        },
+    },
+};
+
+const listVariants = {
+    initial: {
+        x: -20,
+        opacity: 0,
+    },
+    animate: {
+        x: 0,
+        opacity: 1,
+        transition: {
+            duration: 1,
+            staggerChildren: 0.5,
+            ease: "easeOut",
+        },
+    },
+};
+
 
 const AboutUs = () => {
     const { t } = useTranslation();
@@ -56,7 +92,13 @@ const AboutUs = () => {
                 </video>
             </div>
 
-            <div className="about-cards">
+            <motion.div
+                className="about-cards"
+                variants={textVariants}
+                initial="initial"
+                whileInView="animate"
+                viewport={{ once: true, amount: 0.3 }}
+            >
                 <div className="card">
                     <h3><NumberTicker value={20} />+</h3>
                     <p>{t("about.card-1")}</p>
@@ -73,34 +115,53 @@ const AboutUs = () => {
                     <h3><NumberTicker value={1000} />+</h3>
                     <p>{t("about.card-4")}</p>
                 </div>
-            </div>
+            </motion.div>
 
             <div className="about-text">
-                <div className="about-left">
+                <motion.div
+                    className="about-left"
+                    variants={textVariants}
+                    initial="initial"
+                    whileInView="animate"
+                    viewport={{ once: true, amount: 0.3 }}
+                >
                    <div className="about-left-img-1">
                        <img src={office2} alt="office" />
                    </div>
                     <div className="about-left-img-2">
                        <img src={office1} alt="office" />
                     </div>
-                </div>
+                </motion.div
+                >
 
-                <div className="about-right">
+                <motion.div
+                    className="about-right"
+                    variants={listVariants}
+                    initial="initial"
+                    whileInView="animate"
+                    viewport={{ once: true, amount: 0.3 }}
+                >
                     <h1 className="about-title">{t("about.title-1")}</h1>
                     <div className="about-para">
                         <p>{t("about.pra-1")}</p>
                         <p>{t("about.pra-2")}</p>
                         <p>{t("about.pra-3")}</p>
                     </div>
-                    <div className="about-Why-Us">
+                    <motion.div
+                        className="about-Why-Us"
+                        variants={textVariants}
+                        initial="initial"
+                        whileInView="animate"
+                        viewport={{ once: true, amount: 0.3 }}
+                    >
                         <h1 className="about-title">{t("about.title-2")}</h1>
                         <div className="about-para">
                             <p>{t("about.pra-4")}</p>
                             <p>{t("about.pra-5")}</p>
                             <p>{t("about.pra-6")}</p>
                         </div>
-                    </div>
-                </div>
+                    </motion.div>
+                </motion.div>
             </div>
 
             <div className="about-services">
@@ -116,12 +177,19 @@ const AboutUs = () => {
 
                 <div className="about-services-container">
                     {services.map((service, index) => (
-                        <div className="about-services-card" key={index}>
+                        <motion.div
+                            className="about-services-card"
+                            key={index}
+                            variants={textVariants}
+                            initial="initial"
+                            whileInView="animate"
+                            viewport={{ once: true, amount: 0.3 }}
+                        >
                             <div className="image-service">
                                 <img src={service.image} alt={service.title} />
                             </div>
                             <h3>{service.title}</h3>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
             </div>
