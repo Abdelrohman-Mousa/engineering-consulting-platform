@@ -10,36 +10,37 @@ import service5 from "/assets/images/service-5.jpg";
 import {NumberTicker} from "~/components/ui/number-ticker";
 import {useTranslation} from "react-i18next";
 
-const services = [
-    {
-        id: 1,
-        title: "Architectural Design",
-        image: service1,
-    },
-    {
-        id: 2,
-        title: "Structural Design",
-        image: service2,
-    },
-    {
-        id: 3,
-        title: "Interior Design",
-        image: service3,
-    },
-    {
-        id: 4,
-        title: "Renovation and Redesign",
-        image: service4,
-    },
-    {
-        id: 5,
-        title: "Supervision of Implementation",
-        image: service5,
-    }
-]
-
 const AboutUs = () => {
     const { t } = useTranslation();
+
+    const services = [
+        {
+            id: 1,
+            title: t("about.service-1"),
+            image: service1,
+        },
+        {
+            id: 2,
+            title: t("about.service-2"),
+            image: service2,
+        },
+        {
+            id: 3,
+            title: t("about.service-3"),
+            image: service3,
+        },
+        {
+            id: 4,
+            title: t("about.service-4"),
+            image: service4,
+        },
+        {
+            id: 5,
+            title: t("about.service-5"),
+            image: service5,
+        }
+    ]
+
 
     return (
         <div className="about">
@@ -58,19 +59,19 @@ const AboutUs = () => {
             <div className="about-cards">
                 <div className="card">
                     <h3><NumberTicker value={20} />+</h3>
-                    <p>Years of Experience</p>
+                    <p>{t("about.card-1")}</p>
                 </div>
                 <div className="card">
                     <h3><NumberTicker value={3000} />+</h3>
-                    <p>Project Completed</p>
+                    <p>{t("about.card-2")}</p>
                 </div>
                 <div className="card">
                     <h3><NumberTicker value={30} />+</h3>
-                    <p>Expert Engineers</p>
+                    <p>{t("about.card-3")}</p>
                 </div>
                 <div className="card">
                     <h3><NumberTicker value={1000} />+</h3>
-                    <p>Satisfied Clients</p>
+                    <p>{t("about.card-4")}</p>
                 </div>
             </div>
 
@@ -85,22 +86,18 @@ const AboutUs = () => {
                 </div>
 
                 <div className="about-right">
-                    <h1 className="about-title">About Us:</h1>
+                    <h1 className="about-title">{t("about.title-1")}</h1>
                     <div className="about-para">
-                        <p>
-                            We are a leading Architectural and Engineering Consultancy firm dedicated to delivering innovative, functional, and sustainable design solutions. Based in the UAE, we combine expertise in architecture, engineering, and interior design to create spaces that inspire and perform.
-                        </p>
-                        <p>
-                            Our multidisciplinary team is committed to excellence, working closely with clients to transform ideas into reality through precision, creativity, and attention to detail. From concept to completion, we ensure every project reflects the highest standards of quality, efficiency, and modern design.
-                        </p>
-                        <p>We believe that great design is not only about aesthetics, but also about creating meaningful experiences that enhance everyday life.</p>
+                        <p>{t("about.pra-1")}</p>
+                        <p>{t("about.pra-2")}</p>
+                        <p>{t("about.pra-3")}</p>
                     </div>
                     <div className="about-Why-Us">
-                        <h1 className="about-title">Why Us:</h1>
+                        <h1 className="about-title">{t("about.title-2")}</h1>
                         <div className="about-para">
-                            <p>We don’t start with what’s easy — we start with what’s right for you.</p>
-                            <p>We focus on your vision, lifestyle, and long-term value, delivering designs that combine creativity, functionality, and sustainability.</p>
-                            <p>With our integrated approach, we handle everything from design to approvals and execution, ensuring your project is seamless, compliant, and built to the highest standards</p>
+                            <p>{t("about.pra-4")}</p>
+                            <p>{t("about.pra-5")}</p>
+                            <p>{t("about.pra-6")}</p>
                         </div>
                     </div>
                 </div>
@@ -115,7 +112,7 @@ const AboutUs = () => {
                         <path d="M0 400 Q 300 500 600 400 T 1000 450" />
                     </svg>
                 </div>
-                <h1 className="services-title">Our Services</h1>
+                <h1 className="services-title">{t("about.service")}</h1>
 
                 <div className="about-services-container">
                     {services.map((service, index) => (

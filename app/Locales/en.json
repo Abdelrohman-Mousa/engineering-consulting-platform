@@ -63,5 +63,29 @@
     "desc-2": "Working with this team was an outstanding experience. Their professionalism, attention to detail, and innovative approach made the entire process smooth and successful. I highly recommend them for anyone looking for reliable and creative engineering solutions.",
     "name-2": "Tarek Ibrahim",
     "jop-2": "Project Owner"
+  },
+
+  "about": {
+    "card-1": "Years of Experience",
+    "card-2": "Project Completed",
+    "card-3": "Expert Engineers",
+    "card-4": "Satisfied Clients",
+
+    "title-1": "About Us:",
+    "pra-1": "We are a leading Architectural and Engineering Consultancy firm dedicated to delivering innovative, functional, and sustainable design solutions. Based in the UAE, we combine expertise in architecture, engineering, and interior design to create spaces that inspire and perform.",
+    "pra-2": "Our multidisciplinary team is committed to excellence, working closely with clients to transform ideas into reality through precision, creativity, and attention to detail. From concept to completion, we ensure every project reflects the highest standards of quality, efficiency, and modern design.",
+    "pra-3": "We believe that great design is not only about aesthetics, but also about creating meaningful experiences that enhance everyday life.",
+
+    "title-2": "Why Us:",
+    "pra-4": "We don’t start with what’s easy — we start with what’s right for you.",
+    "pra-5": "We focus on your vision, lifestyle, and long-term value, delivering designs that combine creativity, functionality, and sustainability.",
+    "pra-6": "With our integrated approach, we handle everything from design to approvals and execution, ensuring your project is seamless, compliant, and built to the highest standards",
+
+    "service": "Our Services",
+    "service-1": "Architectural Design",
+    "service-2": "Structural Design",
+    "service-3": "Interior Design",
+    "service-4": "Renovation and Redesign",
+    "service-5": "Supervision of Implementation"
   }
 }
