@@ -1,0 +1,43 @@
+.name-email-form {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+
+  .name-input,
+  .email-input {
+    flex: 1;
+
+    .MuiOutlinedInput-root {
+      border-radius: 2rem;
+
+      fieldset {
+        border-radius: 2rem; // مهم علشان الخط نفسه
+      }
+    }
+  }
+}
+
+.consultation-type {
+  width: 50%;
+
+  .select-input {
+    .MuiOutlinedInput-root {
+      border-radius: 2rem;
+    }
+  }
+}
+
+.description {
+  width: 100%;
+
+  .description-input {
+    width: 100%;
+    .MuiOutlinedInput-root {
+      border-radius: 2rem;
+    }
+  }
+}
+
+.dropzone-form {
+  width: 60%;
+}

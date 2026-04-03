@@ -272,8 +272,50 @@
       h3 {
         font-size: 1.2rem;
         font-weight: 600;
+        z-index: 2;
       }
     }
   }
+  }
+}
+
+
+//Dark Mode
+html.dark {
+  .about {
+    .about-cards {
+      .card {
+        background: linear-gradient(135deg, #6a11cb, #011b47);
+        h3 {
+          color: #ffffff;
+        }
+        p {
+          color: rgba(255, 255, 255, 0.87);
+        }
+      }
+    }
+    .about-text {
+      .about-right {
+        .about-title {
+          color: #ffffff;
+        }
+        .about-para {
+          p {
+            color: rgba(255, 255, 255, 0.87);
+          }
+        }
+      }
+    }
+    .about-services {
+      .services-title {
+        color: #ffffff;
+      }
+      .about-services-card {
+        background: linear-gradient(135deg, #6a11cb, #011b47);
+        h3 {
+          color: #ffffff;
+        }
+      }
+    }
   }
 }

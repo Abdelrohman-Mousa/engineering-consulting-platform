@@ -241,5 +241,15 @@ html.dark {
           background: linear-gradient(135deg, #6a11cb, #011b47);
         }
     }
+
+    .right-who {
+      .who-we-location {
+        .location-icon {
+          img {
+            filter: invert(1);
+          }
+        }
+      }
+    }
   }
 }

@@ -87,5 +87,11 @@
     "service-3": "Interior Design",
     "service-4": "Renovation and Redesign",
     "service-5": "Supervision of Implementation"
+  },
+
+  "request": {
+    "title": "Get Expert Consultation",
+    "pra": "Tell us about your case and our experts will get back to you with the best solution.",
+    "btn": "Request Consultation"
   }
 }
