@@ -1,8 +1,7 @@
 import { motion, useAnimation } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./marquee.scss";
-import {useTranslation} from "react-i18next";
-
+import { useTranslation } from "react-i18next";
 
 export default function Marquee() {
     const { t } = useTranslation();
@@ -20,10 +19,9 @@ export default function Marquee() {
         t("marquee.service-7"),
     ];
 
-    // تشغيل الحركة
     const startAnimation = () => {
         controls.start({
-            x: ["0%", "-50%"],
+            x: ["0%", "-100%"],
             transition: {
                 duration: 15,
                 repeat: Infinity,
@@ -32,24 +30,30 @@ export default function Marquee() {
         });
     };
 
+    // ✅ الحل هنا
+    useEffect(() => {
+        startAnimation();
+    }, []);
+
     return (
         <div
             className="marquee"
             onMouseEnter={() => {
                 setIsHovered(true);
-                controls.stop(); // ⛔ وقف الحركة
+                controls.stop();
             }}
             onMouseLeave={() => {
                 setIsHovered(false);
-                startAnimation(); // ▶️ كمل الحركة
+                startAnimation();
             }}
+            onTouchStart={() => controls.stop()}
+            onTouchEnd={() => startAnimation()}
         >
             <motion.div
                 className="marquee__track"
-                drag="x" // ✋ سحب يمين وشمال
-                dragConstraints={{ left: -500, right: 0 }} // تتحكم في حدود السحب
+                drag="x"
+                dragConstraints={{ left: -500, right: 0 }}
                 animate={controls}
-                onLoad={startAnimation}
             >
                 {[...services, ...services].map((item, i) => (
                     <span key={i}>{item}</span>
