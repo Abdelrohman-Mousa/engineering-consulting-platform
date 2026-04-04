@@ -53,3 +53,144 @@
     width: 100%;
   }
 }
+
+html.dark {
+  .name-email-form {
+    .name-input,
+    .email-input {
+      .MuiOutlinedInput-input {
+        color: #fff;
+      }
+      // ✅ label
+      .MuiInputLabel-root {
+        color: #fff;
+
+        &.Mui-focused {
+          color: #fff;
+        }
+      }
+      // ✅ input + border
+      .MuiOutlinedInput-root {
+        fieldset {
+          border-color: #fff;
+        }
+        &:hover fieldset {
+          border-color: #fff;
+        }
+        &.Mui-focused fieldset {
+          border-color: #fff;
+        }
+      }
+    }
+  }
+  .consultation-type {
+    .select-input {
+      // ✅ label
+      .MuiInputLabel-root {
+        color: #fff;
+
+        &.Mui-focused {
+          color: #fff;
+        }
+      }
+      .MuiOutlinedInput-root {
+        fieldset {
+          border-color: #fff;
+        }
+        &:hover fieldset {
+          border-color: #fff;
+        }
+        &.Mui-focused fieldset {}
+      }
+      // ✅ input + border
+      .MuiOutlinedInput-root {
+        fieldset {
+          border-color: #fff;
+        }
+        &:hover fieldset {
+          border-color: #fff;
+        }
+        &.Mui-focused fieldset {
+          border-color: #fff;
+        }
+      }
+    }
+  }
+
+  .consultation-type {
+    .select-input {
+      .MuiOutlinedInput-input {
+        color: #fff;
+      }
+      // ✅ الـ label
+      .MuiInputLabel-root {
+        color: #fff;
+
+        &.Mui-focused {
+          color: #fff;
+        }
+      }
+
+      // ✅ البوكس كله (input + border)
+      .MuiOutlinedInput-root {
+        // النص المختار
+        .MuiSelect-select {
+          color: #fff;
+        }
+        // السهم
+        .MuiSvgIcon-root {
+          color: #fff;
+        }
+        // البوردر
+        fieldset {
+          border-color: #fff;
+        }
+        &:hover fieldset {
+          border-color: #fff;
+        }
+        &.Mui-focused fieldset {
+          border-color: #fff;
+        }
+      }
+    }
+  }
+
+  .description {
+    .description-input {
+      .MuiOutlinedInput-input {
+        color: #fff;
+      }
+      // ✅ label
+      .MuiInputLabel-root {
+        color: #fff;
+
+        &.Mui-focused {
+          color: #fff;
+        }
+      }
+      // ✅ البوكس + البوردر
+      .MuiOutlinedInput-root {
+        // textarea
+        .MuiOutlinedInput-inputMultiline {
+          color: #fff;
+
+          &::placeholder {
+            color: #fff;
+            opacity: 1;
+          }
+        }
+        // border
+        fieldset {
+          border-color: #fff;
+        }
+        &:hover fieldset {
+          border-color: #fff;
+        }
+
+        &.Mui-focused fieldset {
+          border-color: #fff;
+        }
+      }
+    }
+  }
+}

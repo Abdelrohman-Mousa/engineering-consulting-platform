@@ -77,6 +77,11 @@
 
       .description {
         width: 100%;
+        &::placeholder {
+          font-size: 1.2rem;
+          font-weight: 400;
+          color: rgba(255, 0, 0, 0.85);
+        }
       }
 
       .dropped-file-country {
@@ -122,6 +127,29 @@
           font-size: 1.2rem;
           font-weight: 600;
         }
+      }
+    }
+  }
+}
+
+
+
+//Dark Mode
+html.dark {
+  .consultationRequest {
+    .consultationRequest-head {
+      background: linear-gradient(135deg, #6a11cb, #000000);
+      color: #ffffff;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1),
+      0 8px 16px rgba(0, 0, 0, 0.06);
+
+     p {
+        color: #ffffff;
+      }
+    }
+    .request-form {
+      .form-container {
+        background: linear-gradient(135deg, #6a11cb, #000000);
       }
     }
   }
