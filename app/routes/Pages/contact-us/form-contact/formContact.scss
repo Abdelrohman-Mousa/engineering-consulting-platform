@@ -1,0 +1,23 @@
+.form-contact {
+  width: 100%;
+  //padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  .name-input,
+  .email-input,
+  .phone-input,
+  .subject-input,
+  .message-input  {
+    width: 97%;
+
+    .MuiOutlinedInput-root {
+      border-radius: 2rem;
+
+      fieldset {
+        border-radius: 2rem; // مهم علشان الخط نفسه
+      }
+    }
+  }
+}
