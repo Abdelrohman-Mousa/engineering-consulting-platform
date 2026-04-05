@@ -129,6 +129,9 @@
         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2),
           0 8px 16px rgba(0, 0, 0, 0.25);
 
+        @include mobile {
+          padding: 0.5rem;
+        }
         h1 {
           font-size: 1.3rem;
           font-weight: 600;
@@ -151,6 +154,55 @@
             font-size: 1.1rem;
             font-weight: 500;
             color: rgba(0, 0, 0, 0.7);
+            @include mobile {
+              font-size: 1rem;
+              font-weight: 400;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//Dark Mode
+html.dark {
+  .contactUs {
+    .contactUs-head {
+      h5 {
+        color: #3b82f6;
+      }
+      h1 {
+        color: #ffffff;
+      }
+      p {
+        color: #ffffff;
+      }
+    }
+    .contactUs-container {
+      .contactUs-form {
+        background: linear-gradient(135deg, #6a11cb, #000000);
+        .contact-btn {
+          background-color: #3b82f6;
+          color: #ffffff;
+          &:hover {
+            background-color: rgba(2, 38, 97, 0.99);
+          }
+        }
+      }
+      .contact-map {
+        .contact-text {
+          background: linear-gradient(135deg, #6a11cb, #000000);
+          h1 {
+            color: #ffffff;
+          }
+          .contact-phone-icon {
+            img {
+              filter: invert(1);
+            }
+            p {
+              color: #ffffff;
+            }
           }
         }
       }

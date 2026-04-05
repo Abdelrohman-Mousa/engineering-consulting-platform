@@ -21,3 +21,33 @@
     }
   }
 }
+
+//Dark Mode
+html.dark {
+  .form-contact {
+    .MuiOutlinedInput-input {
+      color: #fff;
+    }
+    // ✅ label
+    .MuiInputLabel-root {
+      color: #fff;
+
+      &.Mui-focused {
+        color: #fff;
+      }
+    }
+
+    // ✅ input + border
+    .MuiOutlinedInput-root {
+      fieldset {
+        border-color: #fff;
+      }
+      &:hover fieldset {
+        border-color: #fff;
+      }
+      &.Mui-focused fieldset {
+        border-color: #fff;
+      }
+    }
+  }
+}
