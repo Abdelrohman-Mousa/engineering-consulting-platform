@@ -119,5 +119,14 @@
     "country-7": "Fujairah",
 
     "Drag": "Drag & Drop files here or click to browse"
+  },
+
+  "contact-us": {
+    "contact": "Contact us",
+    "contact-title": "Get in Touch with Our Team",
+    "pra": "We’re here to answer your inquiries, discuss your project, and help you find the best engineering solutions that meet your needs. Reach out to us, and let’s start creating something remarkable that turns your vision into a tangible reality.",
+    "btn": "Send Message",
+    "pra1": "Prefer a Direct Approach?",
+    "name": "Name"
   }
 }

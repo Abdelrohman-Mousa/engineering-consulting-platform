@@ -1,0 +1,146 @@
+.signInPage {
+  width: 100%;
+  background-image: url("/assets/images/signIn-background.png");
+  height: 97.3vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+
+  .signIn-logo {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 1rem 0;
+    position: relative;
+    img {
+      width: 12%;
+      height: 12%;
+      object-fit: cover;
+      object-position: center;
+    }
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #16406a;
+      position: absolute;
+      top: 26%;
+      left: 12%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  .signIn-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 78%;
+    transform: translate(0 ,0%);
+
+    .signIn-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      flex-direction: column;
+      gap: 1rem;
+      padding: 2rem;
+      border-radius: 1rem;
+      width: 30%;
+      background: linear-gradient(
+                      to bottom,
+                      rgba(135, 206, 250, 0.35),   /* سماوي فاتح من فوق */
+                      rgba(255, 255, 255, 0.9)     /* أبيض ناعم تحت */
+      );
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 4px 25px rgba(0,0,0,0.1);
+
+      .image {
+        background-color: #ffffff;
+        padding: 0.5rem;
+        border-radius: 1rem;
+        box-shadow: 0 4px 25px rgba(0, 0, 0, 0.55);
+        img {
+          width: 35px;
+          height: 35px;
+        }
+      }
+      .text {
+        h1 {
+          font-size: 1.3rem;
+          font-weight: 600;
+          color: rgba(0, 0, 0, 0.82);
+        }
+        p {
+          font-size: 1rem;
+          font-weight: 500;
+          color: rgba(0, 1, 17, 0.71);
+        }
+      }
+      .signIn-form-content {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+
+        input {
+          width: 100%;
+          padding: 0.5rem 1rem;
+          border-radius: 0.7rem;
+          background-color: rgba(237, 236, 236, 0.87);
+          color: rgba(0, 0, 0, 0.67);
+          outline: none;
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2),
+          0 8px 16px rgba(0, 0, 0, 0.25);
+
+          &::placeholder {
+            color: rgba(0, 0, 0, 0.67);
+            font-weight: 500;
+          }
+        }
+        button {
+          background-color: #000111;
+          color: #ffffff;
+          padding: 0.5rem 1rem;
+          font-size: 1.2rem;
+          font-weight: 500;
+          border-radius: 1rem;
+          margin-top: 1rem;
+        }
+      }
+      .divider {
+        span {
+          color: rgba(0, 0, 0, 0.67);
+          font-weight: 500;
+          font-size: 1rem;
+          padding: 0 0.5rem;
+        }
+      }
+
+      .signIn-social-media {
+        width: 100%;
+
+        .signIn-google {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 0.5rem;
+          background-color: #ffffff;
+          color: #000111;
+          padding: 0.5rem;
+          border-radius: 1rem;
+          width: 100%;
+          box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.51);
+
+          img {
+            width: 25px;
+            height: 25px;
+          }
+        }
+      }
+    }
+  }
+}

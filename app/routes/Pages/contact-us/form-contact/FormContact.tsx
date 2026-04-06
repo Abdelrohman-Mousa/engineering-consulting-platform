@@ -1,8 +1,11 @@
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import "./formContact.scss";
+import {useTranslation} from "react-i18next";
 
 export default function FormContact() {
+    const { t } = useTranslation();
+
     return (
         <Box
             className="form-contact"

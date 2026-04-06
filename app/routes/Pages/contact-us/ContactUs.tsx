@@ -5,14 +5,17 @@ import phone from "/assets/icons/phone.svg";
 import email from "/assets/icons/email.svg";
 import oclock from "/assets/icons/oclock.svg";
 import MapComponent from "~/components/MapComponent";
+import {useTranslation} from "react-i18next";
 
 const ContactUs = () => {
+    const { t } = useTranslation();
+
     return (
         <div className="contactUs">
             <div className="contactUs-head">
-                <h5>Contact us</h5>
-                <h1>Get in Touch with Our Team</h1>
-                <p>We’re here to answer your inquiries, discuss your project, and help you find the best engineering solutions that meet your needs. Reach out to us, and let’s start creating something remarkable that turns your vision into a tangible reality.</p>
+                <h5>{t("contact-us.contact")}</h5>
+                <h1>{t("contact-us.contact-title")}</h1>
+                <p>{t("contact-us.pra")}</p>
             </div>
 
             <div className="contactUs-container">
@@ -23,13 +26,13 @@ const ContactUs = () => {
                         <div className="image">
                             <img src={send} alt="Send Message" />
                         </div>
-                      <h1>Send Message</h1>
+                      <h1>{t("contact-us.btn")}</h1>
                     </div>
                 </div>
 
                 <div className="contact-map">
                     <div className="contact-text">
-                        <h1>Prefer a Direct Approach?</h1>
+                        <h1>{t("contact-us.pra1")}</h1>
 
                         <div className="contact-phone-icon">
                             <div className="icon-phone">
