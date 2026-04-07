@@ -1,3 +1,5 @@
+@use "../../../index" as *;
+
 .signInPage {
   width: 100%;
   background-image: url("/assets/images/signIn-background.png");
@@ -62,6 +64,13 @@
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       box-shadow: 0 4px 25px rgba(0,0,0,0.1);
+
+      @include mobile {
+        width: 100%;
+      }
+      @include tablet {
+        width: 80%;
+      }
 
       .image {
         background-color: #ffffff;
