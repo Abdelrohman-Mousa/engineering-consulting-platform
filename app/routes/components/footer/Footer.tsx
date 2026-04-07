@@ -107,7 +107,13 @@ const Footer = () => {
 
                     </div>
                 </div>
+            <div className="copyRight">
+                <p>
+                    © {new Date().getFullYear()} ADVANCE. All rights reserved.
+                </p>
             </div>
+            </div>
+
         </div>
     )
 }

@@ -6,15 +6,16 @@
   .footer-content {
     background-color: #111827;
     color: #ffffff;
-    padding: 3rem 2rem;
+    padding: 3rem 2rem 5rem 2rem;
     border-radius: 1rem;
     display: flex;
     justify-content: space-between;
+    position: relative;
 
     @include mobile {
       flex-direction: column;
       gap: 5rem;
-      padding: 2rem 1rem;
+      padding: 2rem 1rem 5rem 1rem;
       align-items: center;
       text-align: center;
     }
@@ -192,7 +193,19 @@
             }
           }
         }
-
+      }
+    }
+    .copyRight {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 1rem 0;
+      text-align: center;
+      p {
+        font-size: 1.2rem;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.75);
       }
     }
   }
