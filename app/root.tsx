@@ -33,20 +33,20 @@ import { registerLicense } from "@syncfusion/ej2-base";
 registerLicense(import.meta.env.VITE_SYNCFUSION_LICENSE_KEY)
 
 export function Layout({ children }: { children: React.ReactNode }) {
+  // قراءة اللغة قبل الـ SSR من localStorage (لو ممكن)
+  const lang = typeof window !== "undefined" ? localStorage.getItem('i18nextLng') || 'en' : 'en';
+  const dir = lang.startsWith('ar') ? 'rtl' : 'ltr';
+
   return (
-    <html lang="en">
+      <html lang={lang} dir={dir}>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        {/* 1️⃣ السكربت السحري لمنع الوميض (Flash) عند التحميل */}
+        {/* 1️⃣ السكربت لمنع الوميض */}
         <script
             dangerouslySetInnerHTML={{
               __html: `
               (function() {
-                const lang = localStorage.getItem('i18nextLng') || 'en';
-                const dir = lang.startsWith('ar') ? 'rtl' : 'ltr';
-                document.documentElement.dir = dir;
-                document.documentElement.lang = lang;
                 const theme = localStorage.getItem('theme');
                 if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
                   document.documentElement.classList.add('dark');
@@ -59,11 +59,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        {children}
-        <ScrollRestoration />
-        <Scripts />
+      {children}
+      <ScrollRestoration />
+      <Scripts />
       </body>
-    </html>
+      </html>
   );
 }
 
