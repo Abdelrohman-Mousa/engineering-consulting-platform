@@ -50,7 +50,7 @@ const ContactUs = () => {
                             <div className="icon-phone">
                                 <img src={oclock} alt="phone" />
                             </div>
-                            <p>Monday to Friday, 9 AM – 6 PM (GMT)</p>
+                            <p>{t("contact-us.time")}</p>
                         </div>
 
                         <MapComponent/>

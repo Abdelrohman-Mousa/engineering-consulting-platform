@@ -17,35 +17,35 @@ export default function FormContact() {
             <TextField
                 className="name-input"
                 id="name"
-                label="Name"
+                label={t("contact-us.name")}
                 variant="outlined"
             />
 
             <TextField
                 className="email-input"
                 id="email"
-                label="Email Address"
+                label={t("contact-us.email")}
                 variant="outlined"
             />
 
             <TextField
                 className="phone-input"
                 id="phone"
-                label="Phone Number"
+                label={t("contact-us.phone")}
                 variant="outlined"
             />
 
             <TextField
                 className="subject-input"
                 id="subject"
-                label="Subject"
+                label={t("contact-us.subject")}
                 variant="outlined"
             />
 
             <TextField
                 className="message-input"
                 id="message"
-                label="Message"
+                label={t("contact-us.message")}
                 variant="outlined"
                 multiline
                 rows={4}

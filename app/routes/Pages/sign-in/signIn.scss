@@ -28,6 +28,11 @@
       top: 26%;
       left: 12%;
       transform: translate(-50%, -50%);
+
+      [dir="rtl"] & {
+        left: auto;
+        right: 4%;
+      }
     }
   }
 
