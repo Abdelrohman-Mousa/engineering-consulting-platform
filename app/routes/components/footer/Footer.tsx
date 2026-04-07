@@ -19,7 +19,7 @@ const Footer = () => {
                         <img src="/assets/icons/logoProjects.png" alt="logo" />
                     </div>
                     <h2 className="pra">We provide innovative and precise engineering solutions.</h2>
-
+                 <Link to="/consultationRequest" style={{width: "fit-content"}}>
                   <ShinyButton style={{width: "fit-content"}}>
                     <div className="btn">
                         <h3>Get a free consulting</h3>
@@ -28,6 +28,7 @@ const Footer = () => {
                         </div>
                     </div>
                   </ShinyButton>
+                 </Link>
                 </div>
 
                 <div className="footer-quick-links">
