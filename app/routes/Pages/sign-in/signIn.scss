@@ -21,6 +21,10 @@
       height: 12%;
       object-fit: cover;
       object-position: center;
+      @include mobile {
+        width: 30%;
+        height: 30%;
+      }
     }
     h1 {
       font-size: 2rem;
@@ -30,6 +34,11 @@
       top: 26%;
       left: 12%;
       transform: translate(-50%, -50%);
+      @include mobile {
+        font-size: 1.5rem;
+        top: 26%;
+        left: 32%;
+      }
 
       [dir="rtl"] & {
         left: auto;
@@ -67,6 +76,7 @@
 
       @include mobile {
         width: 100%;
+        padding: 1rem;
       }
       @include tablet {
         width: 80%;
