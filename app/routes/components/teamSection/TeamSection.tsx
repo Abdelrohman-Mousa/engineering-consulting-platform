@@ -1,7 +1,7 @@
 import "./teamSection.scss";
 import {ShinyButton} from "~/components/ui/shiny-button";
 import {NumberTicker} from "~/components/ui/number-ticker";
-import team from "public/assets/images/team.jpg";
+import team from "/assets/images/team.jpg";
 import {useTranslation} from "react-i18next";
 import {motion} from "framer-motion";
 import {Link} from "react-router";

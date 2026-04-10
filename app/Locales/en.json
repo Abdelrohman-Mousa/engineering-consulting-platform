@@ -143,5 +143,26 @@
     "btn": "Sign in",
     "or": "Or sign in with",
     "google": "Sign in with Google"
+  },
+
+  "footer": {
+    "pra" : "We provide innovative and precise engineering solutions.",
+    "btn": "Get a free consulting",
+    "links": "Quick Links",
+    "link-1": "Home",
+    "link-2": "About",
+    "link-3": "Consultation Request",
+    "link-4": "Projects",
+    "link-5": "Contact",
+
+    "location": "Abu Dhabi United Arab Emirates",
+
+    "social": "Social Media",
+    "facebook": "Facebook",
+    "instagram": "Instagram",
+    "snapchat": "Snapchat",
+    "tikTok": "TikTok",
+
+    "copyRight": "ADVANCE. All rights reserved."
   }
 }
