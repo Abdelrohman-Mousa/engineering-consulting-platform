@@ -82,7 +82,7 @@ export default function App() {
   }, [i18n.language]);
 
   // ⛔ الصفحات اللي مش عايز فيها Navbar و Footer
-  const hideLayoutRoutes = ["/signIn"];
+  const hideLayoutRoutes = ["/signIn", "/dashboard"];
 
   const hideLayout = hideLayoutRoutes.some(route =>
       location.pathname.startsWith(route)

@@ -77,10 +77,12 @@ const Navbar = () => {
             </div>
 
             <div className="buttons-navbar">
+              <Link to="/dashboard">
                 <div className="dashboard">
                     <img src={dashboard} alt="dashboard" />
                     <span className="badge">?</span>
                 </div>
+              </Link>
 
                 <div className="languages">
                    <LanguagesMenu />

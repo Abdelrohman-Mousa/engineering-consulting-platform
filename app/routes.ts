@@ -12,4 +12,9 @@ export default [
     route("signIn", "routes/Pages/sign-in/SignIn.tsx"),
 
 
+    // ✅ Dashboard Layout
+    route("dashboard", "routes/dashboard/index.tsx", [
+        index("routes/dashboard/overView/PageOverView.tsx"),
+    ]),
+
 ] satisfies RouteConfig;
