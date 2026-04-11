@@ -210,3 +210,18 @@
     }
   }
 }
+
+//Dark Mode
+html.dark {
+  .footer {
+    .footer-content {
+      background-color: rgba(0, 0, 0, 0.8);
+      color: #ffffff;
+      padding: 3rem 2rem 5rem 2rem;
+      border-radius: 1rem;
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+    }
+  }
+}

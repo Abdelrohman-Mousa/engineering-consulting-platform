@@ -1,3 +1,12 @@
+import type {Route} from "../../+types/home"
+
+export function meta({}: Route.MetaArgs) {
+    return [
+        { title: "About US" },
+        { name: "description", content: "About Us" },
+    ];
+}
+
 import './aboutUs.scss';
 import video from "/assets/video/about-2.mp4";
 import office1 from "/assets/images/office.jpg";

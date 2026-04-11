@@ -1,3 +1,12 @@
+import type {Route} from "./+types/home"
+
+export function meta({}: Route.MetaArgs) {
+    return [
+        { title: "ADVANCE CONSULTANT" },
+        { name: "description", content: "ADVANCE CONSULTANT" },
+    ];
+}
+
 import HeroSection from "~/routes/Pages/hero-section/HeroSection";
 import WhoWe from "~/routes/components/whoWeAre/WhoWe";
 import TeamSection from "~/routes/components/teamSection/TeamSection";
