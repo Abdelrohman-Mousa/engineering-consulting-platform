@@ -9,10 +9,15 @@ import {ShinyButton} from "~/components/ui/shiny-button";
 import {useState, useEffect} from "react";
 import {useTranslation} from "react-i18next";
 import SidebarMobile from "~/components/sidebar-mobile/SidebarMobile";
+import {useAuth} from "../../../../src/firebase/AuthContext";
+import AccountMenu from "~/routes/components/material-ui/AccountMenu";
 
 
 const Navbar = () => {
     const { t } = useTranslation();
+
+    const { user, role } = useAuth();
+
 
     const location = useLocation(); // ← عشان نعرف الصفحة الحالية
 
@@ -30,7 +35,7 @@ const Navbar = () => {
         }
     }, []); // مصفوفة فارغة عشان يشتغل مرة واحدة بس عند التحميل
 
-// 2. دي وظيفتها تراقب أي تغيير يحصل لما تضغط على الزرار
+    // 2. دي وظيفتها تراقب أي تغيير يحصل لما تضغط على الزرار
     useEffect(() => {
         if (isDark) {
             document.documentElement.classList.add("dark");
@@ -97,13 +102,21 @@ const Navbar = () => {
                 </div>
 
                 <div className="flex items-center gap-0">
-                    <Link to="/signIn">
-                      <div className="signIn">
-                        <ShinyButton>
-                           <h3>{t("navbar.signIn")}</h3>
-                        </ShinyButton>
-                      </div>
-                    </Link>
+                    {!user ? (
+                        <Link to="/signIn">
+                            <div className="signIn">
+                                <ShinyButton>
+                                    <h3>{t("navbar.signIn")}</h3>
+                                </ShinyButton>
+                            </div>
+                        </Link>
+                    ): (
+                        <div className="user-dropdown">
+                            <AccountMenu />
+                        </div>
+                    )}
+
+
                   <SidebarMobile />
                 </div>
             </div>
