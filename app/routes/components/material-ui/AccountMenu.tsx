@@ -11,8 +11,11 @@ import Logout from '@mui/icons-material/Logout';
 import {logout} from "../../../../src/firebase/authService";
 import {useNavigate} from "react-router";
 import toast from "react-hot-toast";
+import {useAuth} from "../../../../src/firebase/AuthContext";
 
 export default function AccountMenu() {
+
+    const {user, role} = useAuth();
 
     const navigate = useNavigate();
     // logOut
@@ -47,7 +50,13 @@ export default function AccountMenu() {
                         aria-haspopup="true"
                         aria-expanded={open ? 'true' : undefined}
                     >
-                        <Avatar sx={{ width: 32, height: 32 }}>M</Avatar>
+                        <Avatar sx={{ width: 32, height: 32 }}>
+                            {user.photoURL ? (
+                                <img src={user.photoURL} alt="user" />
+                            ) : (
+                                <span>{user.email[0].toUpperCase()}</span>
+                            )}
+                        </Avatar>
                     </IconButton>
                 </Tooltip>
             </Box>
