@@ -157,3 +157,26 @@ html.dark {
     --sidebar-border: oklch(1 0 0 / 10%);
     --sidebar-ring: oklch(0.556 0 0);
 }
+
+.nav-items {
+    @apply flex flex-col px-6 h-full;
+    .container {
+        @apply flex flex-col justify-between h-full;
+        nav {
+            @apply flex flex-col gap-3.5 pt-9;
+        }
+    }
+}
+
+.admin-layout {
+    @apply flex flex-col h-screen w-full;
+    .children {
+        @apply w-full h-full ;
+    }
+}
+.link-logo {
+    @apply flex items-center gap-0.5 py-3 border-b border-b-gray-100 flex-col;
+    h1 {
+        @apply text-base md:text-2xl font-bold text-black;
+    }
+}

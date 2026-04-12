@@ -107,7 +107,7 @@ export default function AccountMenu() {
 
                 <MenuItem onClick={handleLogout}>
                     <ListItemIcon>
-                        <Logout fontSize="small" />
+                        <Logout fontSize="small" className="text-red-500"/>
                     </ListItemIcon>
                     Logout
                 </MenuItem>

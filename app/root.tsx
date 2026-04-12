@@ -83,7 +83,7 @@ export default function App() {
     document.documentElement.lang = currentLang;
   }, [i18n.language]);
 
-  // ⛔ الصفحات اللي مش عايز فيها Navbar و Footer
+  // ⛔ الصفحات اللي مش عايز فيها NavItems و Footer
   const hideLayoutRoutes = ["/signIn", "/dashboard"];
 
   const hideLayout = hideLayoutRoutes.some(route =>
