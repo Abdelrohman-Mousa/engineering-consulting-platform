@@ -65,8 +65,6 @@ const NavItems = ({ handleClick }: { handleClick?: () => void}) => {
                     <p>{user.email}</p>
                 </article>
             </footer>
-
-
         </section>
     )
 }
