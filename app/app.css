@@ -174,9 +174,20 @@ html.dark {
         @apply w-full h-full ;
     }
 }
-/*.link-logo {*/
-/*    @apply flex items-center gap-0.5 py-3 border-b border-b-gray-100 flex-col;*/
-/*    h1 {*/
-/*        @apply text-base md:text-2xl font-bold text-black;*/
-/*    }*/
-/*}*/
+
+.header {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+
+    h1 {
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+    p {
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: rgba(0, 0, 0, 0.66);
+    }
+}

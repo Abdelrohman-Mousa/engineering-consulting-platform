@@ -1,22 +1,3 @@
-// import { Link } from "react-router";
-//
-// const MobileSidebar = () => {
-//     return (
-//         <div className="mobile-sidebar wrapper">
-//              <header>
-//                  <Link to="/dashboard">
-//                      <img
-//                          src="/assets/icons/logoProjects.png"
-//                           alt="logo"
-//                           className="size-[60px] "/>
-//                  </Link>
-//              </header>
-//         </div>
-//     )
-// }
-// export default MobileSidebar
-
-
 import { Link } from "react-router";
 import {SidebarComponent} from "@syncfusion/ej2-react-navigations";
 import "./mobile-sidebar.scss";
