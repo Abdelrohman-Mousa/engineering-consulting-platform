@@ -23,7 +23,7 @@ const NavItems = ({ handleClick }: { handleClick?: () => void}) => {
         {
             id: 4,
             label: "Consultation Requests",
-            href: "/dashboard/consulting",
+            href: "/dashboard/consultation",
         }
     ]
 

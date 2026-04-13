@@ -15,6 +15,9 @@ export default [
     // ✅ Dashboard Layout
     route("dashboard", "routes/dashboard/index.tsx", [
         index("routes/dashboard/overView/PageOverView.tsx"),
+        route("users", "routes/dashboard/users/Users.tsx"),
+        route("messages", "routes/dashboard/contact-message/ContactMessage.tsx"),
+        route("consultation", "routes/dashboard/consultation-requests/ConsultationRequests.tsx"),
     ]),
 
 ] satisfies RouteConfig;
