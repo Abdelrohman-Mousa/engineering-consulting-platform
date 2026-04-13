@@ -2,7 +2,21 @@
   padding: 0 0.5rem;
   .link-logo {
     border-bottom: 1px solid #e2e8f0;
-    padding-bottom: 1rem;
+    padding: 1rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    img {
+      border-radius: 2rem;
+      width: 120px;
+    }
+    h1 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #16406a;
+    }
   }
 
   .container-sidebar {

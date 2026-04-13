@@ -174,26 +174,9 @@ html.dark {
         @apply w-full h-full ;
     }
 }
-.link-logo {
-    @apply flex items-center gap-0.5 py-3 border-b border-b-gray-100 flex-col;
-    h1 {
-        @apply text-base md:text-2xl font-bold text-black;
-    }
-}
-
-/*.mobile-sidebar {*/
-/*    @apply lg:hidden flex flex-col gap-5;*/
-/*    header {*/
-/*        @apply flex justify-between items-center border-b border-b-gray-100;*/
-/*        h1 {*/
-/*            @apply text-base md:text-2xl font-bold text-black;*/
-/*        }*/
-/*        a {*/
-/*            @apply flex items-center gap-1.5 py-10;*/
-/*        }*/
+/*.link-logo {*/
+/*    @apply flex items-center gap-0.5 py-3 border-b border-b-gray-100 flex-col;*/
+/*    h1 {*/
+/*        @apply text-base md:text-2xl font-bold text-black;*/
 /*    }*/
-/*}*/
-
-/*.wrapper {*/
-/*    @apply w-full max-w-7xl mx-auto px-4 lg:px-8;*/
 /*}*/

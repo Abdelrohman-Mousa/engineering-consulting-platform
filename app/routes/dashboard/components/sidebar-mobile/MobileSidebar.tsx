@@ -38,7 +38,6 @@ const MobileSidebar = () => {
                         src="/assets/icons/logoProjects.png"
                         alt="logo"
                     />
-
                     <h1>Advance</h1>
                 </Link>
 

@@ -34,7 +34,8 @@ const NavItems = ({ handleClick }: { handleClick?: () => void}) => {
     return (
         <section className="nav-items">
             <Link to="/dashboard" className="link-logo">
-                <img src="/assets/icons/logoProjects.png" alt="logo" className="w-full rounded-full "/>
+                <img src="/assets/icons/logoProjects.png" alt="logo"/>
+                <h1>Advance</h1>
             </Link>
 
             <div className="container-sidebar">
