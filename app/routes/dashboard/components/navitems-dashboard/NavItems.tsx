@@ -1,7 +1,11 @@
 import "./navitems.scss";
 import {Link, NavLink} from "react-router";
+import {useAuth} from "../../../../../src/firebase/AuthContext";
 
 const NavItems = ({ handleClick }: { handleClick?: () => void}) => {
+
+    const { user } = useAuth();
+
 
     const sidebarItems = [
         {
@@ -48,6 +52,19 @@ const NavItems = ({ handleClick }: { handleClick?: () => void}) => {
                     ))}
                 </nav>
             </div>
+
+            <footer className="nav-footer">
+                {user.photoURL ? (
+                    <img src={user.photoURL} alt="user" />
+                ) : (
+                    <span>{user.email[0].toUpperCase()}</span>
+                )}
+
+                <article>
+                    <h2>Admin</h2>
+                    <p>{user.email}</p>
+                </article>
+            </footer>
 
 
         </section>
