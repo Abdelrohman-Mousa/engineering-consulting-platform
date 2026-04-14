@@ -12,10 +12,14 @@ import {logout} from "../../../../src/firebase/authService";
 import {useNavigate} from "react-router";
 import toast from "react-hot-toast";
 import {useAuth} from "../../../../src/firebase/AuthContext";
-
+import darkMode from "/assets/icons/dark-mode.svg";
+import lightMode from "/assets/icons/light-mode.svg";
+import {useDarkMode} from "~/components/useDarkMode";
 export default function AccountMenu() {
 
     const {user, role} = useAuth();
+
+    const { isDark, toggleTheme } = useDarkMode();
 
     const navigate = useNavigate();
     // logOut
@@ -97,9 +101,19 @@ export default function AccountMenu() {
                 transformOrigin={{ horizontal: 'right', vertical: 'top' }}
                 anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
             >
-                <MenuItem onClick={handleClose}>
-                    <Avatar /> Profile
+                <div className="lg:hidden">
+                <MenuItem
+                    onClick={toggleTheme}
+                    className="flex items-center gap-2 cursor-pointer">
+                    <img
+                        src={isDark ? lightMode : darkMode}
+                        alt="theme"
+                        className="w-8 h-8"
+                    />
+                    <span>Toggle Theme</span>
                 </MenuItem>
+                </div>
+                <Divider />
                 <MenuItem onClick={handleClose}>
                     <Avatar /> My account
                 </MenuItem>

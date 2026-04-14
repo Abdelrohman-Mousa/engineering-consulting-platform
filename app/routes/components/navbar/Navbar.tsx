@@ -6,11 +6,11 @@ import lightMode from "/assets/icons/light-mode.svg";
 import {Link, useLocation} from "react-router";
 import LanguagesMenu from "~/routes/components/material-ui/LanguagesMenu";
 import {ShinyButton} from "~/components/ui/shiny-button";
-import {useState, useEffect} from "react";
 import {useTranslation} from "react-i18next";
 import SidebarMobile from "~/components/sidebar-mobile/SidebarMobile";
 import {useAuth} from "../../../../src/firebase/AuthContext";
 import AccountMenu from "~/routes/components/material-ui/AccountMenu";
+import {useDarkMode} from "~/components/useDarkMode";
 
 
 const Navbar = () => {
@@ -18,35 +18,9 @@ const Navbar = () => {
 
     const { user, role } = useAuth();
 
-
     const location = useLocation(); // ← عشان نعرف الصفحة الحالية
 
-    // 1. تعريف حالة الدارك مود (بناءً على تخزين المتصفح السابق)
-    const [isDark, setIsDark] = useState(false);
-
-    useEffect(() => {
-        const savedTheme = localStorage.getItem("theme");
-        if (savedTheme === "dark") {
-            setIsDark(true);
-            document.documentElement.classList.add("dark");
-        } else {
-            setIsDark(false);
-            document.documentElement.classList.remove("dark");
-        }
-    }, []); // مصفوفة فارغة عشان يشتغل مرة واحدة بس عند التحميل
-
-    // 2. دي وظيفتها تراقب أي تغيير يحصل لما تضغط على الزرار
-    useEffect(() => {
-        if (isDark) {
-            document.documentElement.classList.add("dark");
-            localStorage.setItem("theme", "dark");
-        } else {
-            document.documentElement.classList.remove("dark");
-            localStorage.setItem("theme", "light");
-        }
-    }, [isDark]);
-
-    const toggleTheme = () => setIsDark(!isDark);
+    const { isDark, toggleTheme } = useDarkMode();
 
     const links = [
         { path: "/", label: t('navbar.home') },
@@ -115,7 +89,6 @@ const Navbar = () => {
                             <AccountMenu />
                         </div>
                     )}
-
 
                   <SidebarMobile />
                 </div>
