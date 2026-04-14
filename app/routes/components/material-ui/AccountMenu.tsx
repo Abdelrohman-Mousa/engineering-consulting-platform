@@ -119,9 +119,8 @@ export default function AccountMenu() {
                 <Divider />
 
                 <MenuItem onClick={handleClose}>
-                    {/*<Avatar /> My account*/}
                     <Link to="/dashboard">
-                        <div className="dashboard" className="flex items-center gap-2">
+                        <div className="flex items-center gap-2">
                             <img src={dashboard} alt="dashboard" className="w-8 h-8" />
                             <span className="badge">Dashboard</span>
                         </div>

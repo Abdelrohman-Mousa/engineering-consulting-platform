@@ -12,10 +12,15 @@ import { Link } from 'react-router'; // استخدام الراوتر الجدي
 import menuIcon from "/assets/icons/menu.png";
 import {ShinyButton} from "~/components/ui/shiny-button";
 import "./sidebarMobile.scss";
+import {useAuth} from "../../../src/firebase/AuthContext";
+import AccountMenu from "~/routes/components/material-ui/AccountMenu";
 
 export default function SidebarMobile() {
     const { t, i18n } = useTranslation();
     const [open, setOpen] = React.useState(false);
+
+    const { user } = useAuth();
+
 
     // تحديد الاتجاه بناءً على اللغة
     const isRtl = i18n.language === 'ar';
@@ -48,14 +53,19 @@ export default function SidebarMobile() {
             <Divider />
 
             <div className="signIn-sidebar">
+                {!user ? (
                     <Link to="/signIn" >
                        <ShinyButton>
                         <h3>{t("navbar.signIn")}</h3>
                        </ShinyButton>
                     </Link>
+                ) : (
+                    <div className="user-dropdown">
+                        <AccountMenu />
+                    </div>
+                )}
             </div>
             <Divider />
-
 
             <List className="sidebar-list">
                 {menuItems.map((item) => (
