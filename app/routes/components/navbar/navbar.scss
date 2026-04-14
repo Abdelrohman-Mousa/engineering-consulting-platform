@@ -110,6 +110,9 @@
         width: 35px;
         height: 35px;
         position: relative;
+        @include mobile {
+          display: none;
+        }
 
         img {
           object-fit: cover;

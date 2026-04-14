@@ -9,12 +9,14 @@ import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import Logout from '@mui/icons-material/Logout';
 import {logout} from "../../../../src/firebase/authService";
-import {useNavigate} from "react-router";
+import {Link, useNavigate} from "react-router";
 import toast from "react-hot-toast";
 import {useAuth} from "../../../../src/firebase/AuthContext";
 import darkMode from "/assets/icons/dark-mode.svg";
 import lightMode from "/assets/icons/light-mode.svg";
 import {useDarkMode} from "~/components/useDarkMode";
+import dashboard from "/assets/icons/dashboard.png";
+
 export default function AccountMenu() {
 
     const {user, role} = useAuth();
@@ -113,9 +115,17 @@ export default function AccountMenu() {
                     <span>Toggle Theme</span>
                 </MenuItem>
                 </div>
+
                 <Divider />
+
                 <MenuItem onClick={handleClose}>
-                    <Avatar /> My account
+                    {/*<Avatar /> My account*/}
+                    <Link to="/dashboard">
+                        <div className="dashboard" className="flex items-center gap-2">
+                            <img src={dashboard} alt="dashboard" className="w-8 h-8" />
+                            <span className="badge">Dashboard</span>
+                        </div>
+                    </Link>
                 </MenuItem>
                 <Divider />
 
