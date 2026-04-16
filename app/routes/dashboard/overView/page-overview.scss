@@ -1,0 +1,17 @@
+@use "../../../index" as *;
+
+.page-overview {
+  .header {
+    h1 {
+      @include mobile {
+         font-size: 1.2rem;
+      }
+    }
+
+    p {
+      @include mobile {
+        font-size: 1rem;
+      }
+    }
+  }
+}
