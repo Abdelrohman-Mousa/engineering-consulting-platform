@@ -191,3 +191,11 @@ html.dark {
         color: rgba(0, 0, 0, 0.66);
     }
 }
+
+.stats-card {
+    @apply p-6 flex flex-col gap-6 bg-white shadow-md shadow-black/20 rounded-3xl text-black;
+
+    .content {
+        @apply flex flex-row md:flex-col-reverse xl:flex-row xl:items-center gap-3 justify-between;
+    }
+}
