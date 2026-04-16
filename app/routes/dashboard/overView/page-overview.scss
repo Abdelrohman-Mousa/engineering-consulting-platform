@@ -2,6 +2,9 @@
 
 .page-overview {
   .header {
+    @include mobile {
+      padding: 1rem 0.2rem;
+    }
     h1 {
       @include mobile {
          font-size: 1.2rem;

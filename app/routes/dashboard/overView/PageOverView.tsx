@@ -22,7 +22,7 @@ const PageOverView = () => {
                 <p>Here you can monitor key data, review incoming requests, and manage messages and consultations efficiently from one place.</p>
             </div>
 
-            <section className="flex flex-col gap-6 px-4">
+            <section className="flex flex-col gap-6 px-1">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
                     <StatsCard
                         headerTitle="Total Users"
