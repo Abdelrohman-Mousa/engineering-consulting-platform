@@ -1,4 +1,5 @@
 import type { AxisModel } from "@syncfusion/ej2-react-charts";
+import {formatDate} from "~/lib/utils";
 
 export const userXAxis: AxisModel = {
     valueType: "Category",
@@ -28,3 +29,33 @@ export const consultYAxis: AxisModel = {
     majorGridLines: { width: 1 },
     labelStyle: { fontWeight: "500" },
 };
+
+export const users = [
+    {
+        id: 1,
+        name: "John Doe",
+        email: "john.doe@example.com",
+        imageUrl: "/assets/images/people-1.jpg",
+        dateJoined: new Date("2025-01-01"),
+        itineraryCreated: 10,
+        status: "user",
+    },
+    {
+        id: 2,
+        name: "Jane Smith",
+        email: "jane.smith@example.com",
+        imageUrl: "/assets/images/people-1.jpg",
+        dateJoined: new Date("2025-01-01"),
+        itineraryCreated: 4,
+        status: "user",
+    },
+    {
+        id: 3,
+        name: "John Smith",
+        email: "john.smith@example.com",
+        imageUrl: "/assets/images/people-1.jpg",
+        dateJoined: new Date("2025-01-01"),
+        itineraryCreated: 8,
+        status: "admin",
+    },
+];

@@ -29,7 +29,7 @@ const PageOverView = () => {
     const userGrowth = [
         { day: "Sat", count: 20 },
         { day: "Sun", count: 35 },
-        { day: "Mon", count: 28 },
+        { day: "Mon", count: 20 },
         { day: "Tue", count: 40 },
         { day: "Wed", count: 32 },
         { day: "Thu", count: 50 },
