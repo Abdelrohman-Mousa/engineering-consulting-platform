@@ -6,9 +6,30 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
+//
+// export const formatDate = (createdAt: any): string => {
+//   if (!createdAt) return "-";
+//
+//   // Firestore Timestamp
+//   if (createdAt.toDate) {
+//     return dayjs(createdAt.toDate()).format("MMMM DD, YYYY • hh:mm A");
+//   }
+//
+//   // Object فيه seconds
+//   if (createdAt.seconds) {
+//     return dayjs(createdAt.seconds * 1000).format("MMMM DD, YYYY • hh:mm A");
+//   }
+//
+//   return "-";
+// };
 
 export const formatDate = (createdAt: any): string => {
   if (!createdAt) return "-";
+
+  // Date object (الحالة اللي عندك)
+  if (createdAt instanceof Date) {
+    return dayjs(createdAt).format("MMMM DD, YYYY • hh:mm A");
+  }
 
   // Firestore Timestamp
   if (createdAt.toDate) {

@@ -1,3 +1,4 @@
+import "./users.scss";
 import {ColumnDirective, ColumnsDirective, GridComponent} from "@syncfusion/ej2-react-grids";
 import {users} from "~/constants";
 import {cn, formatDate} from "~/lib/utils";
@@ -61,11 +62,9 @@ const Users = () => {
                                         {status}
                                     </h3>
                             </article>
-
                         )}
                     />
                 </ColumnsDirective>
-
             </GridComponent>
         </div>
     )
