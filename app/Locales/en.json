@@ -164,5 +164,19 @@
     "tikTok": "TikTok",
 
     "copyRight": "ADVANCE. All rights reserved."
+  },
+
+  "dashboard": {
+    "title-1": "Welcome to the Dashboard",
+    "pra-1": "Here you can monitor key data, review incoming requests, and manage messages and consultations efficiently from one place.",
+    "total-users": "Total Users",
+    "total-messages": "Total Messages",
+    "total-consultation": "Total Consultation",
+    "vs-last-month": "vs last month",
+
+    "overView": "OverView",
+    "Users": "Users",
+    "Contact-messages": "Contact Messages",
+    "Consultation-requests": "Consultation Requests"
   }
 }

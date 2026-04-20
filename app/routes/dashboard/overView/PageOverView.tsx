@@ -11,8 +11,12 @@ import {
     SeriesCollectionDirective, SeriesDirective
 } from "@syncfusion/ej2-react-charts";
 import {consultXAxis, consultYAxis, userXAxis, userYAxis} from "~/constants";
+import {useTranslation} from "react-i18next";
 
 const PageOverView = () => {
+
+    const { t } = useTranslation();
+
 
     const dashboardStats = {
         totalUsers: 12450,
@@ -51,26 +55,26 @@ const PageOverView = () => {
     return (
         <div className="page-overview">
             <div className="header">
-                <h1>Welcome to the Dashboard</h1>
-                <p>Here you can monitor key data, review incoming requests, and manage messages and consultations efficiently from one place.</p>
+                <h1>{t("dashboard.title-1")}</h1>
+                <p>{t("dashboard.pra-1")}</p>
             </div>
 
             <section className="flex flex-col gap-6 px-1">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
                     <StatsCard
-                        headerTitle="Total Users"
+                        headerTitle={t("dashboard.total-users")}
                         total={totalUsers}
                         currenMonthCount={usersJoined.currentMonth}
                         lastMonthCount={usersJoined.lastMonth}
                     />
                     <StatsCard
-                        headerTitle="Total Messages"
+                        headerTitle={t("dashboard.total-messages")}
                         total={totalMessages}
                         currenMonthCount={messagesSent.currentMonth}
                         lastMonthCount={messagesSent.lastMonth}
                     />
                     <StatsCard
-                        headerTitle="Total Consultation"
+                        headerTitle={t("dashboard.total-consultation")}
                         total={totalConsultations}
                         currenMonthCount={consultationsReceived.currentMonth}
                         lastMonthCount={consultationsReceived.lastMonth}

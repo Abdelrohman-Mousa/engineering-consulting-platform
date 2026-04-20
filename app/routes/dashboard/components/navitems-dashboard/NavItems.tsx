@@ -1,8 +1,11 @@
 import "./navitems.scss";
 import {Link, NavLink} from "react-router";
 import {useAuth} from "../../../../../src/firebase/AuthContext";
+import {useTranslation} from "react-i18next";
 
 const NavItems = ({ handleClick }: { handleClick?: () => void}) => {
+
+    const { t } = useTranslation();
 
     const { user } = useAuth();
 
@@ -10,23 +13,23 @@ const NavItems = ({ handleClick }: { handleClick?: () => void}) => {
     const sidebarItems = [
         {
             id: 1,
-            label: "OverView",
+            label: t("dashboard.overView"),
             href: "/dashboard",
             end: true,
         },
         {
             id: 2,
-            label: "Users",
+            label: t("dashboard.Users"),
             href: "/dashboard/users",
         },
         {
             id: 3,
-            label: "Contact Messages",
+            label: t("dashboard.Contact-messages"),
             href: "/dashboard/messages",
         },
         {
             id: 4,
-            label: "Consultation Requests",
+            label: t("dashboard.Consultation-requests"),
             href: "/dashboard/consultation",
         }
     ]
@@ -35,7 +38,7 @@ const NavItems = ({ handleClick }: { handleClick?: () => void}) => {
         <section className="nav-items">
             <Link to="/dashboard" className="link-logo">
                 <img src="/assets/icons/logoProjects.png" alt="logo"/>
-                <h1>Advance</h1>
+                <h1>{t("navbar.logo")}</h1>
             </Link>
 
             <div className="container-sidebar">

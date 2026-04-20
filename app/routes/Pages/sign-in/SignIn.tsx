@@ -9,6 +9,7 @@ import {useNavigate} from "react-router";
 import toast from "react-hot-toast";
 import {doc, getDoc} from "firebase/firestore";
 import {db} from "../../../../src/firebase/firebaseConfig";
+import {Link} from "react-router";
 
 const SignIn = () => {
     const { t } = useTranslation();
@@ -72,10 +73,12 @@ const SignIn = () => {
 
     return (
         <div className="signInPage">
-            <div className="signIn-logo">
-                <img src="/assets/icons/logoProjects.png" alt="logo" />
-                <h1>{t("navbar.logo")}</h1>
-            </div>
+            <Link to="/">
+              <div className="signIn-logo">
+                  <img src="/assets/icons/logoProjects.png" alt="logo" />
+                  <h1>{t("navbar.logo")}</h1>
+              </div>
+            </Link>
 
             <div className="signIn-form">
                 <div className="signIn-content">

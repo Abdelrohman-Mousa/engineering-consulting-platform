@@ -1,4 +1,5 @@
 import {calculateTrendPercentage, cn} from "~/lib/utils";
+import {useTranslation} from "react-i18next";
 
 interface StatsCard {
     headerTitle: string;
@@ -16,6 +17,9 @@ const StatsCard = ({
     const { trend, percentage } = calculateTrendPercentage( currenMonthCount, lastMonthCount);
 
     const isDecrement = trend === "decrement";
+
+    const { t } = useTranslation();
+
 
     return (
         <article className="stats-card">
@@ -37,7 +41,7 @@ const StatsCard = ({
                                 {Math.round(percentage)}%
                             </figcaption>
                         </figure>
-                        <p className="text-sm font-medium text-gray-600 truncate">vs last month</p>
+                        <p className="text-sm font-medium text-gray-600 truncate">{t("dashboard.vs-last-month")}</p>
                     </div>
                 </div>
 

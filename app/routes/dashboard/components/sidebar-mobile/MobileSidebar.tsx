@@ -2,9 +2,12 @@ import { Link } from "react-router";
 import {SidebarComponent} from "@syncfusion/ej2-react-navigations";
 import "./mobile-sidebar.scss";
 import NavItems from "~/routes/dashboard/components/navitems-dashboard/NavItems";
-// import NavItems from "~/components/sidebar-admin-dashboard/NavItems";
+import {useTranslation} from "react-i18next";
 
 const MobileSidebar = () => {
+
+    const { t } = useTranslation();
+
     let sidebar: SidebarComponent;
 
     const toggleSidebar = () => {
@@ -19,7 +22,7 @@ const MobileSidebar = () => {
                         src="/assets/icons/logoProjects.png"
                         alt="logo"
                     />
-                    <h1>Advance</h1>
+                    <h1>{t("navbar.logo")}</h1>
                 </Link>
 
                 <button onClick={toggleSidebar}>
