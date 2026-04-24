@@ -1,12 +1,14 @@
 .nav-items {
   padding: 0 0.5rem;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+
   .link-logo {
     border-bottom: 1px solid #e2e8f0;
     padding: 1rem 0;
     display: flex;
     justify-content: center;
     align-items: center;
-
 
     img {
       border-radius: 2rem;
@@ -101,6 +103,21 @@
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
+      }
+    }
+  }
+}
+
+
+//Dark Mode
+html.dark {
+  .nav-items {
+    background-color: #071320;
+    border: 1px solid #2d2d2d;
+    .link-logo {
+      border-bottom: 1px solid #706b6b;
+      h1 {
+        color: #ffffff;
       }
     }
   }

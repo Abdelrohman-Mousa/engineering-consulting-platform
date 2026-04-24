@@ -210,3 +210,14 @@ html.dark {
 .status-column {
     @apply flex justify-center items-center gap-1 w-[65px] py-[2px]  rounded-2xl mix-blend-multiply;
 }
+
+  html.dark {
+      .header {
+          h1 {
+              color: #ffffff;
+          }
+          p {
+              color: #ffffff;
+          }
+      }
+  }
