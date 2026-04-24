@@ -1,17 +1,63 @@
 import "./users.scss";
 import {ColumnDirective, ColumnsDirective, GridComponent} from "@syncfusion/ej2-react-grids";
-import {users} from "~/constants";
 import {cn, formatDate} from "~/lib/utils";
+import {useState, useEffect} from "react";
+import {getUsers} from "../../../../src/get-data/getUsers";
+import { useRef } from "react";
+
 
 type UserData = {
+    id: string; // 🔥 مهم
     name: string;
     email: string;
-    dateJoined: Date;
-    status: string;
+    createdAt: Date;
+    role: string;
     imageUrl: string;
 };
 
 const Users = () => {
+
+    const [allUsers, setAllUsers] = useState<UserData[]>([]);
+    const [lastDoc, setLastDoc] = useState<any>(null);
+    const [hasMore, setHasMore] = useState(true);
+    const [loading, setLoading] = useState(false);
+
+
+    const pageSize = 10;
+
+    const loadUsers = async () => {
+        if (!hasMore || loading) return;
+
+        setLoading(true);
+
+        const res = await getUsers({
+            pageSize,
+            lastDoc,
+        });
+
+        setAllUsers(prev => { // ✅ صح
+            const newUsers = res.users.filter(
+                user => !prev.find(p => p.id === user.id)
+            );
+            return [...prev, ...newUsers];
+        });
+
+        setLastDoc(res.lastDoc);
+        setHasMore(res.hasMore);
+
+        setLoading(false);
+    };
+
+    // ✅ بعد الفنكشن
+    const hasFetched = useRef(false);
+
+    useEffect(() => {
+        if (hasFetched.current) return;
+
+        loadUsers();
+        hasFetched.current = true;
+    }, []);
+
     return (
         <div className="all-users wrapper">
             <div className="header">
@@ -19,7 +65,7 @@ const Users = () => {
                 <p>Filter, sort, and access detailed user profiles</p>
             </div>
 
-            <GridComponent dataSource={users} gridLines="None">
+            <GridComponent dataSource={allUsers} gridLines="None">
                 <ColumnsDirective>
                     <ColumnDirective
                        field="name"
@@ -42,30 +88,36 @@ const Users = () => {
                     />
 
                     <ColumnDirective
-                        field="dateJoined"
+                        field="createdAt"
                         headerText="Date Joined"
                         width={150}
                         template={(props: UserData) => (
-                            <span>{formatDate(props.dateJoined)}</span>
+                            <span>{formatDate(props.createdAt)}</span>
                         )}
                     />
 
                     <ColumnDirective
-                        field="status"
+                        field="role"
                         headerText="Type"
                         width="100"
                         textAlign="Left"
-                        template={({ status }: UserData) => (
-                            <article className={cn('status-column', status === 'user' ? 'bg-green-200' : 'bg-gray-200')}>
-                                <div className={cn('size-1.5 rounded-full', status === 'user' ? 'bg-green-500': 'bg-gray-500')} />
-                                    <h3 className={cn('font-inter text-xs font-medium', status === 'user' ? 'text-green-700' : 'text-gray-700')}>
-                                        {status}
+                        template={({ role }: UserData) => (
+                            <article className={cn('status-column', role === 'user' ? 'bg-green-200' : 'bg-gray-200')}>
+                                <div className={cn('size-1.5 rounded-full', role === 'user' ? 'bg-green-500': 'bg-gray-500')} />
+                                    <h3 className={cn('font-inter text-xs font-medium', role === 'user' ? 'text-green-700' : 'text-gray-700')}>
+                                        {role}
                                     </h3>
                             </article>
                         )}
                     />
                 </ColumnsDirective>
             </GridComponent>
+
+            {hasMore && (
+                <button onClick={loadUsers} disabled={loading} className="btn-load-more">
+                    {loading ? "d" : "Load More"}
+                </button>
+            )}
         </div>
     )
 }
