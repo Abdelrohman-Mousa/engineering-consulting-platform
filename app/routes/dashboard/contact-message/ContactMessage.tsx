@@ -77,9 +77,6 @@ const ContactMessage = () => {
                         textAlign="Left"
                         width="100"
                     />
-
-
-
                 </ColumnsDirective>
             </GridComponent>
         </div>
