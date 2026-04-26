@@ -1,11 +1,44 @@
 import "./contact-message.scss";
 import search from "/assets/icons/search.svg";
+import closed from "/assets/icons/closed.png";
+import user from "/public/assets/images/people-3.jpg";
 import FilterMessage from "~/routes/components/material-ui/FilterMessage";
 import {ColumnDirective, ColumnsDirective, GridComponent} from "@syncfusion/ej2-react-grids";
 import {message} from "~/constants";
 import {cn, formatDate} from "~/lib/utils";
+import ActionTemplate from "~/routes/dashboard/contact-message/ActionTemplate";
+import { motion, AnimatePresence } from "framer-motion";
+import {useState} from "react";
+
+
+interface Message {
+    id?: string;
+    name: string;
+    email: string;
+    phoneNumber: string;
+    subject: string;
+    company: string;
+    message: string;
+    createdAt?: any;
+    status?: MessageStatus;
+    imageUrl?: string;
+}
+
 
 const ContactMessage = () => {
+
+
+    const [selectedMessage, setSelectedMessage] = useState<Message | null>(null);
+    const [open, setOpen] = useState(false);
+
+
+    const handleView = (rowData: Message) => {
+        setSelectedMessage(rowData);
+        setOpen(true);
+    };
+
+
+
     return (
         <div className="contact-message">
             <div className="header-container">
@@ -52,11 +85,11 @@ const ContactMessage = () => {
                     />
 
                     <ColumnDirective
-                        field="dateJoined"
+                        field="createdAt"
                         headerText="Date/Time"
                         textAlign="Left"
                         width="150"
-                        template={({ dateJoined }: { dateJoined: string }) => formatDate(dateJoined)}
+                        template={({ createdAt }: { createdAt: string }) => formatDate(createdAt)}
                     />
 
                     <ColumnDirective
@@ -73,12 +106,75 @@ const ContactMessage = () => {
                     />
 
                     <ColumnDirective
-                        headerText="Details Messages"
+                        headerText="Action"
                         textAlign="Left"
                         width="100"
+                        template={(props: Message) => <ActionTemplate rowData={props} onView={handleView} />}
                     />
                 </ColumnsDirective>
             </GridComponent>
+
+
+            {/*Modal*/}
+            <AnimatePresence>
+                {open && selectedMessage && (
+                    <motion.div
+                        className="modal-overlay"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        onClick={() => setOpen(false)}
+                    >
+                        <motion.div
+                            className="modal"
+                            initial={{ y: 40, scale: 0.9, opacity: 0 }}
+                            animate={{ y: 0, scale: 1, opacity: 1 }}
+                            exit={{ y: 40, scale: 0.9, opacity: 0 }}
+                            transition={{ duration: 0.25 }}
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            <div className="modal-container">
+                                <div className="modal-header">
+                                    <h3>Messages Details</h3>
+                                    <button type="button" onClick={() => setOpen(false)} className="btn-closed">
+                                        <img src={closed} alt={closed}/>
+                                    </button>
+                                </div>
+
+                                <div className="content-container">
+
+
+                                <div className="modal-name">
+                                    <img src={user} alt="imag-Users" />
+                                    <div className="name-time">
+                                        <h2>{selectedMessage.name}</h2>
+                                        <p><strong>Sent:</strong> {formatDate(selectedMessage.createdAt)}</p>
+                                    </div>
+                                </div>
+
+                                <div className="subject-company">
+                                    <div className="subject">
+                                        <h2>Subject:</h2>
+                                        <p className="content-message">{selectedMessage.subject}</p>
+                                    </div>
+
+                                    <div className="subject">
+                                        <h2>Phone Number:</h2>
+                                        <p className="content-message">{selectedMessage.phoneNumber}</p>
+                                    </div>
+                                </div>
+
+                                    <div className="modal-messages">
+                                        <h2>Messages:</h2>
+                                        <p className="content-message">{selectedMessage.messages}</p>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </div>
     )
 }

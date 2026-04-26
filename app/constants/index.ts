@@ -36,20 +36,24 @@ export const message = [
         name: "John Doe",
         email: "john.doe@example.com",
         imageUrl: "/assets/images/people-1.jpg",
-        dateJoined: new Date("2025-01-01"),
+        createdAt: new Date("2025-01-01"),
         itineraryCreated: 10,
         status: "read",
-        subject: "New Consultation Request",
+        subject: "New Consultation Request dsc sdcsdcsdcsdcc cdcsdcdcdcsdc",
+        phoneNumber: "+1234567890",
+        messages: "rfregege gegrge gergegegv regrge gergr gegeg..."
     },
     {
         id: 2,
         name: "Jane Smith",
         email: "jane.smith@example.com",
         imageUrl: "/assets/images/people-2.jpg",
-        dateJoined: new Date("2025-08-05"),
+        createdAt: new Date("2025-08-05"),
         itineraryCreated: 4,
         status: "new",
         subject: "New Consultation Request",
+        phoneNumber: "+1234567890",
+
 
     },
     {
@@ -57,10 +61,12 @@ export const message = [
         name: "John Smith",
         email: "john.smith@example.com",
         imageUrl: "/assets/images/people-3.jpg",
-        dateJoined: new Date("2025-01-01"),
+        createdAt: new Date("2025-01-01"),
         itineraryCreated: 8,
         status: "read",
         subject: "New Consultation Request",
+        phoneNumber: "+1234567890",
+
 
     },
     {
@@ -68,10 +74,12 @@ export const message = [
         name: "John Smith",
         email: "john.smith@example.com",
         imageUrl: "/assets/images/people-1.jpg",
-        dateJoined: new Date("2025-01-01"),
+        createdAt: new Date("2025-01-01"),
         itineraryCreated: 8,
         status: "closed",
         subject: "New Consultation Request",
+        phoneNumber: "+1234567890",
+
 
     },
     {
@@ -79,10 +87,12 @@ export const message = [
         name: "John Smith",
         email: "john.smith@example.com",
         imageUrl: "/assets/images/people-2.jpg",
-        dateJoined: new Date("2025-01-01"),
+        createdAt: new Date("2025-01-01"),
         itineraryCreated: 8,
         status: "read",
         subject: "New Consultation Request",
+        phoneNumber: "+1234567890",
+
 
     },
     {
@@ -90,10 +100,12 @@ export const message = [
         name: "John Smith",
         email: "john.smith@example.com",
         imageUrl: "/assets/images/people-1.jpg",
-        dateJoined: new Date("2025-01-01"),
+        createdAt: new Date("2025-01-01"),
         itineraryCreated: 8,
         status: "new",
         subject: "New Consultation Request",
+        phoneNumber: "+1234567890",
+
 
     },
 ];
