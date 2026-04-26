@@ -30,7 +30,7 @@ export const consultYAxis: AxisModel = {
     labelStyle: { fontWeight: "500" },
 };
 
-export const users = [
+export const message = [
     {
         id: 1,
         name: "John Doe",
@@ -38,7 +38,8 @@ export const users = [
         imageUrl: "/assets/images/people-1.jpg",
         dateJoined: new Date("2025-01-01"),
         itineraryCreated: 10,
-        status: "admin",
+        status: "read",
+        subject: "New Consultation Request",
     },
     {
         id: 2,
@@ -47,7 +48,9 @@ export const users = [
         imageUrl: "/assets/images/people-2.jpg",
         dateJoined: new Date("2025-08-05"),
         itineraryCreated: 4,
-        status: "user",
+        status: "new",
+        subject: "New Consultation Request",
+
     },
     {
         id: 3,
@@ -56,7 +59,9 @@ export const users = [
         imageUrl: "/assets/images/people-3.jpg",
         dateJoined: new Date("2025-01-01"),
         itineraryCreated: 8,
-        status: "user",
+        status: "read",
+        subject: "New Consultation Request",
+
     },
     {
         id: 3,
@@ -65,7 +70,9 @@ export const users = [
         imageUrl: "/assets/images/people-1.jpg",
         dateJoined: new Date("2025-01-01"),
         itineraryCreated: 8,
-        status: "user",
+        status: "closed",
+        subject: "New Consultation Request",
+
     },
     {
         id: 3,
@@ -74,7 +81,9 @@ export const users = [
         imageUrl: "/assets/images/people-2.jpg",
         dateJoined: new Date("2025-01-01"),
         itineraryCreated: 8,
-        status: "user",
+        status: "read",
+        subject: "New Consultation Request",
+
     },
     {
         id: 3,
@@ -83,6 +92,8 @@ export const users = [
         imageUrl: "/assets/images/people-1.jpg",
         dateJoined: new Date("2025-01-01"),
         itineraryCreated: 8,
-        status: "user",
+        status: "new",
+        subject: "New Consultation Request",
+
     },
 ];
