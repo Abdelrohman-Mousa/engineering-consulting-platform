@@ -4,7 +4,7 @@ import {cn, formatDate} from "~/lib/utils";
 import {useState, useEffect} from "react";
 import {getUsers} from "../../../../src/get-data/getUsers";
 import { useRef } from "react";
-
+import PulseLoader from "~/components/loader/PulseLoader";
 
 type UserData = {
     id: string; // 🔥 مهم
@@ -35,7 +35,7 @@ const Users = () => {
             lastDoc,
         });
 
-        setAllUsers(prev => { // ✅ صح
+        setAllUsers(prev => {
             const newUsers = res.users.filter(
                 user => !prev.find(p => p.id === user.id)
             );
@@ -115,7 +115,7 @@ const Users = () => {
 
             {hasMore && (
                 <button onClick={loadUsers} disabled={loading} className="btn-load-more">
-                    {loading ? "d" : "Load More"}
+                    {loading ? <PulseLoader color="#ccc"/> : "Load More"}
                 </button>
             )}
         </div>
