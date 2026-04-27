@@ -1,6 +1,11 @@
 import "./contact-message.scss";
 import search from "/assets/icons/search.svg";
 import closed from "/assets/icons/closed.png";
+import copy from "/assets/icons/copy.svg";
+import check from "/assets/icons/checked.svg";
+import send from "/assets/icons/send.svg";
+import markRead from "/assets/icons/read.svg";
+import markClosed from "/assets/icons/closed.svg";
 import user from "/public/assets/images/people-3.jpg";
 import FilterMessage from "~/routes/components/material-ui/FilterMessage";
 import {ColumnDirective, ColumnsDirective, GridComponent} from "@syncfusion/ej2-react-grids";
@@ -18,7 +23,7 @@ interface Message {
     phoneNumber: string;
     subject: string;
     company: string;
-    message: string;
+    messages: string;
     createdAt?: any;
     status?: MessageStatus;
     imageUrl?: string;
@@ -30,6 +35,7 @@ const ContactMessage = () => {
 
     const [selectedMessage, setSelectedMessage] = useState<Message | null>(null);
     const [open, setOpen] = useState(false);
+    const [copied, setCopied] = useState(false);
 
 
     const handleView = (rowData: Message) => {
@@ -37,6 +43,12 @@ const ContactMessage = () => {
         setOpen(true);
     };
 
+    const handleCopy = () => {
+        if (!selectedMessage?.email) return;
+        navigator.clipboard.writeText(selectedMessage.email);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 1500);
+    };
 
 
     return (
@@ -167,7 +179,41 @@ const ContactMessage = () => {
                                     <div className="modal-messages">
                                         <h2>Messages:</h2>
                                         <p className="content-message">{selectedMessage.messages}</p>
+                                    </div>
 
+                                    <div className="modal-email-replayMessage">
+                                        <div className="modal-email">
+                                          <h2>Email Address:</h2>
+                                          <p className="content-message">
+                                              {selectedMessage.email}
+                                              <button type="button" className="btn-copy" onClick={handleCopy}>
+                                                  <img src={copied ? check : copy} alt="Copy" />
+                                              </button>
+                                          </p>
+
+                                            <div className="mark-as">
+                                                <div className="read as">
+                                                    <h4>Mark as Read</h4>
+                                                    <img src={markRead} alt="Mark as Read"/>
+                                                </div>
+                                                <div className="closed as">
+                                                    <h4>Mark as Closed</h4>
+                                                    <img src={markClosed} alt="Mark as Closed"/>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div className="replay-messages">
+                                            <h2>Respond to Client</h2>
+                                            <textarea
+                                                placeholder="Write your message..."
+                                                rows={10}
+                                            />
+                                            <button className="btn-message-contact-replay">
+                                                Send Message
+                                                <img src={send} alt="send Message"/>
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
