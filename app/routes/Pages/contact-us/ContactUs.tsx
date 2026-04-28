@@ -41,12 +41,22 @@ const ContactUs = () => {
         return /^[0-9]{10,15}$/.test(phone);
     };
 
+
     const handleSubmit = async (e: any) => {
         e.preventDefault();
 
         if (loading) return;
 
-        const { name, email, phone, subject, message } = formData;
+        // 👇 هنا تحطه
+        const cleanedData = {
+            name: formData.name.trim(),
+            email: formData.email.trim(),
+            phone: formData.phone.trim(),
+            subject: formData.subject.trim(),
+            message: formData.message.trim(),
+        };
+
+        const { name, email, phone, subject, message } = cleanedData;
 
         if (!name || !email || !phone || !subject || !message) {
             toast.error("Please fill all fields");
@@ -67,9 +77,12 @@ const ContactUs = () => {
             setLoading(true);
 
             const promise = addDoc(collection(db, "ContactMessages"), {
-                ...formData,
+                ...cleanedData, // 👈 هنا كمان
                 createdAt: serverTimestamp(),
-                status: "new"
+                status: "new",
+                isRead: false,
+                replied: false,
+                source: "contact_page"
             });
 
             await toast.promise(promise, {
