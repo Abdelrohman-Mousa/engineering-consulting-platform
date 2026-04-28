@@ -6,9 +6,92 @@ import email from "/assets/icons/email.svg";
 import oclock from "/assets/icons/oclock.svg";
 import MapComponent from "~/components/MapComponent";
 import {useTranslation} from "react-i18next";
+import {useState} from "react";
+import { db } from "~/../src/firebase/firebaseConfig";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import PulseLoader from "~/components/loader/PulseLoader";
+import toast from "react-hot-toast";
 
 const ContactUs = () => {
     const { t } = useTranslation();
+
+    const [loading, setLoading] = useState(false);
+    const [formData, setFormData] = useState({
+        name: "",
+        email: "",
+        phone: "",
+        subject: "",
+        message: ""
+    });
+
+    const handleChange = (e: any) => {
+        setFormData({
+            ...formData,
+            [e.target.id]: e.target.value
+        });
+    };
+
+    //Validate Email
+    const isValidEmail = (email: string) => {
+        return /\S+@\S+\.\S+/.test(email);
+    };
+
+    //Validate Phone Number
+    const isValidPhone = (phone: string) => {
+        return /^[0-9]{10,15}$/.test(phone);
+    };
+
+    const handleSubmit = async (e: any) => {
+        e.preventDefault();
+
+        if (loading) return;
+
+        const { name, email, phone, subject, message } = formData;
+
+        if (!name || !email || !phone || !subject || !message) {
+            toast.error("Please fill all fields");
+            return;
+        }
+
+        if (!isValidEmail(email)) {
+            toast.error("Invalid email");
+            return;
+        }
+
+        if (!isValidPhone(phone)) {
+            toast.error("Invalid phone number");
+            return;
+        }
+
+        try {
+            setLoading(true);
+
+            const promise = addDoc(collection(db, "ContactMessages"), {
+                ...formData,
+                createdAt: serverTimestamp(),
+                status: "new"
+            });
+
+            await toast.promise(promise, {
+                loading: "Sending message...",
+                success: "Message sent successfully ✅",
+                error: "Something went wrong ❌",
+            });
+
+            setFormData({
+                name: "",
+                email: "",
+                phone: "",
+                subject: "",
+                message: ""
+            });
+
+        } catch (error) {
+            console.error(error);
+        } finally {
+            setLoading(false);
+        }
+    };
 
     return (
         <div className="contactUs">
@@ -20,14 +103,23 @@ const ContactUs = () => {
 
             <div className="contactUs-container">
                 <div className="contactUs-form">
-                    <FormContact />
+                   <form onSubmit={handleSubmit} >
+                       <FormContact
+                           formData={formData}
+                           handleChange={handleChange}
+                       />
 
-                    <div className="contact-btn">
-                        <div className="image">
-                            <img src={send} alt="Send Message" />
-                        </div>
-                      <h1>{t("contact-us.btn")}</h1>
-                    </div>
+                      <button
+                          type="submit"
+                          className="contact-btn"
+                          disabled={loading}
+                      >
+                          <div className="image">
+                              <img src={send} alt="Send Message" />
+                          </div>
+                          {loading ? <PulseLoader /> : t("contact-us.btn")}
+                      </button>
+                   </form>
                 </div>
 
                 <div className="contact-map">

@@ -77,13 +77,15 @@
       padding: 2rem 1rem;
       border-radius: 2rem;
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2),
-       0 8px 16px rgba(0, 0, 0, 0.25);
+      0 8px 16px rgba(0, 0, 0, 0.25);
       @include mobile {
         width: 100%;
       }
       @include tablet {
         width: 100%;
       }
+
+      form {
 
       .contact-btn {
         display: flex;
@@ -97,6 +99,8 @@
         font-size: 1.1rem;
         cursor: pointer;
         transition: all 0.3s ease;
+        width: 100%;
+        margin-top: 1rem;
 
         &:hover {
           background-color: #011b47;
@@ -107,6 +111,7 @@
           height: 25px;
           object-fit: cover;
           object-position: center;
+
           img {
             width: 100%;
             height: 100%;
@@ -114,6 +119,7 @@
           }
         }
       }
+    }
     }
 
     .contact-map {
