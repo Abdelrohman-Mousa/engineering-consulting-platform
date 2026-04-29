@@ -10,24 +10,22 @@ import replay from "/assets/icons/replay.svg";
 import user from "/assets/images/people-3.jpg";
 import FilterMessage from "~/routes/components/material-ui/FilterMessage";
 import {ColumnDirective, ColumnsDirective, GridComponent} from "@syncfusion/ej2-react-grids";
-import {message} from "~/constants";
 import {cn, formatDate} from "~/lib/utils";
 import ActionTemplate from "~/routes/dashboard/contact-message/ActionTemplate";
 import { motion, AnimatePresence } from "framer-motion";
-import {useState} from "react";
+import {useState, useEffect} from "react";
+import {subscribeToMessages, markAsRead, updateStatus} from "/src/firebase/services/contactService";
 
 
 interface Message {
     id?: string;
     name: string;
     email: string;
-    phoneNumber: string;
+    phone: string;
     subject: string;
-    company: string;
-    messages: string;
+    message: string;
     createdAt?: any;
-    status?: MessageStatus;
-    imageUrl?: string;
+    status?: string;
 }
 
 
@@ -35,13 +33,49 @@ const ContactMessage = () => {
 
 
     const [selectedMessage, setSelectedMessage] = useState<Message | null>(null);
+    const [messages, setMessages] = useState<Message[]>([]);
     const [open, setOpen] = useState(false);
     const [copied, setCopied] = useState(false);
 
+    // ReaTime Data With Firebase
+    useEffect(() => {
+        const unsubscribe = subscribeToMessages(setMessages);
 
-    const handleView = (rowData: Message) => {
+        return () => unsubscribe();
+    }, []);
+
+
+    const handleView = async (rowData: Message) => {
         setSelectedMessage(rowData);
         setOpen(true);
+
+        // Mark as Read
+        if (rowData.status === "new" && rowData.id) {
+            await updateStatus(rowData.id, "read");
+        }
+    };
+
+    //handle Close Message
+    const handleCloseMessage = async () => {
+        if (!selectedMessage?.id) return;
+
+        await updateStatus(selectedMessage.id, "closed");
+
+        setSelectedMessage({
+            ...selectedMessage,
+            status: "closed"
+        });
+    };
+
+    const handleMarkAsRead = async () => {
+        if (!selectedMessage?.id) return;
+
+        await updateStatus(selectedMessage.id, "read");
+
+        setSelectedMessage({
+            ...selectedMessage,
+            status: "read"
+        });
     };
 
     const handleCopy = () => {
@@ -51,6 +85,8 @@ const ContactMessage = () => {
         setTimeout(() => setCopied(false), 1500);
     };
 
+    //Counter
+    const newMessagesCount = messages.filter(msg => !msg.isRead).length;
 
     return (
         <div className="contact-message">
@@ -61,7 +97,7 @@ const ContactMessage = () => {
                </div>
 
                 <button className="btn-message">
-                    New Messages: <span>5</span>
+                    New Messages: <span>{newMessagesCount}</span>
                 </button>
             </div>
 
@@ -81,7 +117,7 @@ const ContactMessage = () => {
                 </div>
             </div>
 
-            <GridComponent dataSource={message} gridLines="None">
+            <GridComponent dataSource={messages} gridLines="None">
                 <ColumnsDirective>
                     <ColumnDirective
                         field="name"
@@ -173,13 +209,13 @@ const ContactMessage = () => {
 
                                     <div className="subject">
                                         <h2>Phone Number:</h2>
-                                        <p className="content-message">{selectedMessage.phoneNumber}</p>
+                                        <p className="content-message">{selectedMessage.phone}</p>
                                     </div>
                                 </div>
 
                                     <div className="modal-messages">
                                         <h2>Messages:</h2>
-                                        <p className="content-message">{selectedMessage.messages}</p>
+                                        <p className="content-message">{selectedMessage.message}</p>
                                     </div>
 
                                     <div className="modal-email-replayMessage">
@@ -193,11 +229,12 @@ const ContactMessage = () => {
                                           </p>
 
                                             <div className="mark-as">
-                                                <div className="read as">
+                                                <div className="read as" onClick={handleMarkAsRead}>
                                                     <h4>Mark as Read</h4>
                                                     <img src={markRead} alt="Mark as Read"/>
                                                 </div>
-                                                <div className="closed as">
+
+                                                <div className="closed as" onClick={handleCloseMessage}>
                                                     <h4>Mark as Closed</h4>
                                                     <img src={markClosed} alt="Mark as Closed"/>
                                                 </div>
