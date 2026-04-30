@@ -14,8 +14,9 @@ import {cn, formatDate} from "~/lib/utils";
 import ActionTemplate from "~/routes/dashboard/contact-message/ActionTemplate";
 import { motion, AnimatePresence } from "framer-motion";
 import {useState, useEffect} from "react";
-import {subscribeToMessages, markAsRead, updateStatus} from "/src/firebase/services/contactService";
-
+import {subscribeToMessages, markAsRead, updateStatus} from "src/firebase/services/contactService";
+import { initNotificationSound, playNotificationSound } from "src/firebase/services/notificationService";
+import toast from "react-hot-toast";
 
 interface Message {
     id?: string;
@@ -36,6 +37,8 @@ const ContactMessage = () => {
     const [messages, setMessages] = useState<Message[]>([]);
     const [open, setOpen] = useState(false);
     const [copied, setCopied] = useState(false);
+    const [prevCount, setPrevCount] = useState(0);
+
 
     // ReaTime Data With Firebase
     useEffect(() => {
@@ -51,7 +54,7 @@ const ContactMessage = () => {
 
         // Mark as Read
         if (rowData.status === "new" && rowData.id) {
-            await updateStatus(rowData.id, "read");
+            updateStatus(rowData.id, "read");
         }
     };
 
@@ -59,7 +62,7 @@ const ContactMessage = () => {
     const handleCloseMessage = async () => {
         if (!selectedMessage?.id) return;
 
-        await updateStatus(selectedMessage.id, "closed");
+        updateStatus(selectedMessage.id, "closed");
 
         setSelectedMessage({
             ...selectedMessage,
@@ -70,8 +73,7 @@ const ContactMessage = () => {
     const handleMarkAsRead = async () => {
         if (!selectedMessage?.id) return;
 
-        await updateStatus(selectedMessage.id, "read");
-
+        updateStatus(selectedMessage.id, "read");
         setSelectedMessage({
             ...selectedMessage,
             status: "read"
@@ -86,7 +88,28 @@ const ContactMessage = () => {
     };
 
     //Counter
-    const newMessagesCount = messages.filter(msg => !msg.isRead).length;
+    const newMessagesCount = messages.filter(
+        (msg) => msg.status === "new"
+    ).length;
+
+    useEffect(() => {
+        if (prevCount === 0) {
+            setPrevCount(newMessagesCount);
+            return;
+        }
+
+        if (newMessagesCount > prevCount) {
+            playNotificationSound();
+
+            toast.success("New message received 📩")
+        }
+
+        setPrevCount(newMessagesCount);
+    }, [newMessagesCount, prevCount]);
+
+    useEffect(() => {
+        initNotificationSound();
+    }, []);
 
     return (
         <div className="contact-message">
