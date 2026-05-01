@@ -268,9 +268,11 @@ const ContactMessage = () => {
 
                                 <div className="content-container">
 
-
                                 <div className="modal-name">
-                                    <img src={user} alt="imag-Users" />
+                                    <img
+                                        src={`https://ui-avatars.com/api/?name=${encodeURIComponent(selectedMessage.name)}&background=010101&color=fff`}
+                                        alt="imag-Users"
+                                    />
                                     <div className="name-time">
                                         <h2>{selectedMessage.name}</h2>
                                         <p><strong>Sent:</strong> {formatDate(selectedMessage.createdAt)}</p>
