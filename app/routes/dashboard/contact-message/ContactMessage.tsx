@@ -17,6 +17,9 @@ import {useState, useEffect} from "react";
 import {subscribeToMessages, markAsRead, updateStatus} from "src/firebase/services/contactService";
 import { initNotificationSound, playNotificationSound } from "src/firebase/services/notificationService";
 import toast from "react-hot-toast";
+import emailjs from "@emailjs/browser";
+import PulseLoader from "~/components/loader/PulseLoader";
+
 
 interface Message {
     id?: string;
@@ -29,9 +32,7 @@ interface Message {
     status?: string;
 }
 
-
 const ContactMessage = () => {
-
 
     const [selectedMessage, setSelectedMessage] = useState<Message | null>(null);
     const [messages, setMessages] = useState<Message[]>([]);
@@ -40,7 +41,8 @@ const ContactMessage = () => {
     const [prevCount, setPrevCount] = useState(0);
     const [statusFilter, setStatusFilter] = useState<string>("all");
     const [searchTerm, setSearchTerm] = useState("");
-
+    const [replyText, setReplyText] = useState("");
+    const [sending, setSending] = useState(false);
 
     const filteredMessages = messages.filter((msg) => {
         // filter by status
@@ -125,6 +127,39 @@ const ContactMessage = () => {
     useEffect(() => {
         initNotificationSound();
     }, []);
+
+
+    const handleSendReply = async () => {
+        if (!selectedMessage?.email || !replyText.trim()) {
+            toast.error("Write a message first");
+            return;
+        }
+
+        try {
+            setSending(true);
+
+            await emailjs.send(
+                "service_lk6jx1e", // 👈 حط بتاعك
+                "template_g9bv99k", // 👈 حط بتاعك
+                {
+                    to_email: selectedMessage.email,
+                    message: replyText,
+                    from_name: "Support Team"
+                },
+                "1wtAkqRzMP0zqrDeN" // 👈 حط بتاعك
+            );
+
+            toast.success("Reply sent successfully ✅");
+
+            setReplyText("");
+
+        } catch (error) {
+            console.error(error);
+            toast.error("Failed to send ❌");
+        } finally {
+            setSending(false);
+        }
+    };
 
     return (
         <div className="contact-message">
@@ -291,9 +326,15 @@ const ContactMessage = () => {
                                             <textarea
                                                 placeholder="Write your message..."
                                                 rows={10}
+                                                value={replyText}
+                                                onChange={(e) => setReplyText(e.target.value)}
                                             />
-                                            <button className="btn-message-contact-replay">
-                                                Send Message
+                                            <button
+                                                className="btn-message-contact-replay"
+                                                onClick={handleSendReply}
+                                                disabled={sending}
+                                            >
+                                                {sending ? <PulseLoader /> : "Send Message"}
                                                 <img src={send} alt="send Message"/>
                                             </button>
                                         </div>
