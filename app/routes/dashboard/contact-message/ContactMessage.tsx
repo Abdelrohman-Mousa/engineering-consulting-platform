@@ -38,7 +38,13 @@ const ContactMessage = () => {
     const [open, setOpen] = useState(false);
     const [copied, setCopied] = useState(false);
     const [prevCount, setPrevCount] = useState(0);
+    const [statusFilter, setStatusFilter] = useState<string>("all");
 
+
+    const filteredMessages = messages.filter((msg) => {
+        if (statusFilter === "all") return true;
+        return msg.status === statusFilter;
+    });
 
     // ReaTime Data With Firebase
     useEffect(() => {
@@ -136,11 +142,12 @@ const ContactMessage = () => {
                 </div>
 
                 <div className="filter-container">
-                    <FilterMessage />
+                    <FilterMessage setStatusFilter={setStatusFilter}
+                    />
                 </div>
             </div>
 
-            <GridComponent dataSource={messages} gridLines="None">
+            <GridComponent dataSource={filteredMessages} gridLines="None">
                 <ColumnsDirective>
                     <ColumnDirective
                         field="name"

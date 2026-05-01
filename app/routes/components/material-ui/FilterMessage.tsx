@@ -53,7 +53,7 @@ const StyledMenu = styled((props: MenuProps) => (
     },
 }));
 
-export default function FilterMessage() {
+export default function FilterMessage({ setStatusFilter }: any) {
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
     const handleClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -90,7 +90,10 @@ export default function FilterMessage() {
                 onClose={handleClose}
             >
                 <MenuItem
-                    onClick={handleClose}
+                    onClick={() => {
+                        setStatusFilter("all");
+                        handleClose();
+                    }}
                     disableRipple
                 >
                     All Messages
@@ -101,21 +104,39 @@ export default function FilterMessage() {
 
                 <Divider sx={{ my: 0.5 }} />
 
-                <MenuItem onClick={handleClose} disableRipple>
+                <MenuItem
+                    onClick={() => {
+                        setStatusFilter("new");
+                        handleClose();
+                    }}
+                    disableRipple
+                >
                     New
                     <div className="dots" style={{backgroundColor: "#4CAF50"}}/>
                 </MenuItem>
 
                 <Divider sx={{ my: 0.5 }} />
 
-                <MenuItem onClick={handleClose} disableRipple>
+                <MenuItem
+                    onClick={() => {
+                        setStatusFilter("read");
+                        handleClose();
+                    }}
+                    disableRipple
+                >
                     Read
                     <div className="dots" style={{backgroundColor: "#026bef"}}/>
                 </MenuItem>
 
                 <Divider sx={{ my: 0.5 }} />
 
-                <MenuItem onClick={handleClose} disableRipple>
+                <MenuItem
+                    onClick={() => {
+                        setStatusFilter("closed");
+                        handleClose();
+                    }}
+                    disableRipple
+                >
                     Closed
                     <div className="dots" style={{backgroundColor: "#404040"}}/>
                 </MenuItem>
