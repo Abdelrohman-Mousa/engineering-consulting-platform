@@ -39,11 +39,20 @@ const ContactMessage = () => {
     const [copied, setCopied] = useState(false);
     const [prevCount, setPrevCount] = useState(0);
     const [statusFilter, setStatusFilter] = useState<string>("all");
+    const [searchTerm, setSearchTerm] = useState("");
 
 
     const filteredMessages = messages.filter((msg) => {
-        if (statusFilter === "all") return true;
-        return msg.status === statusFilter;
+        // filter by status
+        const matchStatus =
+            statusFilter === "all" || msg.status === statusFilter;
+
+        // filter by search
+        const matchSearch =
+            msg.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            msg.email.toLowerCase().includes(searchTerm.toLowerCase());
+
+        return matchStatus && matchSearch;
     });
 
     // ReaTime Data With Firebase
@@ -135,6 +144,8 @@ const ContactMessage = () => {
                     <input
                         type="text"
                         placeholder="Search by name or email"
+                        value={searchTerm}
+                        onChange={(e) => setSearchTerm(e.target.value)}
                     />
                     <button className="btn-search">
                         <img src={search} alt="search" />
