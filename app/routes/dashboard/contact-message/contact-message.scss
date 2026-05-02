@@ -462,3 +462,25 @@
     background-color: #041d61;
   }
 }
+
+
+/* عرض الشريط */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+/* الخلفية */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* الجزء اللي بيتحرك */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+/* عند الـ hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
