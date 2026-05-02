@@ -7,7 +7,6 @@ import send from "/assets/icons/send.svg";
 import markRead from "/assets/icons/read.svg";
 import markClosed from "/assets/icons/closed.svg";
 import replay from "/assets/icons/replay.svg";
-import user from "/assets/images/people-3.jpg";
 import FilterMessage from "~/routes/components/material-ui/FilterMessage";
 import {ColumnDirective, ColumnsDirective, GridComponent} from "@syncfusion/ej2-react-grids";
 import {cn, formatDate} from "~/lib/utils";
