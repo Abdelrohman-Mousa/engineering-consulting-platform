@@ -1,3 +1,5 @@
+@use "../../../index" as *;
+
 .consultation-requests {
 
   .counter-search {
@@ -60,7 +62,161 @@
         width: 25px;
         height: 25px;
         object-fit: cover;
+        cursor: pointer;
       }
+    }
+  }
+
+  // Boxes
+  .consultation-requests-boxes {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding: 2rem 1rem;
+
+    .consultation-request-box {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      padding: 1rem 0.5rem;
+      border-radius: 1rem;
+      background-color: #ffffff;
+      border: 1px solid #e5e7eb;
+      box-shadow:
+               0 2px 4px rgba(0, 0, 0, 0.06),
+               0 8px 16px rgba(0, 0, 0, 0.08),
+               0 16px 32px rgba(0, 0, 0, 0.05);
+      width: 32%;
+      @include mobile {
+        width: 100%;
+      }
+
+      .consultation-request-box-name-priority {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        h2 {
+          font-size: 1.1rem;
+          font-weight: 400;
+        }
+        .consultation-request-priority {
+          font-size: 1rem;
+          font-weight: 400;
+          box-shadow:
+                  0 2px 4px rgba(0, 0, 0, 0.06),
+                  0 8px 16px rgba(0, 0, 0, 0.08),
+                  0 16px 32px rgba(0, 0, 0, 0.05);
+          padding: 0.2rem 0.5rem;
+          border-radius: 1rem;
+          background-color: #16406a;
+          color: #ffffff;
+        }
+        .consultation-request-priority.high {
+          background-color: rgba(174, 62, 59, 0.11);
+          color: #ff0000;
+        }
+        .consultation-request-priority.medium {
+          background-color: rgba(188, 124, 43, 0.18);
+          color: #ff9200;
+        }
+        .consultation-request-priority.low {
+          background-color: rgba(56, 149, 57, 0.16);
+          color: #153901;
+        }
+      }
+
+      .consultation-request-box-info {
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+
+        h2 {
+          font-size: 1rem;
+          font-weight: 400;
+          color: rgba(0, 0, 0, 0.85);
+        }
+      }
+
+      .consultation-request-box-country-status {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .country {
+          font-size: 1rem;
+          font-weight: 400;
+          color: rgba(0, 0, 0, 0.85);
+        }
+
+        .consulting-status {
+          border: 1px dashed rgba(0, 0, 0, 0.24);
+          border-radius: 1rem;
+          padding: 0.1rem 0.5rem;
+          font-weight: 500;
+        }
+        .consulting-status.done {
+          background-color: rgba(216, 216, 216, 0.21);
+          color: #323131;
+        }
+        .consulting-status.in_progress {
+          background-color: #DBEAFE;
+          color: #1D4ED8;
+          border: 1px solid #93C5FD;
+        }
+        .consulting-status.pending {
+          background-color: #FEF3C7;
+          color: #B45309;
+          border: 1px solid #FCD34D;
+
+        }
+        .consulting-status.completed {
+          background-color: #D1FAE5;
+          color: #047857;
+          border: 1px solid #6EE7B7;
+
+        }
+        .consulting-status.rejected {
+          background-color: #FEE2E2;
+          color: #B91C1C;
+          border: 1px solid #FCA5A5;
+
+        }
+      }
+
+      .consultation-request-buttons {
+        display: flex;
+        justify-content: space-around;
+        gap: 1rem;
+        padding-top: 0.8rem;
+
+        .btn-edit {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          padding: 0.3rem 0.5rem;
+          border-radius: 1rem;
+          background-color: #16406a;
+          color: #ffffff;
+          font-size: 1rem;
+          cursor: pointer;
+          transition: all 0.3s ease;
+
+          &:hover {
+            background-color: #011b47;
+          }
+
+          img {
+            width: 20px;
+            height: 20px;
+            object-fit: cover;
+            filter: invert(1);
+          }
+        }
+
+      }
+
     }
   }
 }
