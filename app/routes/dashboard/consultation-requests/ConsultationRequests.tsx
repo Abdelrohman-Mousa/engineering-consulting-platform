@@ -8,59 +8,19 @@ import { collection, onSnapshot } from "firebase/firestore";
 import { db } from "src/firebase/firebaseConfig";
 import { useEffect, useState } from "react";
 import {formatDate} from "~/lib/utils";
+import Loader from "~/components/loader/Loader";
 
 const ConsultationRequests = () => {
 
     const [selectedRequest, setSelectedRequest] = useState(null);
     const [requests, setRequests] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [searchTerm, setSearchTerm] = useState("");
 
-    // const requests = [
-    //     {
-    //         id: 1,
-    //         name: "Abdelrohman Mousa",
-    //         email: "abdelrohmanmarey@gmail.com",
-    //         typeConsultation: "Structural Design",
-    //         priority: "high",
-    //         status: "pending",
-    //         date: "2024-01-01",
-    //         message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    //         emirate: "Abu Dhabi",
-    //     },
-    //     {
-    //         id: 2,
-    //         name: "Ahmed Mousa",
-    //         email: "ahmed@gmail.com",
-    //         typeConsultation: "Structural Design",
-    //         priority: "low",
-    //         status: "completed",
-    //         date: "2024-01-01",
-    //         message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    //         emirate: "Sharjah",
-    //     },
-    //     {
-    //         id: 3,
-    //         name: "Mohamed Mousa",
-    //         email: "mohamed@gmail.com",
-    //         typeConsultation: "Structural Design",
-    //         priority: "medium",
-    //         status: "rejected",
-    //         date: "2024-01-01",
-    //         message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    //         emirate: "Ajman",
-    //     },
-    //     {
-    //         id: 4,
-    //         name: "yassin Mousa",
-    //         email: "yassin@gmail.com",
-    //         typeConsultation: "Structural Design",
-    //         priority: "low",
-    //         status: "completed",
-    //         date: "2024-01-01",
-    //         message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    //         emirate: "Dubai",
-    //     },
-    // ]
+    const total = requests.length;
+    const pending = requests.filter(r => r.status === "pending").length;
+    const completed = requests.filter(r => r.status === "completed").length;
+    const rejected = requests.filter(r => r.status === "rejected").length;
 
     useEffect(() => {
         const unsubscribe = onSnapshot(
@@ -80,7 +40,7 @@ const ConsultationRequests = () => {
     }, []);
 
     if (loading) {
-        return <h2>Loading requests...</h2>;
+        return <h2><Loader /></h2>;
     }
     return (
         <div className="consultation-requests">
@@ -94,73 +54,83 @@ const ConsultationRequests = () => {
                 <div className="counter">
                     <div className="request">
                         <h2>Total Requests:</h2>
-                        <p>5</p>
+                        <p>{total}</p>
                     </div>
                     <div className="request">
                         <h2>Pending:</h2>
-                        <p>2</p>
+                        <p>{pending}</p>
                     </div>
                     <div className="request">
                         <h2>Completed:</h2>
-                        <p>2</p>
+                        <p>{completed}</p>
                     </div>
                     <div className="request">
                         <h2>Rejected:</h2>
-                        <p>1</p>
+                        <p>{rejected}</p>
                     </div>
                 </div>
 
                 <div className="search">
-                    <input type="text" placeholder="Search by name, email ..." />
+                    <input
+                        type="text"
+                        placeholder="Search by name, email ..."
+                        value={searchTerm}
+                        onChange={(e) => setSearchTerm(e.target.value)}
+                    />
                     <img src={search} alt="search" />
                 </div>
             </div>
 
             {/*Boxes*/}
             <div className="consultation-requests-boxes">
-                {requests.map((request) => (
-                    <div className="consultation-request-box" key={request.id}>
-                        <div className="consultation-request-box-name-priority">
-                            <h2>{request.name}</h2>
-                            <h4 className={`consultation-request-priority ${request.priority}`}>{request.priority}</h4>
+                {requests
+                    .filter((request) =>
+                        request.name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                        request.email?.toLowerCase().includes(searchTerm.toLowerCase())
+                    )
+                    .map((request) => (
+                        <div className="consultation-request-box" key={request.id}>
+                            <div className="consultation-request-box-name-priority">
+                                <h2>{request.name}</h2>
+                                <h4 className={`consultation-request-priority ${request.priority}`}>
+                                    {request.priority}
+                                </h4>
+                            </div>
+
+                            <div className="consultation-request-box-info">
+                                <h2>{request.type}</h2>
+                                <h2>{request.email}</h2>
+                                <h2>{formatDate(request.createdAt)}</h2>
+                            </div>
+
+                            <div className="consultation-request-box-country-status">
+                                <h2 className="country">{request.country}</h2>
+                                <h2 className={`consulting-status ${request.status}`}>
+                                    {request.status}
+                                </h2>
+                            </div>
+
+                            <div className="consultation-request-buttons">
+                                <button
+                                    className="btn-edit"
+                                    onClick={() => setSelectedRequest(request)}
+                                >
+                                    <img src={eye} alt="eye" />
+                                    <p>Details</p>
+                                </button>
+
+                                <button className="btn-edit">
+                                    <img src={deleteBox} alt="deleteBox" />
+                                    <p>Delete</p>
+                                </button>
+
+                                <button className="btn-edit">
+                                    <img src={done} alt="done" />
+                                    <p>Done</p>
+                                </button>
+                            </div>
                         </div>
-
-                        <div className="consultation-request-box-info">
-                            <h2>{request.type}</h2>
-                            <h2>{request.email}</h2>
-                            <h2>
-                                {formatDate(request.createdAt)}
-                            </h2>
-                        </div>
-
-                        <div className="consultation-request-box-country-status">
-                            <h2 className="country">{request.country}</h2>
-                            <h2 className={`consulting-status ${request.status}`}>
-                                {request.status}
-                            </h2>
-                        </div>
-
-                        <div className="consultation-request-buttons">
-                            <button
-                                className="btn-edit"
-                                onClick={() => setSelectedRequest(request)}
-                            >
-                                <img src={eye} alt="eye" />
-                                <p>Details</p>
-                            </button>
-
-                            <button className="btn-edit">
-                                <img src={deleteBox} alt="deleteBox" />
-                                <p>Delete</p>
-                            </button>
-
-                            <button className="btn-edit">
-                                <img src={done} alt="done" />
-                                <p>Done</p>
-                            </button>
-                        </div>
-                    </div>
-                ))}
+                    ))}
             </div>
 
             {selectedRequest && (
