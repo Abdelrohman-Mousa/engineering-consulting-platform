@@ -5,10 +5,11 @@ import {useTranslation} from "react-i18next";
 import * as React from "react";
 
 type Props = {
+    formData: any;
     setFormData: React.Dispatch<React.SetStateAction<any>>;
 };
 
-export default function Description({ setFormData }: Props) {
+export default function Description({ formData, setFormData }: Props) {
     const { t } = useTranslation();
 
     return (
@@ -25,6 +26,7 @@ export default function Description({ setFormData }: Props) {
                 className="description-input"
                 multiline
                 rows={4}
+                value={formData.description}
                 onChange={(e) =>
                     setFormData((prev: any) => ({
                         ...prev,

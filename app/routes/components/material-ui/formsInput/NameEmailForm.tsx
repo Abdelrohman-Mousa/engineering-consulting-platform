@@ -4,10 +4,11 @@ import './formInput.scss';
 import {useTranslation} from "react-i18next";
 
 type Props = {
+    formData: any;
     setFormData: React.Dispatch<React.SetStateAction<any>>;
 };
 
-export default function NameEmailForm({ setFormData }: Props) {
+export default function NameEmailForm({ formData, setFormData }: Props) {
     const { t } = useTranslation();
 
     return (
@@ -22,6 +23,7 @@ export default function NameEmailForm({ setFormData }: Props) {
                 label={t("request.name")}
                 variant="outlined"
                 className="name-input"
+                value={formData.name}
                 onChange={(e) =>
                     setFormData((prev: any) => ({
                         ...prev,
@@ -35,6 +37,7 @@ export default function NameEmailForm({ setFormData }: Props) {
                 label={t("request.email")}
                 variant="outlined"
                 className="email-input"
+                value={formData.email}
                 onChange={(e) =>
                     setFormData((prev: any) => ({
                         ...prev,

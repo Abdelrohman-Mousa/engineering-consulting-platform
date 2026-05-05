@@ -35,7 +35,7 @@ export default function ConsultationType({ value, setFormData }: Props) {
                 <Select
                     labelId="consultation-type-label"
                     id="consultation-type"
-                    value={value}
+                    value={value || ""}
                     label="Consultation Type"
                     onChange={handleChange}
                 >

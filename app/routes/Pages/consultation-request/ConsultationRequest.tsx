@@ -12,6 +12,9 @@ import {motion} from "framer-motion";
 import {useState} from "react";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "src/firebase/firebaseConfig";
+import PulseLoader from "~/components/loader/PulseLoader";
+import toast from "react-hot-toast";
+
 
 const textVariants = {
     initial: {
@@ -46,32 +49,68 @@ const ConsultationRequest = () => {
 
     const [loading, setLoading] = useState(false);
 
-    const handleSubmit = async () => {
-        // ✅ validation بسيط
-        if (
-            !formData.name ||
-            !formData.email ||
-            !formData.type ||
-            !formData.priority ||
-            !formData.description ||
-            !formData.country
-        ) {
-            alert("من فضلك املى كل البيانات");
-            return;
+    const validateForm = () => {
+        if (!formData.name.trim()) {
+            toast.error("اكتب الاسم");
+            return false;
         }
+
+        if (!formData.email.trim()) {
+            toast.error("اكتب الايميل");
+            return false;
+        }
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!emailRegex.test(formData.email)) {
+            toast.error("الايميل غير صحيح");
+            return false;
+        }
+
+        if (!formData.type) {
+            toast.error("اختار نوع الاستشارة");
+            return false;
+        }
+
+        if (!formData.priority) {
+            toast.error("اختار مستوى الأهمية");
+            return false;
+        }
+
+        if (!formData.description.trim()) {
+            toast.error("اكتب وصف المشروع");
+            return false;
+        }
+
+        if (!formData.country) {
+            toast.error("اختار الإمارة");
+            return false;
+        }
+
+        return true;
+    };
+
+    const handleSubmit = async () => {
+        if (!validateForm()) return;
 
         try {
             setLoading(true);
 
-            await addDoc(collection(db, "consultations"), {
+            const promise = addDoc(collection(db, "consultations"), {
                 ...formData,
                 status: "pending",
                 createdAt: serverTimestamp(),
             });
 
-            alert("تم إرسال الطلب بنجاح ✅");
+            toast.promise(promise, {
+                loading: "جاري الإرسال...",
+                success: "تم إرسال الطلب بنجاح ✅",
+                error: "حصل خطأ ❌",
+            });
 
-            // 🔄 reset الفورم
+            await promise;
+
+            // reset form بعد النجاح
             setFormData({
                 name: "",
                 email: "",
@@ -82,9 +121,6 @@ const ConsultationRequest = () => {
                 files: []
             });
 
-        } catch (error) {
-            console.error(error);
-            alert("حصل خطأ ❌");
         } finally {
             setLoading(false);
         }
@@ -107,18 +143,33 @@ const ConsultationRequest = () => {
                     viewport={{ once: true, amount: 0.3 }}
                 >
                     <div className="Name-Email">
-                        <NameEmailForm setFormData={setFormData} />
+                        <NameEmailForm
+                            setFormData={setFormData}
+                            formData={formData}
+                        />
                     </div>
                     <div className="type-level">
-                         <ConsultationType setFormData={setFormData}/>
-                        <PriorityLevel setFormData={setFormData}/>
+                        <ConsultationType
+                            setFormData={setFormData}
+                            value={formData.type}
+                        />
+                        <PriorityLevel
+                            setFormData={setFormData}
+                            value={formData.priority}
+                        />
                     </div>
                     <div className="description">
-                        <Description setFormData={setFormData}/>
+                        <Description
+                            setFormData={setFormData}
+                            formData={formData}
+                        />
                     </div>
                     <div className="dropped-file-country">
                         <DropzoneUI />
-                        <CountrySelect setFormData={setFormData}/>
+                        <CountrySelect
+                            setFormData={setFormData}
+                            value={formData.country}
+                        />
                     </div>
 
                     <div
@@ -128,7 +179,7 @@ const ConsultationRequest = () => {
                     >                         <div className="btn-submit-image">
                             <img src={sent} alt="send" />
                          </div>
-                        <h3>{loading ? "Loading..." : t("request.btn")}</h3>
+                        <h3>{loading ? <PulseLoader /> : t("request.btn")}</h3>
                     </div>
 
                 </motion.div>

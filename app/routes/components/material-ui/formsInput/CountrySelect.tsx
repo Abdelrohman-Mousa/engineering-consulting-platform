@@ -9,20 +9,16 @@ import "./formInput.scss";
 import {useTranslation} from "react-i18next";
 
 type Props = {
+    value: string;
     setFormData: React.Dispatch<React.SetStateAction<any>>;
 };
 
-export default function CountrySelect({ setFormData }: Props) {
+export default function CountrySelect({ value, setFormData }: Props) {
     const { t } = useTranslation();
-
-    const [value, setValue] = React.useState('');
 
     const handleChange = (event: SelectChangeEvent) => {
         const selectedValue = event.target.value as string;
 
-        setValue(selectedValue);
-
-        // 🔥 أهم سطر
         setFormData((prev: any) => ({
             ...prev,
             country: selectedValue,
@@ -39,7 +35,7 @@ export default function CountrySelect({ setFormData }: Props) {
                 <Select
                     labelId="emirate-select-label"
                     id="emirate-select"
-                    value={value}
+                    value={value || ""}
                     label="Select Emirate"
                     onChange={handleChange}
                 >

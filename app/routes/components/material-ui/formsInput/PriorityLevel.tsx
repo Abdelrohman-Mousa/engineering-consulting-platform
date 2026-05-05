@@ -7,22 +7,17 @@ import Select from '@mui/material/Select';
 import type { SelectChangeEvent } from '@mui/material/Select';
 import "./formInput.scss";
 import {useTranslation} from "react-i18next";
-
 type Props = {
+    value: string;
     setFormData: React.Dispatch<React.SetStateAction<any>>;
 };
 
-export default function PriorityLevel({ setFormData }: Props) {
+export default function PriorityLevel({ value, setFormData }: Props) {
     const { t } = useTranslation();
-
-    const [value, setValue] = React.useState('');
 
     const handleChange = (event: SelectChangeEvent) => {
         const selectedValue = event.target.value as string;
 
-        setValue(selectedValue);
-
-        // 🔥 أهم سطر
         setFormData((prev: any) => ({
             ...prev,
             priority: selectedValue,
@@ -39,7 +34,7 @@ export default function PriorityLevel({ setFormData }: Props) {
                 <Select
                     labelId="priority-label"
                     id="priority"
-                    value={value}
+                    value={value || ""}
                     label="Priority Level"
                     onChange={handleChange}
                 >
