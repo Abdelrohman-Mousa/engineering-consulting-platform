@@ -8,32 +8,44 @@ import type { SelectChangeEvent } from '@mui/material/Select';
 import "./formInput.scss";
 import {useTranslation} from "react-i18next";
 
-export default function PriorityLevel() {
+type Props = {
+    setFormData: React.Dispatch<React.SetStateAction<any>>;
+};
+
+export default function PriorityLevel({ setFormData }: Props) {
     const { t } = useTranslation();
 
-    const [age, setAge] = React.useState('');
+    const [value, setValue] = React.useState('');
 
     const handleChange = (event: SelectChangeEvent) => {
-        setAge(event.target.value as string);
+        const selectedValue = event.target.value as string;
+
+        setValue(selectedValue);
+
+        // 🔥 أهم سطر
+        setFormData((prev: any) => ({
+            ...prev,
+            priority: selectedValue,
+        }));
     };
 
     return (
         <Box className="consultation-type">
-            <FormControl
-                fullWidth
-                className="select-input"
-            >
-                <InputLabel id="demo-simple-select-label">{t("request.Priority")}</InputLabel>
+            <FormControl fullWidth className="select-input">
+                <InputLabel id="priority-label">
+                    {t("request.Priority")}
+                </InputLabel>
+
                 <Select
-                    labelId="demo-simple-select-label"
-                    id="demo-simple-select"
-                    value={age}
+                    labelId="priority-label"
+                    id="priority"
+                    value={value}
                     label="Priority Level"
                     onChange={handleChange}
                 >
-                    <MenuItem value={10}>{t("request.level-1")}</MenuItem>
-                    <MenuItem value={20}>{t("request.level-2")}</MenuItem>
-                    <MenuItem value={30}>{t("request.level-3")}</MenuItem>
+                    <MenuItem value="low">{t("request.level-1")}</MenuItem>
+                    <MenuItem value="medium">{t("request.level-2")}</MenuItem>
+                    <MenuItem value="high">{t("request.level-3")}</MenuItem>
                 </Select>
             </FormControl>
         </Box>

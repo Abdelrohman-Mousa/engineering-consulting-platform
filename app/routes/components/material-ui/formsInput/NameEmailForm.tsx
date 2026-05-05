@@ -3,7 +3,11 @@ import TextField from '@mui/material/TextField';
 import './formInput.scss';
 import {useTranslation} from "react-i18next";
 
-export default function NameEmailForm() {
+type Props = {
+    setFormData: React.Dispatch<React.SetStateAction<any>>;
+};
+
+export default function NameEmailForm({ setFormData }: Props) {
     const { t } = useTranslation();
 
     return (
@@ -18,6 +22,12 @@ export default function NameEmailForm() {
                 label={t("request.name")}
                 variant="outlined"
                 className="name-input"
+                onChange={(e) =>
+                    setFormData((prev: any) => ({
+                        ...prev,
+                        name: e.target.value,
+                    }))
+                }
             />
 
             <TextField
@@ -25,6 +35,12 @@ export default function NameEmailForm() {
                 label={t("request.email")}
                 variant="outlined"
                 className="email-input"
+                onChange={(e) =>
+                    setFormData((prev: any) => ({
+                        ...prev,
+                        email: e.target.value,
+                    }))
+                }
             />
         </Box>
     );

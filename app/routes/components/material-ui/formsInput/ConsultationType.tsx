@@ -8,34 +8,42 @@ import type { SelectChangeEvent } from '@mui/material/Select';
 import "./formInput.scss";
 import {useTranslation} from "react-i18next";
 
-export default function ConsultationType() {
+type Props = {
+    value: string;
+    setFormData: React.Dispatch<React.SetStateAction<any>>;
+};
+
+export default function ConsultationType({ value, setFormData }: Props) {
     const { t } = useTranslation();
 
-    const [age, setAge] = React.useState('');
-
     const handleChange = (event: SelectChangeEvent) => {
-        setAge(event.target.value as string);
+        const selectedValue = event.target.value as string;
+
+        setFormData((prev: any) => ({
+            ...prev,
+            type: selectedValue,
+        }));
     };
 
     return (
         <Box className="consultation-type">
-            <FormControl
-                fullWidth
-                className="select-input"
-            >
-                <InputLabel id="demo-simple-select-label">{t("request.Consultation")}</InputLabel>
+            <FormControl fullWidth className="select-input">
+                <InputLabel id="consultation-type-label">
+                    {t("request.Consultation")}
+                </InputLabel>
+
                 <Select
-                    labelId="demo-simple-select-label"
-                    id="demo-simple-select"
-                    value={age}
+                    labelId="consultation-type-label"
+                    id="consultation-type"
+                    value={value}
                     label="Consultation Type"
                     onChange={handleChange}
                 >
-                    <MenuItem value={10}>{t("request.type-1")}</MenuItem>
-                    <MenuItem value={20}>{t("request.type-2")}</MenuItem>
-                    <MenuItem value={30}>{t("request.type-3")}</MenuItem>
-                    <MenuItem value={40}>{t("request.type-4")}</MenuItem>
-                    <MenuItem value={50}>{t("request.type-5")}</MenuItem>
+                    <MenuItem value="Architectural Design">{t("request.type-1")}</MenuItem>
+                    <MenuItem value="Structural Design">{t("request.type-2")}</MenuItem>
+                    <MenuItem value="Interior Design">{t("request.type-3")}</MenuItem>
+                    <MenuItem value="Renovation and Redesign">{t("request.type-4")}</MenuItem>
+                    <MenuItem value="Supervision of Implementation">{t("request.type-5")}</MenuItem>
                 </Select>
             </FormControl>
         </Box>

@@ -2,8 +2,13 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import "./formInput.scss";
 import {useTranslation} from "react-i18next";
+import * as React from "react";
 
-export default function Description() {
+type Props = {
+    setFormData: React.Dispatch<React.SetStateAction<any>>;
+};
+
+export default function Description({ setFormData }: Props) {
     const { t } = useTranslation();
 
     return (
@@ -14,12 +19,19 @@ export default function Description() {
             autoComplete="off"
         >
             <TextField
-                id="outlined-basic"
+                id="description"
                 label={t("request.DescriptionProject")}
                 variant="outlined"
                 className="description-input"
                 multiline
-                rows={4}/>
+                rows={4}
+                onChange={(e) =>
+                    setFormData((prev: any) => ({
+                        ...prev,
+                        description: e.target.value,
+                    }))
+                }
+            />
         </Box>
     );
 }
