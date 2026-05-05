@@ -10,7 +10,6 @@ const ConsultationRequests = () => {
 
     const [selectedRequest, setSelectedRequest] = useState(null);
 
-
     const requests = [
         {
             id: 1,
@@ -56,7 +55,6 @@ const ConsultationRequests = () => {
             message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
             emirate: "Dubai",
         },
-
     ]
 
     return (

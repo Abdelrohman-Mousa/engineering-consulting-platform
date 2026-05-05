@@ -37,7 +37,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     border-bottom: 1px solid rgba(204, 204, 204, 0.57);
 
     h2 {
@@ -50,6 +50,294 @@
       object-fit: cover;
       object-position: center;
       cursor: pointer;
+    }
+  }
+
+  .consulting-modal-body {
+    .consulting-modal-info-user {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .consulting-modal-info-user-img {
+        display: flex;
+        align-items: center;
+        gap: 0.2rem;
+
+        img {
+          width: 30px;
+          height: 30px;
+          object-fit: cover;
+          object-position: center;
+        }
+        h2 {
+          font-size: 1.1rem;
+          font-weight: 500;
+          color: #000000;
+        }
+      }
+      .consulting-modal-info-time {
+        display: flex;
+        align-items: center;
+        gap: 0.2rem;
+
+        img {
+          width: 30px;
+          height: 30px;
+          object-fit: cover;
+          object-position: center;
+        }
+        h2 {
+          font-size: 1.1rem;
+          font-weight: 400;
+        }
+      }
+
+      .consulting-modal-info-priority {
+        display: flex;
+        align-items: center;
+        gap: 0.2rem;
+
+        img {
+          width: 25px;
+          height: 25px;
+          object-fit: cover;
+          object-position: center;
+        }
+        h2 {
+          font-size: 1.1rem;
+          font-weight: 400;
+        }
+      }
+
+      .consulting-modal-info-location {
+        display: flex;
+        align-items: center;
+        gap: 0.2rem;
+
+        img {
+          width: 25px;
+          height: 25px;
+          object-fit: cover;
+          object-position: center;
+        }
+        h2 {
+          font-size: 1.1rem;
+          font-weight: 400;
+        }
+      }
+    }
+
+    .consulting-modal-info-desc-type {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding-top: 1.5rem;
+      width: 100%;
+
+      .desc {
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+        width: 75%;
+        h2 {
+          font-size: 1.1rem;
+          font-weight: 500;
+          color: #000000;
+        }
+        p {
+          border-radius: 1rem;
+          border: 1px solid rgba(204, 204, 204, 0.57);
+          padding: 0.3rem 0.5rem;
+          font-size: 1.1rem;
+          font-weight: 400;
+          color: rgba(0, 0, 0, 0.82);
+          max-height: 120px;
+          overflow-y: auto;
+          box-shadow:
+                  0 2px 4px rgba(0, 0, 0, 0.06),
+                  0 8px 16px rgba(0, 0, 0, 0.08),
+                  0 16px 32px rgba(0, 0, 0, 0.05);
+        }
+      }
+      .type {
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+        width: 30%;
+        h2 {
+          font-size: 1.1rem;
+          font-weight: 500;
+          color: #000000;
+        }
+        p {
+          border-radius: 1rem;
+          border: 1px solid rgba(204, 204, 204, 0.57);
+          padding: 0.3rem 0.5rem;
+          font-size: 1.1rem;
+          font-weight: 400;
+          color: rgba(0, 0, 0, 0.82);
+          max-height: 120px;
+          overflow-y: auto;
+          box-shadow:
+                  0 2px 4px rgba(0, 0, 0, 0.06),
+                  0 8px 16px rgba(0, 0, 0, 0.08),
+                  0 16px 32px rgba(0, 0, 0, 0.05);
+        }
+      }
+    }
+
+    .consulting-modal-info-pdf-replay {
+      display: flex;
+      align-items: stretch;
+      gap: 1rem;
+      padding-top: 2rem;
+      width: 100%;
+
+
+      .consulting-modal-info-pdf-image {
+        display: flex;
+        align-items: center;
+        gap: 0.2rem;
+        width: 30%;
+        height: auto;
+        border: 1px solid rgba(204, 204, 204, 0.57);
+        border-radius: 1rem;
+        padding: 1rem;
+        box-shadow:
+                0 2px 4px rgba(0, 0, 0, 0.06),
+                0 8px 16px rgba(0, 0, 0, 0.08),
+                0 16px 32px rgba(0, 0, 0, 0.05);
+        img {
+          width: 170px;
+          height: 170px;
+          object-fit: cover;
+          object-position: center;
+          margin: auto;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          &:hover {
+            transform: scale(1.05);
+            transition: all 0.3s ease;
+          }
+        }
+      }
+
+      .consulting-modal-info-replay-message {
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+        width: 70%;
+        padding: 0.5rem;
+        border-radius: 1rem;
+        border: 1px solid rgba(204, 204, 204, 0.57);
+        box-shadow:
+                0 2px 4px rgba(0, 0, 0, 0.06),
+                0 8px 16px rgba(0, 0, 0, 0.08),
+                0 16px 32px rgba(0, 0, 0, 0.05);
+        h2 {
+          font-size: 1.1rem;
+          font-weight: 500;
+          color: #000000;
+        }
+        textarea {
+          width: 100%;
+          height: 150px;
+          border-radius: 1rem;
+          border: 1px solid rgba(204, 204, 204, 0.57);
+          padding: 0.3rem 0.5rem;
+          font-size: 1.1rem;
+          font-weight: 400;
+          color: rgba(0, 0, 0, 0.82);
+          resize: none;
+          outline: none;
+          box-shadow:
+                  0 2px 4px rgba(0, 0, 0, 0.06),
+                  0 8px 16px rgba(0, 0, 0, 0.08),
+                  0 16px 32px rgba(0, 0, 0, 0.05);
+        }
+
+        .btn-message-contact-replay {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 1rem;
+          padding: 0.5rem 1rem;
+          border-radius: 1rem;
+          background-color: #052b68;
+          color: #ffffff;
+          margin-top: 0.3rem;
+          transition: all 0.3s ease;
+
+          &:hover {
+            background-color: #6a11cb;
+          }
+
+          h2 {
+            color: #ffffff;
+            font-size: 1.1rem;
+            font-weight: 500;
+          }
+
+          img {
+            width: 20px;
+            height: 20px;
+            object-fit: cover;
+            object-position: center;
+            filter: invert(100%) sepia(0%) saturate(7492%) hue-rotate(348deg) brightness(102%) contrast(102%);
+          }
+        }
+      }
+    }
+
+    .consulting-modal-info-status-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.3rem;
+      margin-top: 1rem;
+      flex-direction: column;
+
+      h2 {
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: rgba(0, 0, 0, 0.79);
+      }
+
+      .status-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        transition: all 0.3s ease;
+
+        button {
+          padding: 0.3rem 0.5rem;
+          border-radius: 1rem;
+          background-color: transparent;
+          border: 1px solid rgba(22, 64, 106, 0.24);
+          font-size: 1.1rem;
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06),
+           0 8px 16px rgba(22, 64, 106, 0.07);
+        }
+        .completed {
+          background-color: rgb(32, 85, 2);
+          color: #ffffff;
+          transition: all 0.3s ease;
+          &:hover {
+            background-color: rgba(36, 124, 2, 0.67);
+            color: #ffffff;
+          }
+        }
+        .Rejected {
+          background-color: rgba(255, 0, 0, 0.67);
+          color: #ffffff;
+          transition: all 0.3s ease;
+          &:hover {
+            background-color: #ff0000;
+            color: #ffffff;
+          }
+        }
+      }
     }
   }
 }
