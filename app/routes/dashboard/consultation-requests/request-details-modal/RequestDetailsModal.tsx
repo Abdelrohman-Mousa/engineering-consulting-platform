@@ -6,6 +6,7 @@ import level from "/assets/icons/priority.svg";
 import location2 from "/assets/icons/location-2.svg";
 import pdf from "/assets/icons/pdf.svg";
 import sent from "/assets/icons/sent.svg"
+import {formatDate} from "~/lib/utils";
 
 const RequestDetailsModal = ({ request, onClose, onChangeStatus }: any) => {
     return (
@@ -45,7 +46,9 @@ const RequestDetailsModal = ({ request, onClose, onChangeStatus }: any) => {
 
                                     <div className="consulting-modal-info-time">
                                          <img src={clock} alt="clock" />
-                                         <h2>{request.date}</h2>
+                                        <h2>
+                                            {formatDate(request.createdAt)}
+                                        </h2>
                                     </div>
 
                                     <div className="consulting-modal-info-priority">
@@ -55,18 +58,18 @@ const RequestDetailsModal = ({ request, onClose, onChangeStatus }: any) => {
 
                                     <div className="consulting-modal-info-location">
                                         <img src={location2} alt="location" />
-                                        <h2>{request.emirate}</h2>
+                                        <h2>{request.country}</h2>
                                     </div>
                                 </div>
 
                                 <div className="consulting-modal-info-desc-type">
                                     <div className="desc">
                                         <h2>Description</h2>
-                                        <p>{request.message}</p>
+                                        <p>{request.description}</p>
                                     </div>
                                     <div className="type">
                                         <h2>Consulting Type</h2>
-                                        <p>{request.typeConsultation}</p>
+                                        <p>{request.type}</p>
                                     </div>
                                 </div>
 
