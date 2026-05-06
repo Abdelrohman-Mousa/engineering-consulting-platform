@@ -12,6 +12,9 @@ import Loader from "~/components/loader/Loader";
 import toast from "react-hot-toast";
 import DeleteConfirm from "~/routes/dashboard/consultation-requests/DeleteConfirm";
 import PulseLoader from "~/components/loader/PulseLoader";
+import noDataSearch from "/src/animations/No-Data.json";
+import emptyRequest from "/src/animations/empty.json";
+import Lottie from "lottie-react";
 
 type RequestType = {
     id: string;
@@ -156,9 +159,17 @@ const ConsultationRequests = () => {
             {/*Boxes*/}
             <div className="consultation-requests-boxes">
                 {requests.length === 0 ? (
-                    <p>No data yet</p>
+                    <Lottie
+                        animationData={emptyRequest}
+                        loop={true}
+                        className="no-data-search"
+                    />
                 ) : sortedRequests.length === 0 ? (
-                    <p>No results found</p>
+                    <Lottie
+                        animationData={noDataSearch}
+                        loop={true}
+                        className="no-data-search"
+                    />
                 ) : (
                 sortedRequests.map((request) => (
                         <div className={`consultation-request-box ${removingId === request.id ? "removing" : ""}`} key={request.id}>

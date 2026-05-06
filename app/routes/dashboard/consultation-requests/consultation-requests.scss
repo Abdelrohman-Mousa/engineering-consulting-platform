@@ -75,6 +75,12 @@
     flex-wrap: wrap;
     padding: 2rem 1rem;
 
+    .no-data-search {
+      width: 40%;
+      height: 40%;
+      margin: auto;
+    }
+
     .consultation-request-box {
       display: flex;
       flex-direction: column;
