@@ -5,6 +5,7 @@ import {useState, useEffect} from "react";
 import {getUsers} from "../../../../src/get-data/getUsers";
 import { useRef } from "react";
 import PulseLoader from "~/components/loader/PulseLoader";
+import Loader from "~/components/loader/Loader";
 
 type UserData = {
     id: string; // 🔥 مهم
@@ -58,6 +59,9 @@ const Users = () => {
         hasFetched.current = true;
     }, []);
 
+    if (loading) {
+        return <h2><Loader /></h2>;
+    }
     return (
         <div className="all-users wrapper">
             <div className="header">

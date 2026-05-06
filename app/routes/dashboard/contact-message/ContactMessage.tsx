@@ -18,6 +18,7 @@ import { initNotificationSound, playNotificationSound } from "src/firebase/servi
 import toast from "react-hot-toast";
 import emailjs from "@emailjs/browser";
 import PulseLoader from "~/components/loader/PulseLoader";
+import Loader from "~/components/loader/Loader";
 
 
 interface Message {
@@ -42,6 +43,7 @@ const ContactMessage = () => {
     const [searchTerm, setSearchTerm] = useState("");
     const [replyText, setReplyText] = useState("");
     const [sending, setSending] = useState(false);
+    const [loading, setLoading] = useState(true);
 
     const filteredMessages = messages.filter((msg) => {
         // filter by status
@@ -58,7 +60,10 @@ const ContactMessage = () => {
 
     // ReaTime Data With Firebase
     useEffect(() => {
-        const unsubscribe = subscribeToMessages(setMessages);
+        const unsubscribe = subscribeToMessages((data: Message[]) => {
+            setMessages(data);
+            setLoading(false); // 👈 هنا
+        });
 
         return () => unsubscribe();
     }, []);
@@ -159,6 +164,14 @@ const ContactMessage = () => {
             setSending(false);
         }
     };
+
+    if (loading) {
+        return (
+            <div className="flex items-center justify-center h-screen">
+                <Loader />
+            </div>
+        );
+    }
 
     return (
         <div className="contact-message">
