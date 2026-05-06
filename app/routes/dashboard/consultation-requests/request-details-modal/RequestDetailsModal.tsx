@@ -9,6 +9,9 @@ import sent from "/assets/icons/sent.svg"
 import {formatDate} from "~/lib/utils";
 import {useState} from "react";
 import PulseLoader from "~/components/loader/PulseLoader";
+import emailjs from "@emailjs/browser";
+import toast from "react-hot-toast";
+
 
 type Props = {
     request: any;
@@ -20,6 +23,10 @@ const RequestDetailsModal = ({ request, onClose, onChangeStatus }: Props) => {
 
     const [loadingStatus, setLoadingStatus] = useState<"completed" | "rejected" | null>(null);
 
+    const [reply, setReply] = useState(request?.reply || "");
+    const [sending, setSending] = useState(false);
+
+
     const handleStatus = async (status: "completed" | "rejected") => {
         setLoadingStatus(status);
 
@@ -28,13 +35,42 @@ const RequestDetailsModal = ({ request, onClose, onChangeStatus }: Props) => {
         if (success) {
             onClose();
         }
-
         setLoadingStatus(null);
     };
 
     const capitalize = (text: string) => {
         if (!text) return "";
         return text.charAt(0).toUpperCase() + text.slice(1);
+    };
+
+    const handleSendMessage = async () => {
+        if (!reply.trim()) {
+            toast.error("Message cannot be empty");
+            return;
+        }
+
+        setSending(true);
+
+        try {
+            await emailjs.send(
+                "service_lk6jx1e",
+                "template_g9bv99k",
+                {
+                    to_email: request.email,
+                    client_name: request.name,
+                    message: reply,
+                },
+                "1wtAkqRzMP0zqrDeN"
+            );
+
+            toast.success("Email sent successfully!");
+
+        } catch (error) {
+            console.error(error);
+            toast.error("Failed to send email");
+        } finally {
+            setSending(false);
+        }
     };
 
     return (
@@ -111,12 +147,16 @@ const RequestDetailsModal = ({ request, onClose, onChangeStatus }: Props) => {
                                         <textarea
                                             placeholder="Write your message..."
                                             rows={10}
-                                            value={request.reply}
+                                            value={reply}
+                                            onChange={(e) => setReply(e.target.value)}
                                         />
 
                                         <button
-                                            className="btn-message-contact-replay">
-                                            <h2>Send Message</h2>
+                                            className="btn-message-contact-replay"
+                                            onClick={handleSendMessage}
+                                            disabled={sending || !reply.trim()}
+                                        >
+                                            <h2>{sending ? <PulseLoader /> : "Send Message"}</h2>
                                             <img src={sent} alt="sent" />
                                         </button>
                                     </div>
