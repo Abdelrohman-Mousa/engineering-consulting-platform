@@ -115,6 +115,27 @@ const ConsultationRequests = () => {
         return text.charAt(0).toUpperCase() + text.slice(1);
     };
 
+    const handleChangeStatus = async (
+        id: string,
+        status: "pending" | "completed" | "rejected"
+    ): Promise<boolean> => {
+        setUpdatingId(id);
+
+        try {
+            await updateDoc(doc(db, "consultations", id), {
+                status,
+            });
+
+            toast.success(`Request ${status}`);
+            return true;
+        } catch (error) {
+            toast.error("Failed to update status.");
+            return false;
+        } finally {
+            setUpdatingId(null);
+        }
+    };
+
     if (loading) {
         return <h2><Loader /></h2>;
     }
@@ -235,6 +256,7 @@ const ConsultationRequests = () => {
                 <RequestDetailsModal
                     request={selectedRequest}
                     onClose={() => setSelectedRequest(null)}
+                    onChangeStatus={handleChangeStatus}
                 />
             )}
         </div>

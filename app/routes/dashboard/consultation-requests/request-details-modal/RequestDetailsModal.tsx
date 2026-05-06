@@ -7,8 +7,30 @@ import location2 from "/assets/icons/location-2.svg";
 import pdf from "/assets/icons/pdf.svg";
 import sent from "/assets/icons/sent.svg"
 import {formatDate} from "~/lib/utils";
+import {useState} from "react";
+import PulseLoader from "~/components/loader/PulseLoader";
 
-const RequestDetailsModal = ({ request, onClose, onChangeStatus }: any) => {
+type Props = {
+    request: any;
+    onClose: () => void;
+    onChangeStatus: (id: string, status: "pending" | "completed" | "rejected") => Promise<void>;
+};
+
+const RequestDetailsModal = ({ request, onClose, onChangeStatus }: Props) => {
+
+    const [loadingStatus, setLoadingStatus] = useState<"completed" | "rejected" | null>(null);
+
+    const handleStatus = async (status: "completed" | "rejected") => {
+        setLoadingStatus(status);
+
+        const success = await onChangeStatus(request.id, status);
+
+        if (success) {
+            onClose();
+        }
+
+        setLoadingStatus(null);
+    };
 
     const capitalize = (text: string) => {
         if (!text) return "";
@@ -90,7 +112,6 @@ const RequestDetailsModal = ({ request, onClose, onChangeStatus }: any) => {
                                             placeholder="Write your message..."
                                             rows={10}
                                             value={request.reply}
-                                            onChange={(e) => onChangeStatus(e.target.value)}
                                         />
 
                                         <button
@@ -105,13 +126,19 @@ const RequestDetailsModal = ({ request, onClose, onChangeStatus }: any) => {
                                     <h2>Update the request status to reflect its current progress.</h2>
                                     <div className="status-btn">
                                         <button
-                                            className="completed">
-                                            Completed
+                                            className="completed"
+                                            disabled={request.status === "completed" || loadingStatus !== null}
+                                            onClick={() => handleStatus("completed")}
+                                        >
+                                            {loadingStatus === "completed" ? <PulseLoader /> : "Completed"}
                                         </button>
 
                                         <button
-                                            className="Rejected">
-                                            Rejected
+                                            className="Rejected"
+                                            disabled={request.status === "rejected" || loadingStatus !== null}
+                                            onClick={() => handleStatus("rejected")}
+                                        >
+                                            {loadingStatus === "rejected" ? <PulseLoader /> : "Rejected"}
                                         </button>
                                     </div>
                                 </div>
