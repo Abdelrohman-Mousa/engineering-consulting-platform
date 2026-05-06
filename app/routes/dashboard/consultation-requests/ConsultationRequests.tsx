@@ -110,6 +110,11 @@ const ConsultationRequests = () => {
         (a, b) => b.createdAt?.seconds - a.createdAt?.seconds
     );
 
+    const capitalize = (text: string) => {
+        if (!text) return "";
+        return text.charAt(0).toUpperCase() + text.slice(1);
+    };
+
     if (loading) {
         return <h2><Loader /></h2>;
     }
@@ -174,9 +179,9 @@ const ConsultationRequests = () => {
                 sortedRequests.map((request) => (
                         <div className={`consultation-request-box ${removingId === request.id ? "removing" : ""}`} key={request.id}>
                             <div className="consultation-request-box-name-priority">
-                                <h2>{request.name}</h2>
+                                <h2>{capitalize(request.name)}</h2>
                                 <h4 className={`consultation-request-priority ${request.priority}`}>
-                                    {request.priority}
+                                    {capitalize(request.priority)}
                                 </h4>
                             </div>
 
@@ -187,9 +192,9 @@ const ConsultationRequests = () => {
                             </div>
 
                             <div className="consultation-request-box-country-status">
-                                <h2 className="country">{request.country}</h2>
+                                <h2 className="country">{capitalize(request.country)}</h2>
                                 <h2 className={`consulting-status ${request.status}`}>
-                                    {request.status}
+                                    {capitalize(request.status)}
                                 </h2>
                             </div>
 

@@ -9,6 +9,12 @@ import sent from "/assets/icons/sent.svg"
 import {formatDate} from "~/lib/utils";
 
 const RequestDetailsModal = ({ request, onClose, onChangeStatus }: any) => {
+
+    const capitalize = (text: string) => {
+        if (!text) return "";
+        return text.charAt(0).toUpperCase() + text.slice(1);
+    };
+
     return (
         <AnimatePresence>
             {request && (
@@ -41,7 +47,7 @@ const RequestDetailsModal = ({ request, onClose, onChangeStatus }: any) => {
                                 <div className="consulting-modal-info-user">
                                     <div className="consulting-modal-info-user-img">
                                         <img src={request?.user?.avatar || "/assets/icons/avatar-default.svg"} />
-                                        <h2>{request.name}</h2>
+                                        <h2>{capitalize(request.name)}</h2>
                                     </div>
 
                                     <div className="consulting-modal-info-time">
@@ -53,23 +59,23 @@ const RequestDetailsModal = ({ request, onClose, onChangeStatus }: any) => {
 
                                     <div className="consulting-modal-info-priority">
                                         <img src={level} alt="level" />
-                                        <h2>{request.priority}</h2>
+                                        <h2>{capitalize(request.priority)}</h2>
                                     </div>
 
                                     <div className="consulting-modal-info-location">
                                         <img src={location2} alt="location" />
-                                        <h2>{request.country}</h2>
+                                        <h2>{capitalize(request.country)}</h2>
                                     </div>
                                 </div>
 
                                 <div className="consulting-modal-info-desc-type">
                                     <div className="desc">
                                         <h2>Description</h2>
-                                        <p>{request.description}</p>
+                                        <p>{capitalize(request.description)}</p>
                                     </div>
                                     <div className="type">
                                         <h2>Consulting Type</h2>
-                                        <p>{request.type}</p>
+                                        <p>{capitalize(request.type)}</p>
                                     </div>
                                 </div>
 
