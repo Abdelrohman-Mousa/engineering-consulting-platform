@@ -2,20 +2,17 @@ import React from "react";
 
 const Loader: React.FC = () => {
     return (
-        <div className="flex items-center justify-center bg-[#060340]">
-            <div className="relative w-40 h-40">
+        <div className="flex items-center justify-center min-h-screen bg-white">
+            <div className="relative flex items-center justify-center">
 
-                {/* Grid */}
-                <div className="absolute inset-0 border border-black opacity-20"></div>
+                {/* Outer Glow */}
+                <div className="absolute w-32 h-32 rounded-full bg-blue-500 opacity-10 blur-2xl animate-pulse"></div>
 
-                {/* Outer Border */}
-                <div className="absolute inset-0 border-2 border-blue-400 animate-pulse"></div>
+                {/* Spinning Ring */}
+                <div className="w-16 h-16 border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin"></div>
 
-                {/* Rotating Square */}
-                <div className="absolute inset-4 border border-blue-300 animate-spin"></div>
-
-                {/* Inner Pulse */}
-                <div className="absolute inset-8 border border-blue-200 animate-ping"></div>
+                {/* Inner Dot */}
+                <div className="absolute w-3 h-3 bg-blue-600 rounded-full"></div>
 
             </div>
         </div>
