@@ -90,14 +90,42 @@ const ConsultationRequest = () => {
         return true;
     };
 
+    const uploadToCloudinary = async (file: File) => {
+        const formData = new FormData();
+
+        formData.append("file", file);
+        formData.append("upload_preset", "Advance"); // 👈 من Cloudinary
+
+        const res = await fetch(
+            "https://api.cloudinary.com/v1_1/dztxccrnl/upload",
+            {
+                method: "POST",
+                body: formData,
+            }
+        );
+
+        const data = await res.json();
+        return data.secure_url; // 👈 ده المهم
+    };
+
     const handleSubmit = async () => {
         if (!validateForm()) return;
 
         try {
             setLoading(true);
 
+            let uploadedFiles: string[] = [];
+
+            if (formData.files.length > 0) {
+                for (const file of formData.files) {
+                    const url = await uploadToCloudinary(file);
+                    uploadedFiles.push(url);
+                }
+            }
+
             const promise = addDoc(collection(db, "consultations"), {
                 ...formData,
+                files: uploadedFiles, // 👈 URLs مش Files
                 status: "pending",
                 createdAt: serverTimestamp(),
             });
@@ -110,7 +138,6 @@ const ConsultationRequest = () => {
 
             await promise;
 
-            // reset form بعد النجاح
             setFormData({
                 name: "",
                 email: "",
@@ -165,7 +192,11 @@ const ConsultationRequest = () => {
                         />
                     </div>
                     <div className="dropped-file-country">
-                        <DropzoneUI />
+                        <DropzoneUI
+                            files={formData.files}
+                            setFormData={setFormData}
+                        />
+
                         <CountrySelect
                             setFormData={setFormData}
                             value={formData.country}

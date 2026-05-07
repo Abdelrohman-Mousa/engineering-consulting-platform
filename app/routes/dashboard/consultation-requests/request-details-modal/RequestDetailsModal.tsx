@@ -11,6 +11,9 @@ import {useState} from "react";
 import PulseLoader from "~/components/loader/PulseLoader";
 import emailjs from "@emailjs/browser";
 import toast from "react-hot-toast";
+import Lottie from "lottie-react";
+import noFile from "/src/animations/NO-FILES.json";
+
 
 
 type Props = {
@@ -25,7 +28,7 @@ const RequestDetailsModal = ({ request, onClose, onChangeStatus }: Props) => {
 
     const [reply, setReply] = useState(request?.reply || "");
     const [sending, setSending] = useState(false);
-
+    const [previewFile, setPreviewFile] = useState<string | null>(null);
 
     const handleStatus = async (status: "completed" | "rejected") => {
         setLoadingStatus(status);
@@ -139,7 +142,76 @@ const RequestDetailsModal = ({ request, onClose, onChangeStatus }: Props) => {
 
                                 <div className="consulting-modal-info-pdf-replay">
                                     <div className="consulting-modal-info-pdf-image">
-                                        <img src={pdf} alt="pdf" />
+
+                                        {request.files && request.files.length > 0 ? (
+
+                                            request.files.map((file: string, index: number) => {
+
+                                                const isImage =
+                                                    file.includes(".jpg") ||
+                                                    file.includes(".jpeg") ||
+                                                    file.includes(".png") ||
+                                                    file.includes(".webp");
+
+                                                const isPdf = file.includes(".pdf");
+
+                                                return (
+                                                    <div key={index} className="file-preview-item">
+
+                                                        {isImage ? (
+
+                                                            <img
+                                                                src={file}
+                                                                alt="uploaded"
+                                                                style={{width: "100%",  height: "100%", borderRadius: "1rem"}}
+                                                                className="preview-image"
+                                                                onClick={() => setPreviewFile(file)}
+                                                            />
+
+                                                        ) : isPdf ? (
+
+                                                            <div
+                                                                className="pdf-preview-wrapper"
+                                                                onClick={() => setPreviewFile(file)}
+                                                            >
+                                                                <img
+                                                                    src={pdf}
+                                                                    alt="pdf"
+                                                                    className="pdf-icon"
+                                                                    style={{ width: "150px", height: "150px", margin: "auto" }}
+                                                                />
+                                                                <h3>Open PDF File</h3>
+                                                            </div>
+
+                                                        ) : (
+
+                                                            <a
+                                                                href={file}
+                                                                target="_blank"
+                                                                rel="noopener noreferrer"
+                                                                className="download-file"
+                                                            >
+                                                                Open File
+                                                            </a>
+
+                                                        )}
+                                                    </div>
+                                                );
+                                            })
+
+                                        ) : (
+
+                                            <div className="no-file">
+                                                <Lottie
+                                                    animationData={noFile}
+                                                    loop={true}
+                                                    className="no-data-search"
+                                                    style={{width: "200px", height: "200px"}}
+                                                />
+                                                <p>No Request File</p>
+                                            </div>
+
+                                        )}
                                     </div>
 
                                     <div className="consulting-modal-info-replay-message">
@@ -185,6 +257,52 @@ const RequestDetailsModal = ({ request, onClose, onChangeStatus }: Props) => {
                             </div>
                         </motion.div>
                     </motion.div>
+
+                        <AnimatePresence>
+                            {previewFile && (
+                                <motion.div
+                                    className="file-preview-modal"
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    exit={{ opacity: 0 }}
+                                    onClick={() => setPreviewFile(null)}
+                                >
+                                    <motion.div
+                                        className="file-preview-content"
+                                        initial={{ scale: 0.8 }}
+                                        animate={{ scale: 1 }}
+                                        exit={{ scale: 0.8 }}
+                                        onClick={(e) => e.stopPropagation()}
+                                    >
+
+                                        <button
+                                            className="close-preview"
+                                            onClick={() => setPreviewFile(null)}
+                                        >
+                                            ✕
+                                        </button>
+
+                                        {previewFile.includes(".pdf") ? (
+
+                                            <iframe
+                                                src={`https://docs.google.com/gview?url=${encodeURIComponent(previewFile)}&embedded=true`}
+                                                className="full-preview-pdf"
+                                                title="Full PDF Preview"
+                                            />
+
+                                        ) : (
+
+                                            <img
+                                                src={previewFile}
+                                                alt="preview"
+                                                className="full-preview-image"
+                                            />
+
+                                        )}
+                                    </motion.div>
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
                 </>
             )}
         </AnimatePresence>
