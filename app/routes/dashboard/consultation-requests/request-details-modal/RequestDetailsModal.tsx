@@ -163,7 +163,7 @@ const RequestDetailsModal = ({ request, onClose, onChangeStatus }: Props) => {
                                                             <img
                                                                 src={file}
                                                                 alt="uploaded"
-                                                                style={{width: "100%",  height: "100%", borderRadius: "1rem"}}
+                                                                style={{maxWidth: "270px",  maxHeight: "200px", borderRadius: "1rem"}}
                                                                 className="preview-image"
                                                                 onClick={() => setPreviewFile(file)}
                                                             />
@@ -172,6 +172,7 @@ const RequestDetailsModal = ({ request, onClose, onChangeStatus }: Props) => {
 
                                                             <div
                                                                 className="pdf-preview-wrapper"
+                                                                style={{cursor: "pointer"}}
                                                                 onClick={() => setPreviewFile(file)}
                                                             >
                                                                 <img
