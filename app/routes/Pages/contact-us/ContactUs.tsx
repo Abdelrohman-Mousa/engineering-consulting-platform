@@ -59,17 +59,17 @@ const ContactUs = () => {
         const { name, email, phone, subject, message } = cleanedData;
 
         if (!name || !email || !phone || !subject || !message) {
-            toast.error("Please fill all fields");
+            toast.error(t("alerts.fill"));
             return;
         }
 
         if (!isValidEmail(email)) {
-            toast.error("Invalid email");
+            toast.error(t("alerts.noEmail"));
             return;
         }
 
         if (!isValidPhone(phone)) {
-            toast.error("Invalid phone number");
+            toast.error(t("alerts.phone"));
             return;
         }
 
@@ -86,9 +86,9 @@ const ContactUs = () => {
             });
 
             await toast.promise(promise, {
-                loading: "Sending message...",
-                success: "Message sent successfully ✅",
-                error: "Something went wrong ❌",
+                loading: (t("alerts.loadingMsg")),
+                success: (t("alerts.successMsg")),
+                error: (t("alerts.errorMsg")),
             });
 
             setFormData({

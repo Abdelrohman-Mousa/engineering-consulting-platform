@@ -190,7 +190,12 @@
     "emirate": "Choose the emirate.",
     "loading": "Sending...",
     "success": "The request has been sent successfully.",
-    "error": "An error occurred."
+    "error": "An error occurred.",
+    "fill": "Please complete all fields.",
+    "phone": "Invalid phone number",
+    "loadingMsg": "Sending message...",
+    "successMsg": "Message sent successfully",
+    "errorMsg": "Something went wrong"
 
 
 
