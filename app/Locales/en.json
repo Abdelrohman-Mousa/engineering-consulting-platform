@@ -178,5 +178,21 @@
     "Users": "Users",
     "Contact-messages": "Contact Messages",
     "Consultation-requests": "Consultation Requests"
+  },
+
+  "alerts": {
+    "name": "Enter the name.",
+    "email": "Enter the email.",
+    "noEmail": "The email is invalid.",
+    "type": "Choose the type of consultation.",
+    "priority": "Choose the priority level.",
+    "desc": "Enter the project description.",
+    "emirate": "Choose the emirate.",
+    "loading": "Sending...",
+    "success": "The request has been sent successfully.",
+    "error": "An error occurred."
+
+
+
   }
 }

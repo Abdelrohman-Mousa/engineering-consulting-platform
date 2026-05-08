@@ -51,39 +51,39 @@ const ConsultationRequest = () => {
 
     const validateForm = () => {
         if (!formData.name.trim()) {
-            toast.error("اكتب الاسم");
+            toast.error(t("alerts.name"));
             return false;
         }
 
         if (!formData.email.trim()) {
-            toast.error("اكتب الايميل");
+            toast.error(t("alerts.email"));
             return false;
         }
 
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
         if (!emailRegex.test(formData.email)) {
-            toast.error("الايميل غير صحيح");
+            toast.error(t("alerts.noEmail"));
             return false;
         }
 
         if (!formData.type) {
-            toast.error("اختار نوع الاستشارة");
+            toast.error(t("alerts.type"));
             return false;
         }
 
         if (!formData.priority) {
-            toast.error("اختار مستوى الأهمية");
+            toast.error(t("alerts.priority"));
             return false;
         }
 
         if (!formData.description.trim()) {
-            toast.error("اكتب وصف المشروع");
+            toast.error(t("alerts.desc"));
             return false;
         }
 
         if (!formData.country) {
-            toast.error("اختار الإمارة");
+            toast.error(t("alerts.emirate"));
             return false;
         }
 
@@ -131,9 +131,9 @@ const ConsultationRequest = () => {
             });
 
             toast.promise(promise, {
-                loading: "جاري الإرسال...",
-                success: "تم إرسال الطلب بنجاح ✅",
-                error: "حصل خطأ ❌",
+                loading: (t("alerts.loading")),
+                success: (t("alerts.success")),
+                error: (t("alerts.error")),
             });
 
             await promise;
@@ -212,7 +212,6 @@ const ConsultationRequest = () => {
                          </div>
                         <h3>{loading ? <PulseLoader /> : t("request.btn")}</h3>
                     </div>
-
                 </motion.div>
             </div>
 
