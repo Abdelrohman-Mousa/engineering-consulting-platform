@@ -15,6 +15,7 @@ import PulseLoader from "~/components/loader/PulseLoader";
 import noDataSearch from "/src/animations/No-Data.json";
 import emptyRequest from "/src/animations/empty.json";
 import Lottie from "lottie-react";
+import {useTranslation} from "react-i18next";
 
 type RequestType = {
     id: string;
@@ -28,6 +29,7 @@ type RequestType = {
 };
 
 const ConsultationRequests = () => {
+    const { t } = useTranslation();
 
     const [selectedRequest, setSelectedRequest] = useState<RequestType | null>(null);
     const [requests, setRequests] = useState<RequestType[]>([]);
@@ -75,10 +77,10 @@ const ConsultationRequests = () => {
         setTimeout(async () => {
             try {
                 await deleteDoc(doc(db, "consultations", selectedId));
-                toast.success("Request deleted successfully!");
+                toast.success(t("alerts.RequestDeleted"));
             } catch (error) {
                 console.error(error);
-                toast.error("Failed to delete request.");
+                toast.error(t("alerts.Faileddelete"));
             } finally {
                 setDialogVisible(false);
                 setRemovingId(null);
@@ -93,9 +95,9 @@ const ConsultationRequests = () => {
             await updateDoc(doc(db, "consultations", id), {
                 status: "completed",
             });
-            toast.success("Marked as completed!");
+            toast.success(t("alerts.MarkedCompleted"));
         } catch (error) {
-            toast.error("Failed to update status.");
+            toast.error(t("alerts.FailedUpdate"));
         } finally {
             setUpdatingId(null);
         }
@@ -129,7 +131,7 @@ const ConsultationRequests = () => {
             toast.success(`Request ${status}`);
             return true;
         } catch (error) {
-            toast.error("Failed to update status.");
+            toast.error(t("alerts.FailedUpdate"));
             return false;
         } finally {
             setUpdatingId(null);
@@ -147,26 +149,26 @@ const ConsultationRequests = () => {
                 onCancel={() => setDialogVisible(false)}
             />
             <div className="header">
-                <h1>Engineering Consulting Requests Dashboard</h1>
-                <p>A centralized dashboard to monitor and manage consulting requests efficiently and support better decision-making.</p>
+                <h1>{t("dashboard.ConsultingRequests")}</h1>
+                <p>{t("dashboard.pra")}</p>
             </div>
 
             <div className="counter-search">
                 <div className="counter">
                     <div className="request">
-                        <h2>Total Requests:</h2>
+                        <h2>{t("dashboard.TotalRequests")}</h2>
                         <p>{total}</p>
                     </div>
                     <div className="request">
-                        <h2>Pending:</h2>
+                        <h2>{t("dashboard.Pending")}</h2>
                         <p>{pending}</p>
                     </div>
                     <div className="request">
-                        <h2>Completed:</h2>
+                        <h2>{t("dashboard.Completed")}</h2>
                         <p>{completed}</p>
                     </div>
                     <div className="request">
-                        <h2>Rejected:</h2>
+                        <h2>{t("dashboard.Rejected")}</h2>
                         <p>{rejected}</p>
                     </div>
                 </div>
@@ -174,7 +176,7 @@ const ConsultationRequests = () => {
                 <div className="search">
                     <input
                         type="text"
-                        placeholder="Search by name, email ..."
+                        placeholder={t("dashboard.search")}
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
                     />
@@ -225,7 +227,7 @@ const ConsultationRequests = () => {
                                     onClick={() => setSelectedRequest(request)}
                                 >
                                     <img src={eye} alt="eye" />
-                                    <p>Details</p>
+                                    <p>{t("dashboard.Details")}</p>
                                 </button>
 
                                 <button
@@ -233,7 +235,7 @@ const ConsultationRequests = () => {
                                     onClick={() => confirmDelete(request.id)}
                                 >
                                     <img src={deleteBox} alt="deleteBox" />
-                                    <p>Delete</p>
+                                    <p>{t("dashboard.Delete")}</p>
                                 </button>
 
                                 <button
@@ -243,7 +245,7 @@ const ConsultationRequests = () => {
                                 >
                                     <img src={done} alt="done" />
                                     <p>
-                                        {updatingId === request.id ? <PulseLoader /> : "Done"}
+                                        {updatingId === request.id ? <PulseLoader /> : t("dashboard.Done")}
                                     </p>
                                 </button>
                             </div>

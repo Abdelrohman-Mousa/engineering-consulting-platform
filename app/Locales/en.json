@@ -203,7 +203,18 @@
     "MarkClosed": "Mark as Closed",
     "RespondClient": "Respond to Client",
     "WriteMessage": "Write your message...",
-    "SendMessage": "Send Message"
+    "SendMessage": "Send Message",
+
+    "ConsultingRequests": "Engineering Consulting Requests Dashboard",
+    "pra": "A centralized dashboard to monitor and manage consulting requests efficiently and support better decision-making.",
+    "TotalRequests": "Total Requests:",
+    "Pending": "Pending:",
+    "Completed": "Completed:",
+    "Rejected": "Rejected:",
+    "Details": "Details",
+    "Delete": "Delete",
+    "Done": "Done"
+
 
 
   },
@@ -223,7 +234,12 @@
     "phone": "Invalid phone number",
     "loadingMsg": "Sending message...",
     "successMsg": "Message sent successfully",
-    "errorMsg": "Something went wrong"
+    "errorMsg": "Something went wrong",
+
+    "RequestDeleted": "Request deleted successfully",
+    "Faileddelete": "Failed to delete request.",
+    "MarkedCompleted!": "Marked as completed",
+    "FailedUpdate": "Failed to update status."
 
 
 
