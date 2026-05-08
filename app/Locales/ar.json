@@ -214,11 +214,14 @@
     "Rejected": "مرفوضة:",
     "Details": "التفاصيل",
     "Delete": "حذف",
-    "Done": "تم"
+    "Done": "تم",
 
-
-
-
+    "ConsultationRequest": "طلبات استشارة",
+    "Description": "وصف الرسالة",
+    "ConsultingType": "نوع الاستشارة",
+    "OpenFile": "فتح ملف PDF",
+    "NoRequest": "لا يوجد ملف للطلب",
+    "UpdateRequest": "تحديث حالة الطلب لتعكس تقدمه الحالي."
 
 
 
@@ -247,7 +250,9 @@
     "RequestDeleted": "تم حذف الطلب بنجاح",
     "Faileddelete": "فشل في حذف الطلب.",
     "MarkedCompleted!": "تم التمييز كمكتمل",
-    "FailedUpdate": "فشل في تحديث الحالة."
+    "FailedUpdate": "فشل في تحديث الحالة.",
+    "MessageEmpty": "لا يمكن أن تكون الرسالة فارغة",
+    "FailedMessage": "فشل في إرسال الرسالة"
 
 
 

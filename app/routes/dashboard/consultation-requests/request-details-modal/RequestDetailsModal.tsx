@@ -13,6 +13,7 @@ import emailjs from "@emailjs/browser";
 import toast from "react-hot-toast";
 import Lottie from "lottie-react";
 import noFile from "/src/animations/NO-FILES.json";
+import {useTranslation} from "react-i18next";
 
 
 
@@ -23,6 +24,7 @@ type Props = {
 };
 
 const RequestDetailsModal = ({ request, onClose, onChangeStatus }: Props) => {
+    const { t } = useTranslation();
 
     const [loadingStatus, setLoadingStatus] = useState<"completed" | "rejected" | null>(null);
 
@@ -48,7 +50,7 @@ const RequestDetailsModal = ({ request, onClose, onChangeStatus }: Props) => {
 
     const handleSendMessage = async () => {
         if (!reply.trim()) {
-            toast.error("Message cannot be empty");
+            toast.error(t("alerts.MessageEmpty"));
             return;
         }
 
@@ -66,11 +68,11 @@ const RequestDetailsModal = ({ request, onClose, onChangeStatus }: Props) => {
                 "1wtAkqRzMP0zqrDeN"
             );
 
-            toast.success("Email sent successfully!");
+            toast.success(t("alerts.successMsg"));
 
         } catch (error) {
             console.error(error);
-            toast.error("Failed to send email");
+            toast.error(t("alerts.FailedMessage"));
         } finally {
             setSending(false);
         }
@@ -98,7 +100,7 @@ const RequestDetailsModal = ({ request, onClose, onChangeStatus }: Props) => {
                         >
 
                            <div className="consulting-modal-header">
-                               <h2>Consultation Request</h2>
+                               <h2>{t("dashboard.ConsultationRequest")}</h2>
                                <button className="close-btn" onClick={onClose}>
                                  <img src={closed} alt="Close" />
                                </button>
@@ -131,11 +133,11 @@ const RequestDetailsModal = ({ request, onClose, onChangeStatus }: Props) => {
 
                                 <div className="consulting-modal-info-desc-type">
                                     <div className="desc">
-                                        <h2>Description</h2>
+                                        <h2>{t("dashboard.Description")}</h2>
                                         <p>{capitalize(request.description)}</p>
                                     </div>
                                     <div className="type">
-                                        <h2>Consulting Type</h2>
+                                        <h2>{t("dashboard.ConsultingType")}</h2>
                                         <p>{capitalize(request.type)}</p>
                                     </div>
                                 </div>
@@ -181,7 +183,7 @@ const RequestDetailsModal = ({ request, onClose, onChangeStatus }: Props) => {
                                                                     className="pdf-icon"
                                                                     style={{ width: "150px", height: "150px", margin: "auto" }}
                                                                 />
-                                                                <h3>Open PDF File</h3>
+                                                                <h3> {t("dashboard.OpenFile")}</h3>
                                                             </div>
 
                                                         ) : (
@@ -192,7 +194,7 @@ const RequestDetailsModal = ({ request, onClose, onChangeStatus }: Props) => {
                                                                 rel="noopener noreferrer"
                                                                 className="download-file"
                                                             >
-                                                                Open File
+                                                                {t("dashboard.OpenFile")}
                                                             </a>
 
                                                         )}
@@ -209,16 +211,16 @@ const RequestDetailsModal = ({ request, onClose, onChangeStatus }: Props) => {
                                                     className="no-data-search"
                                                     style={{width: "200px", height: "200px"}}
                                                 />
-                                                <p>No Request File</p>
+                                                <p>{t("dashboard.NoRequest")}</p>
                                             </div>
 
                                         )}
                                     </div>
 
                                     <div className="consulting-modal-info-replay-message">
-                                        <h2>Reply to Client</h2>
+                                        <h2>{t("dashboard.RespondClient")}</h2>
                                         <textarea
-                                            placeholder="Write your message..."
+                                            placeholder={t("dashboard.WriteMessage")}
                                             rows={10}
                                             value={reply}
                                             onChange={(e) => setReply(e.target.value)}
@@ -229,21 +231,21 @@ const RequestDetailsModal = ({ request, onClose, onChangeStatus }: Props) => {
                                             onClick={handleSendMessage}
                                             disabled={sending || !reply.trim()}
                                         >
-                                            <h2>{sending ? <PulseLoader /> : "Send Message"}</h2>
+                                            <h2>{sending ? <PulseLoader /> : t("dashboard.SendMessage")}</h2>
                                             <img src={sent} alt="sent" />
                                         </button>
                                     </div>
                                 </div>
 
                                 <div className="consulting-modal-info-status-btn">
-                                    <h2>Update the request status to reflect its current progress.</h2>
+                                    <h2>{t("dashboard.UpdateRequest")}</h2>
                                     <div className="status-btn">
                                         <button
                                             className="completed"
                                             disabled={request.status === "completed" || loadingStatus !== null}
                                             onClick={() => handleStatus("completed")}
                                         >
-                                            {loadingStatus === "completed" ? <PulseLoader /> : "Completed"}
+                                            {loadingStatus === "completed" ? <PulseLoader /> : t("dashboard.Completed")}
                                         </button>
 
                                         <button
@@ -251,7 +253,7 @@ const RequestDetailsModal = ({ request, onClose, onChangeStatus }: Props) => {
                                             disabled={request.status === "rejected" || loadingStatus !== null}
                                             onClick={() => handleStatus("rejected")}
                                         >
-                                            {loadingStatus === "rejected" ? <PulseLoader /> : "Rejected"}
+                                            {loadingStatus === "rejected" ? <PulseLoader /> : t("dashboard.Rejected")}
                                         </button>
                                     </div>
                                 </div>

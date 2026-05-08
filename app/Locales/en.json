@@ -213,7 +213,14 @@
     "Rejected": "Rejected:",
     "Details": "Details",
     "Delete": "Delete",
-    "Done": "Done"
+    "Done": "Done",
+
+    "ConsultationRequest": "Consultation Request",
+    "Description": "Description",
+    "ConsultingType": "Consulting Type",
+    "OpenFile": "Open PDF File",
+    "NoRequest": "No Request File",
+    "UpdateRequest": "Update the request status to reflect its current progress."
 
 
 
@@ -239,7 +246,10 @@
     "RequestDeleted": "Request deleted successfully",
     "Faileddelete": "Failed to delete request.",
     "MarkedCompleted!": "Marked as completed",
-    "FailedUpdate": "Failed to update status."
+    "FailedUpdate": "Failed to update status.",
+
+    "MessageEmpty": "Message cannot be empty",
+    "FailedMessage": "Failed to send message"
 
 
 
