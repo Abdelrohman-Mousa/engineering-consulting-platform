@@ -193,6 +193,7 @@ const ConsultationRequest = () => {
                     </div>
                     <div className="dropped-file-country">
                         <DropzoneUI
+                            key={formData.files.length === 0 ? "empty" : "filled"}
                             files={formData.files}
                             setFormData={setFormData}
                         />
