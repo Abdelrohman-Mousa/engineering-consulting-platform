@@ -6,6 +6,7 @@ import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import "./formInput.scss";
 import { useTranslation } from "react-i18next";
+import toast from "react-hot-toast";
 
 type FileData = {
     file: File;
@@ -31,44 +32,68 @@ export default function MultiDropzoneForm({ files, setFormData }: Props) {
         );
     };
 
-    // ✅ handle select / drop files
+    const MAX_FILES = 2;
+
     const handleFileSelect = (selectedFiles: FileList | File[]) => {
         const validFiles = Array.from(selectedFiles).filter(isValidFile);
 
-        const newFiles: FileData[] = validFiles.map((file) => ({
+        const remainingSlots = MAX_FILES - previewFiles.length;
+
+        if (previewFiles.length >= MAX_FILES) {
+            toast.error("Max 2 files allowed");
+            return;
+        }
+
+        const filesToAdd = validFiles.slice(0, remainingSlots);
+
+        const newFiles: FileData[] = filesToAdd.map((file) => ({
             file,
             preview: file.type.startsWith("image/")
                 ? URL.createObjectURL(file)
                 : null,
         }));
 
-        // UI preview
         setPreviewFiles((prev) => [...prev, ...newFiles]);
 
-        // form state (important for submit)
         setFormData((prev: any) => ({
             ...prev,
-            files: [...prev.files, ...validFiles],
+            files: [...prev.files, ...filesToAdd],
         }));
+
+        if (validFiles.length > remainingSlots) {
+            toast.error("You can only upload 2 files max");
+        }
     };
 
     // ✅ remove file
     const handleRemove = (index: number) => {
         setPreviewFiles((prev) => {
             const removed = prev[index];
-            if (removed?.preview) URL.revokeObjectURL(removed.preview);
-            return prev.filter((_, i) => i !== index);
-        });
 
-        setFormData((prev: any) => ({
-            ...prev,
-            files: prev.files.filter((_: File, i: number) => i !== index),
-        }));
+            if (removed?.preview) {
+                URL.revokeObjectURL(removed.preview);
+            }
+
+            const updated = prev.filter((_, i) => i !== index);
+
+            setFormData((formPrev: any) => ({
+                ...formPrev,
+                files: updated.map((f) => f.file),
+            }));
+
+            return updated;
+        });
     };
 
     // ✅ drag & drop
     const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
         e.preventDefault();
+
+        if (previewFiles.length >= MAX_FILES) {
+            toast.error("Max 2 files allowed");
+            return;
+        }
+
         handleFileSelect(e.dataTransfer.files);
     };
 
@@ -76,21 +101,26 @@ export default function MultiDropzoneForm({ files, setFormData }: Props) {
         <Box
             onDragOver={(e) => e.preventDefault()}
             onDrop={handleDrop}
-            onClick={() => inputRef.current?.click()}
+            onClick={() => {
+                if (previewFiles.length >= 2) return;
+                inputRef.current?.click();
+            }}
             sx={{
-                border: "2px dashed grey",
-                borderRadius: "16px",
-                p: 4,
+                border: previewFiles.length >= 2 ? "2px dashed red" : "2px dashed blue",                borderRadius: "16px",
+                p: 2,
                 textAlign: "center",
                 mx: "auto",
-                cursor: "pointer",
-                minHeight: "160px",
+                cursor: previewFiles.length >= 2 ? "not-allowed" : "pointer",
+                opacity: previewFiles.length >= 2 ? 0.6 : 1,
+                // pointerEvents: previewFiles.length >= 2 ? "none" : "auto",
+                minHeight: "120px",
+                minWidth: "350px",
+                width: "80%",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
                 flexDirection: "column",
             }}
-            className="dropzone-form"
         >
             {/* Empty state */}
             {previewFiles.length === 0 && (
@@ -160,7 +190,11 @@ export default function MultiDropzoneForm({ files, setFormData }: Props) {
                                     position: "absolute",
                                     top: 2,
                                     right: 2,
-                                    bgcolor: "rgba(255,255,255,0.8)",
+                                    bgcolor: "rgb(73,71,71)",
+                                    color: "white",
+                                    "&:hover": {
+                                        bgcolor: "rgb(100,98,98)",
+                                    },
                                 }}
                             >
                                 <CloseIcon fontSize="small" />
