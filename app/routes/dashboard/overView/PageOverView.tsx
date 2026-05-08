@@ -89,6 +89,7 @@ const PageOverView = () => {
                     primaryYAxis={userYAxis}
                     title="Users Joined"
                     tooltip={{ enable: true }}
+                    enableRtl={true}
                 >
                     <Inject services={[ColumnSeries, SplineAreaSeries, Category, DataLabel, Tooltip]} />
 
@@ -130,6 +131,7 @@ const PageOverView = () => {
                     primaryYAxis={consultYAxis}
                     title="Consultation Received"
                     tooltip={{ enable: true }}
+                    enableRtl={true}
                 >
                     <Inject services={[ColumnSeries, SplineAreaSeries, Category, DataLabel, Tooltip]} />
 

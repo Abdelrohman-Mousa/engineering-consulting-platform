@@ -6,9 +6,11 @@ import {getUsers} from "../../../../src/get-data/getUsers";
 import { useRef } from "react";
 import PulseLoader from "~/components/loader/PulseLoader";
 import Loader from "~/components/loader/Loader";
+import {useTranslation} from "react-i18next";
+import i18n from "i18next";
 
 type UserData = {
-    id: string; // 🔥 مهم
+    id: string;
     name: string;
     email: string;
     createdAt: Date;
@@ -17,6 +19,7 @@ type UserData = {
 };
 
 const Users = () => {
+    const { t } = useTranslation();
 
     const [allUsers, setAllUsers] = useState<UserData[]>([]);
     const [lastDoc, setLastDoc] = useState<any>(null);
@@ -59,17 +62,16 @@ const Users = () => {
         hasFetched.current = true;
     }, []);
 
-    if (loading) {
-        return <h2><Loader /></h2>;
-    }
     return (
-        <div className="all-users wrapper">
+        <div className="all-users wrapper"  dir={i18n.language === "ar" ? "rtl" : "ltr"}>
             <div className="header">
-                <h1>Manage Users</h1>
-                <p>Filter, sort, and access detailed user profiles</p>
+                <h1>{t("dashboard.manageUsers")}</h1>
+                <p>{t("dashboard.pra-users")}</p>
             </div>
 
-            <GridComponent dataSource={allUsers} gridLines="None">
+            <GridComponent dataSource={allUsers} gridLines="None" enableRtl={true}>
+                {loading && <Loader />}
+
                 <ColumnsDirective>
                     <ColumnDirective
                        field="name"

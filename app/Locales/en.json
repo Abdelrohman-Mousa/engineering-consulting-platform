@@ -177,7 +177,11 @@
     "overView": "OverView",
     "Users": "Users",
     "Contact-messages": "Contact Messages",
-    "Consultation-requests": "Consultation Requests"
+    "Consultation-requests": "Consultation Requests",
+    "admin": "Admin",
+    "manageUsers": "Manage Users",
+    "pra-users": "Filter, sort, and access detailed user profiles"
+
   },
 
   "alerts": {

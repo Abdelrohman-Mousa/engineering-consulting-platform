@@ -65,7 +65,7 @@ const NavItems = ({ handleClick }: { handleClick?: () => void}) => {
                 )}
 
                 <article>
-                    <h2>Admin</h2>
+                    <h2>{t("dashboard.admin")}</h2>
                     <p>{user.email}</p>
                 </article>
             </footer>
