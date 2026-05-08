@@ -6,17 +6,22 @@ import type { MenuProps } from '@mui/material';
 import MenuItem from '@mui/material/MenuItem';
 import Divider from '@mui/material/Divider';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import {useTranslation} from "react-i18next";
+import i18n from "i18next";
+
+const isArabic = i18n.language === "ar";
 
 const StyledMenu = styled((props: MenuProps) => (
+
     <Menu
         elevation={0}
         anchorOrigin={{
             vertical: 'bottom',
-            horizontal: 'right',
+            horizontal: isArabic ? 'left' : 'right',
         }}
         transformOrigin={{
             vertical: 'top',
-            horizontal: 'right',
+            horizontal: isArabic ? 'left' : 'right',
         }}
         {...props}
     />
@@ -53,7 +58,13 @@ const StyledMenu = styled((props: MenuProps) => (
     },
 }));
 
-export default function FilterMessage({ setStatusFilter }: any) {
+type Props = {
+    setStatusFilter: React.Dispatch<React.SetStateAction<string>>;
+};
+
+export default function FilterMessage({ setStatusFilter }: Props) {
+    const { t } = useTranslation();
+
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
     const handleClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -75,8 +86,11 @@ export default function FilterMessage({ setStatusFilter }: any) {
                 onClick={handleClick}
                 endIcon={<KeyboardArrowDownIcon />}
                 className="btn-message-filter"
+                sx={{
+                    direction: i18n.language === "ar" ? "rtl" : "ltr",
+                }}
             >
-                Filter Messages
+                {t("dashboard.FilterMessages")}
             </Button>
             <StyledMenu
                 id="demo-customized-menu"
@@ -94,9 +108,15 @@ export default function FilterMessage({ setStatusFilter }: any) {
                         setStatusFilter("all");
                         handleClose();
                     }}
+                    sx={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                        gap: 1,
+                    }}
                     disableRipple
                 >
-                    All Messages
+                    {t("dashboard.AllMessages")}
                     <div className="dots" style={{backgroundColor: "#4CAF50", right: "2px"}}/>
                     <div className="dots" style={{backgroundColor: "#026bef", right: "10px"}}/>
                     <div className="dots" style={{backgroundColor: "#404040", right: "20px"}}/>
@@ -110,8 +130,14 @@ export default function FilterMessage({ setStatusFilter }: any) {
                         handleClose();
                     }}
                     disableRipple
+                    sx={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                        gap: 1,
+                    }}
                 >
-                    New
+                    {t("dashboard.New")}
                     <div className="dots" style={{backgroundColor: "#4CAF50"}}/>
                 </MenuItem>
 
@@ -124,7 +150,7 @@ export default function FilterMessage({ setStatusFilter }: any) {
                     }}
                     disableRipple
                 >
-                    Read
+                    {t("dashboard.Read")}
                     <div className="dots" style={{backgroundColor: "#026bef"}}/>
                 </MenuItem>
 
@@ -137,7 +163,7 @@ export default function FilterMessage({ setStatusFilter }: any) {
                     }}
                     disableRipple
                 >
-                    Closed
+                    {t("dashboard.Closed")}
                     <div className="dots" style={{backgroundColor: "#404040"}}/>
                 </MenuItem>
             </StyledMenu>

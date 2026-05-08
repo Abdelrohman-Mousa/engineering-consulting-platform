@@ -97,6 +97,10 @@
     justify-content: center;
     z-index: 999;
 
+    [dir="rtl"] & {
+      transform: translate(-9%, 0%);
+    }
+
     @include mobile {
       transform: translate(0%, 0%);
       padding: 0.5rem;
@@ -412,6 +416,9 @@
                   object-fit: cover;
                   object-position: center;
                   filter: invert(1);
+                  [dir="rtl"] & {
+                    transform: rotate(180deg);
+                  }
                 }
               }
             }
@@ -431,6 +438,11 @@
   cursor: pointer;
   position: absolute;
   right: 10px;
+
+  [dir="rtl"] & {
+    right: auto;
+    left: 10px;
+  }
 }
 
 .button-message-filter {

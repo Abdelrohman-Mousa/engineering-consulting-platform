@@ -180,7 +180,31 @@
     "Consultation-requests": "Consultation Requests",
     "admin": "Admin",
     "manageUsers": "Manage Users",
-    "pra-users": "Filter, sort, and access detailed user profiles"
+    "pra-users": "Filter, sort, and access detailed user profiles",
+
+    "ContactMessageTitle": "Incoming Contact Messages",
+    "contactPra": "Displays all user messages, allowing admins to review inquiries and respond efficiently.",
+    "NewMessages": "New Messages:",
+    "search": "Search by name or email",
+    "FilterMessages": "Filter Messages",
+
+    "AllMessages": "All Messages",
+    "New": "New",
+    "Read": "Read",
+    "Closed": "Closed",
+    "ViewDetails": "View Details",
+
+    "modalMessage": "Messages Details",
+    "Subject": "Subject:",
+    "PhoneNumber": "Phone Number:",
+    "Messages": "Messages:",
+    "EmailAddress": "Email Address:",
+    "MarkRead": "Mark as Read",
+    "MarkClosed": "Mark as Closed",
+    "RespondClient": "Respond to Client",
+    "WriteMessage": "Write your message...",
+    "SendMessage": "Send Message"
+
 
   },
 

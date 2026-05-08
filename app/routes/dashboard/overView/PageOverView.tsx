@@ -12,6 +12,7 @@ import {
 } from "@syncfusion/ej2-react-charts";
 import {consultXAxis, consultYAxis, userXAxis, userYAxis} from "~/constants";
 import {useTranslation} from "react-i18next";
+import i18n from "i18next";
 
 const PageOverView = () => {
 
@@ -89,7 +90,7 @@ const PageOverView = () => {
                     primaryYAxis={userYAxis}
                     title="Users Joined"
                     tooltip={{ enable: true }}
-                    enableRtl={true}
+                    enableRtl={i18n.language === "ar"}
                 >
                     <Inject services={[ColumnSeries, SplineAreaSeries, Category, DataLabel, Tooltip]} />
 

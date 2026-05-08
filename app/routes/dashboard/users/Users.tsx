@@ -69,7 +69,13 @@ const Users = () => {
                 <p>{t("dashboard.pra-users")}</p>
             </div>
 
-            <GridComponent dataSource={allUsers} gridLines="None" enableRtl={true}>
+            <GridComponent
+                key={i18n.language}
+                dataSource={allUsers}
+                gridLines="None"
+                enableRtl={i18n.language === "ar"}
+            >
+
                 {loading && <Loader />}
 
                 <ColumnsDirective>

@@ -1,4 +1,5 @@
 import React from "react";
+import {useTranslation} from "react-i18next";
 
 interface Message {
     name: string;
@@ -14,6 +15,8 @@ interface ActionTemplateProps {
 }
 
 const ActionTemplate: React.FC<ActionTemplateProps> = ({ rowData, onView }) => {
+    const { t } = useTranslation();
+
     return (
         <div className="action-template">
             <button
@@ -21,7 +24,7 @@ const ActionTemplate: React.FC<ActionTemplateProps> = ({ rowData, onView }) => {
                 className="action-btn"
                 onClick={() => {onView(rowData)}}
             >
-                View Details
+                {t("dashboard.ViewDetails")}
             </button>
         </div>
     )

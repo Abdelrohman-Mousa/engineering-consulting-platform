@@ -19,6 +19,7 @@ import toast from "react-hot-toast";
 import emailjs from "@emailjs/browser";
 import PulseLoader from "~/components/loader/PulseLoader";
 import Loader from "~/components/loader/Loader";
+import {useTranslation} from "react-i18next";
 
 
 interface Message {
@@ -33,6 +34,7 @@ interface Message {
 }
 
 const ContactMessage = () => {
+    const { t } = useTranslation();
 
     const [selectedMessage, setSelectedMessage] = useState<Message | null>(null);
     const [messages, setMessages] = useState<Message[]>([]);
@@ -177,12 +179,12 @@ const ContactMessage = () => {
         <div className="contact-message">
             <div className="header-container">
                <div className="header">
-                  <h1>Incoming Contact Messages</h1>
-                  <p>Displays all user messages, allowing admins to review inquiries and respond efficiently.</p>
+                  <h1>{t("dashboard.ContactMessageTitle")}</h1>
+                  <p>{t("dashboard.contactPra")}</p>
                </div>
 
                 <button className="btn-message">
-                    New Messages: <span>{newMessagesCount}</span>
+                    {t("dashboard.NewMessages")} <span>{newMessagesCount}</span>
                 </button>
             </div>
 
@@ -190,7 +192,7 @@ const ContactMessage = () => {
                 <div className="search-container">
                     <input
                         type="text"
-                        placeholder="Search by name or email"
+                        placeholder={(t("dashboard.search"))}
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
                     />
@@ -200,7 +202,8 @@ const ContactMessage = () => {
                 </div>
 
                 <div className="filter-container">
-                    <FilterMessage setStatusFilter={setStatusFilter}
+                    <FilterMessage
+                        setStatusFilter={setStatusFilter}
                     />
                 </div>
             </div>
@@ -272,7 +275,7 @@ const ContactMessage = () => {
                         >
                             <div className="modal-container">
                                 <div className="modal-header">
-                                    <h3>Messages Details</h3>
+                                    <h3>{t("dashboard.modalMessage")}</h3>
                                     <button type="button" onClick={() => setOpen(false)} className="btn-closed">
                                         <img src={closed} alt={closed}/>
                                     </button>
@@ -293,24 +296,24 @@ const ContactMessage = () => {
 
                                 <div className="subject-company">
                                     <div className="subject">
-                                        <h2>Subject:</h2>
+                                        <h2>{t("dashboard.Subject")}</h2>
                                         <p className="content-message">{selectedMessage.subject}</p>
                                     </div>
 
                                     <div className="subject">
-                                        <h2>Phone Number:</h2>
+                                        <h2>{t("dashboard.PhoneNumber")}</h2>
                                         <p className="content-message">{selectedMessage.phone}</p>
                                     </div>
                                 </div>
 
                                     <div className="modal-messages">
-                                        <h2>Messages:</h2>
+                                        <h2>{t("dashboard.Messages")}</h2>
                                         <p className="content-message">{selectedMessage.message}</p>
                                     </div>
 
                                     <div className="modal-email-replayMessage">
                                         <div className="modal-email">
-                                          <h2>Email Address:</h2>
+                                          <h2>{t("dashboard.EmailAddress")}</h2>
                                           <p className="content-message">
                                               {selectedMessage.email}
                                               <button type="button" className="btn-copy" onClick={handleCopy}>
@@ -320,12 +323,12 @@ const ContactMessage = () => {
 
                                             <div className="mark-as">
                                                 <div className="read as" onClick={handleMarkAsRead}>
-                                                    <h4>Mark as Read</h4>
+                                                    <h4>{t("dashboard.MarkRead")}</h4>
                                                     <img src={markRead} alt="Mark as Read"/>
                                                 </div>
 
                                                 <div className="closed as" onClick={handleCloseMessage}>
-                                                    <h4>Mark as Closed</h4>
+                                                    <h4>{t("dashboard.MarkClosed")}</h4>
                                                     <img src={markClosed} alt="Mark as Closed"/>
                                                 </div>
                                             </div>
@@ -333,12 +336,12 @@ const ContactMessage = () => {
 
                                         <div className="replay-messages">
                                             <div className="replay-title">
-                                                <h2>Respond to Client</h2>
+                                                <h2>{t("dashboard.RespondClient")}</h2>
                                                 <img src={replay} alt="Replay"/>
                                             </div>
 
                                             <textarea
-                                                placeholder="Write your message..."
+                                                placeholder={t("dashboard.WriteMessage")}
                                                 rows={10}
                                                 value={replyText}
                                                 onChange={(e) => setReplyText(e.target.value)}
@@ -348,7 +351,7 @@ const ContactMessage = () => {
                                                 onClick={handleSendReply}
                                                 disabled={sending}
                                             >
-                                                {sending ? <PulseLoader /> : "Send Message"}
+                                                {sending ? <PulseLoader /> : t("dashboard.SendMessage")}
                                                 <img src={send} alt="send Message"/>
                                             </button>
                                         </div>
