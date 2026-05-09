@@ -29,8 +29,13 @@ const SignIn = () => {
         if (loading) return; // تمنع الضغط المتكرر
 
         // ✅ حط الـ validation هنا
-        if (!email || !password) {
-            toast.error("Please fill in your email and password");
+        if (!email.includes("@")) {
+            toast.error("Invalid email");
+            return;
+        }
+
+        if (password.length < 6) {
+            toast.error("Password must be at least 6 characters");
             return;
         }
 
@@ -42,13 +47,44 @@ const SignIn = () => {
             toast.success("Account created successfully ✅", { id: toastId });
             navigate("/"); // الصفحة بعد تسجيل الدخول
         } catch (error: any) {
-            toast.error(error.message || "An error occurred during registration ❌", { id: toastId });
+
+            switch (error.code) {
+
+                case "auth/user-not-found":
+                    toast.error("User not found ❌", { id: toastId });
+                    break;
+
+                case "auth/wrong-password":
+                    toast.error("Incorrect password ❌", { id: toastId });
+                    break;
+
+                case "auth/email-already-in-use":
+                    toast.error("Email already exists ❌", { id: toastId });
+                    break;
+
+                case "auth/invalid-email":
+                    toast.error("Invalid email address ❌", { id: toastId });
+                    break;
+
+                case "auth/weak-password":
+                    toast.error("Weak password ❌", { id: toastId });
+                    break;
+
+                default:
+                    toast.error("Something went wrong ❌", { id: toastId });
+            }
+
         } finally {
             setLoading(false);
         }
     };
 
     const handleGoogle = async () => {
+
+        if (loading) return;
+
+        setLoading(true);
+
         const toastId = toast.loading("Logging in...");
 
         try {
@@ -60,13 +96,42 @@ const SignIn = () => {
 
             if (role === "admin") {
                 toast.success("Logged in successfully (Admin) ✅", { id: toastId });
-                navigate("/about");
+                navigate("/dashboard");
             } else {
                 toast.success("Logged in successfully ✅", { id: toastId });
                 navigate("/"); // الصفحة الرئيسية للعملاء
             }
-        } catch (err: any) {
-            toast.error(err.message || "An error occurred during registration ❌", { id: toastId });
+        } catch (error: any) {
+
+            switch (error.code) {
+
+                case "auth/user-not-found":
+                    toast.error("User not found ❌", { id: toastId });
+                    break;
+
+                case "auth/wrong-password":
+                    toast.error("Incorrect password ❌", { id: toastId });
+                    break;
+
+                case "auth/email-already-in-use":
+                    toast.error("Email already exists ❌", { id: toastId });
+                    break;
+
+                case "auth/invalid-email":
+                    toast.error("Invalid email address ❌", { id: toastId });
+                    break;
+
+                case "auth/weak-password":
+                    toast.error("Weak password ❌", { id: toastId });
+                    break;
+
+                default:
+                    toast.error("Something went wrong ❌", { id: toastId });
+            }
+
+        }
+        finally {
+            setLoading(false);
         }
     };
 
@@ -97,12 +162,14 @@ const SignIn = () => {
                     >
                         <input
                             type="email"
+                            value={email}
                             placeholder={t("signIn.email")}
                             onChange={(e) => setEmail(e.target.value)}
                         />
 
                         <input
                             type="password"
+                            value={password}
                             placeholder={t("signIn.pass")}
                             onChange={(e) => setPassword(e.target.value)}
                         />
