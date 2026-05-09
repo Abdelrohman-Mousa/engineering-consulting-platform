@@ -152,18 +152,23 @@
       gap: 1rem;
       padding-top: 1.5rem;
       width: 100%;
+      @include tablet {
+        flex-direction: column;
+      }
 
       .desc {
         display: flex;
         flex-direction: column;
         gap: 0.2rem;
-        width: 75%;
+        //width: 70%;
+        flex: 2;
         @include mobile {
           width: 100%;
-          flex-wrap: wrap;
+
         }
         @include tablet {
-          flex-wrap: wrap;
+          width: 100%;
+          flex-direction: column;
         }
         h2 {
           font-size: 1.1rem;
@@ -189,8 +194,13 @@
         display: flex;
         flex-direction: column;
         gap: 0.2rem;
-        width: 30%;
+        //width: 30%;
+        flex: 1;
+
         @include mobile {
+          width: 100%;
+        }
+        @include tablet {
           width: 100%;
         }
         h2 {

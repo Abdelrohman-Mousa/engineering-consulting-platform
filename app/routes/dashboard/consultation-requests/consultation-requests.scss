@@ -144,8 +144,7 @@
                0 2px 4px rgba(0, 0, 0, 0.06),
                0 8px 16px rgba(0, 0, 0, 0.08),
                0 16px 32px rgba(0, 0, 0, 0.05);
-      flex: 1 1 320px;
-      max-width: 32%;
+      width: 32%;
       transition: all 0.3s ease;
 
       &:hover {
@@ -164,7 +163,7 @@
         width: 100%;
       }
       @include tablet {
-        max-width: 48%;
+        flex: 1 1 320px;
       }
 
       .consultation-request-box-name-priority {
