@@ -152,7 +152,11 @@
       gap: 1rem;
       padding-top: 1.5rem;
       width: 100%;
+
       @include tablet {
+        flex-direction: column;
+      }
+      @include mobile {
         flex-direction: column;
       }
 
@@ -168,7 +172,6 @@
         }
         @include tablet {
           width: 100%;
-          flex-direction: column;
         }
         h2 {
           font-size: 1.1rem;
