@@ -7,12 +7,16 @@
         font-size: 1.3rem;
         font-weight: 500;
       }
+
     }
     p {
       @include mobile {
         font-size: 1rem;
         font-weight: 400;
       }
+    }
+    @include tablet {
+      width: 100%;
     }
   }
   .counter-search {
@@ -25,6 +29,10 @@
       gap: 1rem;
       justify-content: center;
     }
+    @include tablet {
+      flex-direction: column;
+      gap: 1rem;
+    }
 
     .counter {
       display: flex;
@@ -32,6 +40,10 @@
       flex-wrap: wrap;
       @include mobile {
         justify-content: center;
+      }
+      @include tablet {
+        justify-content: center;
+        flex-wrap: wrap;
       }
 
       .request {
@@ -78,6 +90,9 @@
       @include mobile {
         width: 100%;
       }
+      @include tablet {
+        width: 100%;
+      }
 
       input {
         border: none;
@@ -109,6 +124,12 @@
       width: 40%;
       height: 40%;
       margin: auto;
+      @include mobile {
+        height: auto;
+      }
+      @include tablet {
+        height: auto;
+      }
     }
 
     .consultation-request-box {
@@ -123,7 +144,8 @@
                0 2px 4px rgba(0, 0, 0, 0.06),
                0 8px 16px rgba(0, 0, 0, 0.08),
                0 16px 32px rgba(0, 0, 0, 0.05);
-      width: 32%;
+      flex: 1 1 320px;
+      max-width: 32%;
       transition: all 0.3s ease;
 
       &:hover {
@@ -140,6 +162,9 @@
 
       @include mobile {
         width: 100%;
+      }
+      @include tablet {
+        max-width: 48%;
       }
 
       .consultation-request-box-name-priority {
