@@ -382,6 +382,9 @@
   justify-content: center;
 
   padding: 5rem;
+  @include mobile {
+    padding: 1rem;
+  }
 }
 
 .file-preview-content {
