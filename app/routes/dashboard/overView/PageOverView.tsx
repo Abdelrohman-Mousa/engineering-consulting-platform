@@ -13,67 +13,52 @@ import {
 import {consultXAxis, consultYAxis, userXAxis, userYAxis} from "~/constants";
 import {useTranslation} from "react-i18next";
 import i18n from "i18next";
-import { getDashboardStats } from "/src/firebase/services/dashboard.service";
+import { getDashboardStats } from "src/firebase/services/dashboard.service";
 import {useState, useEffect} from "react";
 import Loader from "~/components/loader/Loader";
+import {
+    getUsersAnalytics,
+    getConsultationsAnalytics
+} from "src/firebase/services/graph";
 
 const PageOverView = () => {
 
     const { t } = useTranslation();
 
     const [dashboardStats, setDashboardStats] = useState<any>(null);
+    const [userGrowth, setUserGrowth] = useState([]);
+    const [consultationsGrowth, setConsultationsGrowth] = useState([]);
+
 
     useEffect(() => {
 
-        const fetchStats = async () => {
+        const fetchDashboardData = async () => {
 
-            const data = await getDashboardStats();
+            const stats = await getDashboardStats();
 
-            setDashboardStats(data);
+            const usersAnalytics = await getUsersAnalytics();
+
+            const consultationsAnalytics =
+                await getConsultationsAnalytics();
+
+            setDashboardStats(stats);
+
+            setUserGrowth(usersAnalytics);
+
+            setConsultationsGrowth(consultationsAnalytics);
         };
 
-        fetchStats();
+        fetchDashboardData();
 
     }, []);
 
+
     if (!dashboardStats) {
-        return <p><Loader /></p>;
+        return <Loader />;
     }
-
-
-    // const dashboardStats = {
-    //     totalUsers: 12450,
-    //     usersJoined: { currentMonth: 218, lastMonth: 176 },
-    //     totalMessages: 3210,
-    //     messagesSent: { currentMonth: 150, lastMonth: 250 },
-    //     totalConsultations: 1500,
-    //     consultationsReceived: { currentMonth: 100, lastMonth: 150 },
-    // }
 
     const { totalUsers, usersJoined, totalMessages, messagesSent, totalConsultations, consultationsReceived } = dashboardStats;
 
-
-    const userGrowth = [
-        { day: "Sat", count: 20 },
-        { day: "Sun", count: 35 },
-        { day: "Mon", count: 20 },
-        { day: "Tue", count: 40 },
-        { day: "Wed", count: 32 },
-        { day: "Thu", count: 50 },
-        { day: "Fri", count: 45 },
-    ];
-
-    // ============Consultation==============
-
-    const consultations = [
-        { day: "Sat", count: 10 },
-        { day: "Sun", count: 15 },
-        { day: "Mon", count: 12 },
-        { day: "Tue", count: 18 },
-        { day: "Wed", count: 14 },
-        { day: "Thu", count: 20 },
-        { day: "Fri", count: 16 },
-    ];
 
     return (
         <div className="page-overview">
@@ -139,7 +124,7 @@ const PageOverView = () => {
                             xName="day"
                             yName="count"
                             type="SplineArea"
-                            name="ًًWave"
+                            name="Wave"
                             fill="rgba(71, 132, 238, 0.3)"
                             border={{ width: 2, color: '#4784EE'}}
                         />
@@ -160,7 +145,7 @@ const PageOverView = () => {
 
                     <SeriesCollectionDirective>
                         <SeriesDirective
-                            dataSource={consultations}
+                            dataSource={consultationsGrowth}
                             xName="day"
                             yName="count"
                             name="day"
@@ -178,7 +163,7 @@ const PageOverView = () => {
                         />
 
                         <SeriesDirective
-                            dataSource={consultations}
+                            dataSource={consultationsGrowth}
                             xName="day"
                             yName="count"
                             type="SplineArea"
