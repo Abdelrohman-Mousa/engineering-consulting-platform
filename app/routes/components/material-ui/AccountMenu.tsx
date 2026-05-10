@@ -119,12 +119,14 @@ export default function AccountMenu() {
                 <Divider />
 
                 <MenuItem onClick={handleClose}>
-                    <Link to="/dashboard">
-                        <div className="flex items-center gap-2">
-                            <img src={dashboard} alt="dashboard" className="w-8 h-8" />
-                            <span className="badge">Dashboard</span>
-                        </div>
-                    </Link>
+                    {user && role === "admin" && (
+                        <Link to="/dashboard">
+                            <div className="flex items-center gap-2">
+                                <img src={dashboard} alt="dashboard" className="w-8 h-8" />
+                                <span className="badge">Dashboard</span>
+                            </div>
+                        </Link>
+                    )}
                 </MenuItem>
                 <Divider />
 
