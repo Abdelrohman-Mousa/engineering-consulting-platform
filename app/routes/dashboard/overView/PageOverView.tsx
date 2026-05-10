@@ -17,8 +17,8 @@ import { subscribeToDashboardStats } from "../../../../src/firebase/services/das
 import {useState, useEffect} from "react";
 import Loader from "~/components/loader/Loader";
 import {
-    getUsersAnalytics,
-    getConsultationsAnalytics
+    subscribeUsersAnalytics,
+    subscribeConsultationsAnalytics
 } from "src/firebase/services/graph";
 
 const PageOverView = () => {
@@ -40,6 +40,20 @@ const PageOverView = () => {
             });
 
         return () => unsubscribe();
+
+    }, []);
+    useEffect(() => {
+
+        const unsubUsers =
+            subscribeUsersAnalytics(setUserGrowth);
+
+        const unsubConsult =
+            subscribeConsultationsAnalytics(setConsultationsGrowth);
+
+        return () => {
+            unsubUsers();
+            unsubConsult();
+        };
 
     }, []);
 

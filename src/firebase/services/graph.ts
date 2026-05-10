@@ -1,85 +1,60 @@
-import {
-    collection,
-    getDocs,
-} from "firebase/firestore";
+import { collection, onSnapshot } from "firebase/firestore";
+import { db } from "../firebaseConfig";
 
-import { db } from "src/firebase/firebaseConfig";
+export const subscribeUsersAnalytics = (callback) => {
 
-export const getUsersAnalytics = async () => {
+    const ref = collection(db, "users");
 
-    try {
+    return onSnapshot(ref, (snapshot) => {
 
-        const usersRef = collection(db, "users");
+        const days = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
 
-        const snapshot = await getDocs(usersRef);
-
-        const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-
-        const result = days.map((day) => ({
+        const result = days.map(day => ({
             day,
-            count: 0,
+            count: 0
         }));
 
-        snapshot.forEach((doc) => {
+        snapshot.forEach(doc => {
 
             const data = doc.data();
-
             if (!data.createdAt) return;
 
             const date = data.createdAt.toDate();
-
             const dayIndex = date.getDay();
 
             result[dayIndex].count += 1;
         });
 
-        return result;
-
-    } catch (error) {
-
-        console.log(error);
-
-        return [];
-    }
+        callback(result);
+    });
 };
-
 
 // =============Consultation=============
 
-export const getConsultationsAnalytics = async () => {
+export const subscribeConsultationsAnalytics = (callback) => {
 
-    try {
+    const ref = collection(db, "consultations");
 
-        const consultationsRef = collection(db, "consultations");
+    return onSnapshot(ref, (snapshot) => {
 
-        const snapshot = await getDocs(consultationsRef);
+        const days = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
 
-        const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-
-        const result = days.map((day) => ({
+        const result = days.map(day => ({
             day,
-            count: 0,
+            count: 0
         }));
 
-        snapshot.forEach((doc) => {
+        snapshot.forEach(doc => {
 
             const data = doc.data();
-
             if (!data.createdAt) return;
 
             const date = data.createdAt.toDate();
-
             const dayIndex = date.getDay();
 
             result[dayIndex].count += 1;
         });
 
-        return result;
-
-    } catch (error) {
-
-        console.log(error);
-
-        return [];
-    }
+        callback(result);
+    });
 };
