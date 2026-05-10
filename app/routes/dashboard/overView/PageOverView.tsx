@@ -13,20 +13,42 @@ import {
 import {consultXAxis, consultYAxis, userXAxis, userYAxis} from "~/constants";
 import {useTranslation} from "react-i18next";
 import i18n from "i18next";
+import { getDashboardStats } from "/src/firebase/services/dashboard.service";
+import {useState, useEffect} from "react";
+import Loader from "~/components/loader/Loader";
 
 const PageOverView = () => {
 
     const { t } = useTranslation();
 
+    const [dashboardStats, setDashboardStats] = useState<any>(null);
 
-    const dashboardStats = {
-        totalUsers: 12450,
-        usersJoined: { currentMonth: 218, lastMonth: 176 },
-        totalMessages: 3210,
-        messagesSent: { currentMonth: 150, lastMonth: 250 },
-        totalConsultations: 1500,
-        consultationsReceived: { currentMonth: 100, lastMonth: 150 },
+    useEffect(() => {
+
+        const fetchStats = async () => {
+
+            const data = await getDashboardStats();
+
+            setDashboardStats(data);
+        };
+
+        fetchStats();
+
+    }, []);
+
+    if (!dashboardStats) {
+        return <p><Loader /></p>;
     }
+
+
+    // const dashboardStats = {
+    //     totalUsers: 12450,
+    //     usersJoined: { currentMonth: 218, lastMonth: 176 },
+    //     totalMessages: 3210,
+    //     messagesSent: { currentMonth: 150, lastMonth: 250 },
+    //     totalConsultations: 1500,
+    //     consultationsReceived: { currentMonth: 100, lastMonth: 150 },
+    // }
 
     const { totalUsers, usersJoined, totalMessages, messagesSent, totalConsultations, consultationsReceived } = dashboardStats;
 
@@ -132,7 +154,7 @@ const PageOverView = () => {
                     primaryYAxis={consultYAxis}
                     title="Consultation Received"
                     tooltip={{ enable: true }}
-                    enableRtl={true}
+                    enableRtl={i18n.language === "ar"}
                 >
                     <Inject services={[ColumnSeries, SplineAreaSeries, Category, DataLabel, Tooltip]} />
 
@@ -160,7 +182,7 @@ const PageOverView = () => {
                             xName="day"
                             yName="count"
                             type="SplineArea"
-                            name="ًًWave"
+                            name="Wave"
                             fill="rgba(71, 132, 238, 0.3)"
                             border={{ width: 2, color: '#4784EE'}}
                         />
