@@ -220,7 +220,10 @@
     "ConsultingType": "Consulting Type",
     "OpenFile": "Open PDF File",
     "NoRequest": "No Request File",
-    "UpdateRequest": "Update the request status to reflect its current progress."
+    "UpdateRequest": "Update the request status to reflect its current progress.",
+    "UsersJoined": "Users Joined",
+    "ConsultationReceived": "Consultation Received",
+    "Day": "Day"
 
 
 

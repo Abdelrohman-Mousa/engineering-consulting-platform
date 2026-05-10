@@ -115,7 +115,7 @@ const PageOverView = () => {
                     id="chart-1"
                     primaryXAxis={userXAxis}
                     primaryYAxis={userYAxis}
-                    title="Users Joined"
+                    title={t("dashboard.UsersJoined")}
                     tooltip={{ enable: true }}
                     enableRtl={i18n.language === "ar"}
                 >
@@ -157,7 +157,7 @@ const PageOverView = () => {
                     id="chart-2"
                     primaryXAxis={consultXAxis}
                     primaryYAxis={consultYAxis}
-                    title="Consultation Received"
+                    title={t("dashboard.ConsultationReceived")}
                     tooltip={{ enable: true }}
                     enableRtl={i18n.language === "ar"}
                 >

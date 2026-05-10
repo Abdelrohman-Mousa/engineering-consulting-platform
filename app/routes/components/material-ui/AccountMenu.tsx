@@ -56,12 +56,19 @@ export default function AccountMenu() {
                         aria-haspopup="true"
                         aria-expanded={open ? 'true' : undefined}
                     >
-                        <Avatar sx={{ width: 32, height: 32 }}>
-                            {user.photoURL ? (
-                                <img src={user.photoURL} alt="user" />
-                            ) : (
-                                <span>{user.email[0].toUpperCase()}</span>
-                            )}
+                        {/*<Avatar sx={{ width: 32, height: 32 }}>*/}
+                        {/*    {user.photoURL ? (*/}
+                        {/*        <img src={user.photoURL} alt="user" />*/}
+                        {/*    ) : (*/}
+                        {/*        <span>{user.email[0].toUpperCase()}</span>*/}
+                        {/*    )}*/}
+                        {/*</Avatar>*/}
+                        <Avatar
+                            src={user?.photoURL || ""}
+                            sx={{ width: 32, height: 32 }}
+                        >
+                            {!user?.photoURL &&
+                                user?.email?.[0]?.toUpperCase()}
                         </Avatar>
                     </IconButton>
                 </Tooltip>

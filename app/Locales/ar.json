@@ -221,7 +221,13 @@
     "ConsultingType": "نوع الاستشارة",
     "OpenFile": "فتح ملف PDF",
     "NoRequest": "لا يوجد ملف للطلب",
-    "UpdateRequest": "تحديث حالة الطلب لتعكس تقدمه الحالي."
+    "UpdateRequest": "تحديث حالة الطلب لتعكس تقدمه الحالي.",
+    "UsersJoined": "المستخدمون المنضمون",
+    "ConsultationReceived": "الاستشارات المستلمة",
+    "Day": "Day"
+
+
+
 
 
 
