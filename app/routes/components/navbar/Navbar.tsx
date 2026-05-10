@@ -34,7 +34,7 @@ const Navbar = () => {
         <div className="navbar">
            <div className="container-navbar hidden lg:block ">
             <div className="logo-navbar">
-               <img src={logo} alt="logo" />
+               <img src={logo} alt="Projects Logo" />
                 <div className="logo-text">
                   <h3>{t ("navbar.logo")}</h3>
                 </div>
@@ -56,12 +56,15 @@ const Navbar = () => {
             </div>
 
             <div className="buttons-navbar">
-              <Link to="/dashboard">
-                <div className="dashboard">
-                    <img src={dashboard} alt="dashboard" />
-                    <span className="badge">?</span>
-                </div>
-              </Link>
+
+                {user && role === "admin" && (
+                        <Link to="/dashboard">
+                           <div className="dashboard">
+                                <img src={dashboard} alt="dashboard" />
+                                <span className="badge">8</span>
+                           </div>
+                        </Link>
+                )}
 
                 <div className="languages">
                    <LanguagesMenu />
