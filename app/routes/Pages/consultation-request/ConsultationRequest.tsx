@@ -1,3 +1,18 @@
+import type {Route} from "../../+types/home"
+
+export function meta({}: Route.MetaArgs) {
+    return [
+        {
+            title: "Request Engineering Consultation"
+        },
+        {
+            name: "description",
+            content:
+                "Submit your engineering consultation request online in the UAE and get expert engineering support. Fast, reliable, and professional consultation services tailored for your project needs."
+        }
+    ];
+}
+
 import "./consultationRequest.scss";
 import EnterpriseStars from "~/components/EnterpriseStars";
 import NameEmailForm from "~/routes/components/material-ui/formsInput/NameEmailForm";

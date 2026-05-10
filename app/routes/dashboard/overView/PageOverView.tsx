@@ -1,3 +1,18 @@
+import type {Route} from "../../+types/home"
+
+export function meta({}: Route.MetaArgs) {
+    return [
+        {
+            title: "Dashboard"
+        },
+        {
+            name: "description",
+            content:
+                "Manage engineering consultations, users, and requests through a powerful and modern dashboard system designed for efficient workflow and real-time updates."
+        }
+    ];
+}
+
 import "./page-overview.scss";
 import StatsCard from "~/routes/dashboard/components/StatsCard";
 import {

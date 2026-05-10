@@ -1,3 +1,18 @@
+import type {Route} from "../../+types/home"
+
+export function meta({}: Route.MetaArgs) {
+    return [
+        {
+            title: "Contact Us"
+        },
+        {
+            name: "description",
+            content:
+                "Get in touch with our engineering consultancy team in the UAE. We are ready to assist you with your projects, questions, and technical support needs."
+        }
+    ];
+}
+
 import "./contactUs.scss";
 import FormContact from "~/routes/Pages/contact-us/form-contact/FormContact";
 import send from "/assets/icons/sent.svg";

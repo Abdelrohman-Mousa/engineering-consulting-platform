@@ -2,8 +2,14 @@ import type {Route} from "../../+types/home"
 
 export function meta({}: Route.MetaArgs) {
     return [
-        { title: "About US" },
-        { name: "description", content: "About Us" },
+        {
+            title: "About Us | Engineering Consultancy UAE"
+        },
+        {
+            name: "description",
+            content:
+                "A modern engineering consultancy platform providing online consultation services and a powerful management dashboard. We help clients in the UAE connect with professional engineers, submit requests online, and manage consultations efficiently through a seamless digital experience."
+        }
     ];
 }
 
