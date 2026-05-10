@@ -13,7 +13,7 @@ import {
 import {consultXAxis, consultYAxis, userXAxis, userYAxis} from "~/constants";
 import {useTranslation} from "react-i18next";
 import i18n from "i18next";
-import { getDashboardStats } from "src/firebase/services/dashboard.service";
+import { subscribeToDashboardStats } from "../../../../src/firebase/services/dashboardService";
 import {useState, useEffect} from "react";
 import Loader from "~/components/loader/Loader";
 import {
@@ -28,32 +28,23 @@ const PageOverView = () => {
     const [dashboardStats, setDashboardStats] = useState<any>(null);
     const [userGrowth, setUserGrowth] = useState([]);
     const [consultationsGrowth, setConsultationsGrowth] = useState([]);
-
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
 
-        const fetchDashboardData = async () => {
+        const unsubscribe =
+            subscribeToDashboardStats((stats) => {
 
-            const stats = await getDashboardStats();
+                setDashboardStats(stats);
+                setLoading(false);
+            });
 
-            const usersAnalytics = await getUsersAnalytics();
-
-            const consultationsAnalytics =
-                await getConsultationsAnalytics();
-
-            setDashboardStats(stats);
-
-            setUserGrowth(usersAnalytics);
-
-            setConsultationsGrowth(consultationsAnalytics);
-        };
-
-        fetchDashboardData();
+        return () => unsubscribe();
 
     }, []);
 
 
-    if (!dashboardStats) {
+    if (loading) {
         return <Loader />;
     }
 
