@@ -1,7 +1,7 @@
 @use "../../../index" as *;
 
 .consultation-online {
-  padding: 1.5rem 1.5rem 1.5rem 2rem;
+  padding: 1.5rem 1.5rem 2.5rem 1.5rem;
 
   .container-consultation-online {
     display: flex;
@@ -155,6 +155,46 @@
         width: 100%;
       }
     }
+  }
+}
 
+//Dark Mode
+html.dark {
+  .consultation-online {
+    .container-consultation-online {
+      background: linear-gradient(135deg, #6a11cb, #000000);
+      border: 1px solid #ccc;
+      box-shadow: 0 2px 4px rgba(255, 255, 255, 0.06),
+       0 8px 16px rgba(255, 255, 255, 0.08),
+       0 16px 32px rgba(255, 255, 255, 0.05);
+
+      .consultation-online-left {
+        .title {
+          h1 {
+            color: #ffffff;
+          }
+          p {
+            color: #ffffff;
+          }
+        }
+
+        .consultation-online-features {
+          .feature-item {
+            background-color: transparent;
+            border: 1px solid #333;
+            box-shadow: 0 2px 4px rgba(255, 255, 255, 0.06);
+
+            .icon-title {
+              img {
+                filter: invert(1);
+              }
+            }
+            p {
+              color: #ffffff;
+            }
+          }
+        }
+      }
+    }
   }
 }
