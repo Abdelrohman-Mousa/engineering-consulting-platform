@@ -2,6 +2,40 @@ import "./consulting-online.scss";
 import Lottie from "lottie-react";
 import BuildingConstruction from "/src/animations/BuildingConstruction.json";
 import {Link} from "react-router";
+import {motion} from "framer-motion";
+
+const textVariants = {
+    initial: {
+        x: 0,
+        y: -20,
+        opacity: 0,
+    },
+    animate: {
+        x: 0,
+        y: 0,
+        opacity: 1,
+        transition: {
+            duration: 1,
+            ease: "easeOut",
+        },
+    },
+};
+
+const listVariants = {
+    initial: {
+        x: -20,
+        opacity: 0,
+    },
+    animate: {
+        x: 0,
+        opacity: 1,
+        transition: {
+            duration: 1,
+            staggerChildren: 0.5,
+            ease: "easeOut",
+        },
+    },
+};
 
 const ConsultingOnline = () => {
 
@@ -36,12 +70,24 @@ const ConsultingOnline = () => {
         <div className="consultation-online">
           <div className="container-consultation-online">
             <div className="consultation-online-left">
-                <div className="title">
+                <motion.div
+                    className="title"
+                    variants={textVariants}
+                    initial="initial"
+                    whileInView="animate"
+                    viewport={{ once: true, amount: 0.3 }}
+                >
                     <h1>Get Expert Engineering Consultation Online in Minutes</h1>
                     <p>Manage your engineering requests through a smart digital platform with real-time updates and professional support from UAE engineers.</p>
-                </div>
+                </motion.div>
 
-                <div className="consultation-online-features">
+                <motion.div
+                    className="consultation-online-features"
+                    variants={listVariants}
+                    initial="initial"
+                    whileInView="animate"
+                    viewport={{ once: true, amount: 0.3 }}
+                >
                     {features.map((feature, index) => (
                      <div className="feature-item" key={feature.id}>
                          <div className="icon-title">
@@ -51,9 +97,15 @@ const ConsultingOnline = () => {
                          <p>{feature.desc}</p>
                      </div>
                     ))}
-                </div>
+                </motion.div>
 
-                <div className="consultation-online-btn">
+                <motion.div
+                    className="consultation-online-btn"
+                    variants={listVariants}
+                    initial="initial"
+                    whileInView="animate"
+                    viewport={{ once: true, amount: 0.3 }}
+                >
                    <Link to="/consultationRequest">
                     <button className="primary-btn">
                         Book Consultation Now
@@ -62,7 +114,7 @@ const ConsultingOnline = () => {
                             alt="Go to consultation request page"/>
                     </button>
                    </Link>
-                </div>
+                </motion.div>
             </div>
 
               <div className="consultation-online-right">
