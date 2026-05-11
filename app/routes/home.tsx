@@ -17,11 +17,13 @@ import HeroSection from "~/routes/Pages/hero-section/HeroSection";
 import WhoWe from "~/routes/components/whoWeAre/WhoWe";
 import TeamSection from "~/routes/components/teamSection/TeamSection";
 import ClientFeedback from "~/routes/components/clientFeeedback/ClientFeedback";
+import ConsultingOnline from "~/routes/Pages/consultation-online/ConsultingOnline";
 
 const Home = () => {
     return (
         <div>
             <HeroSection />
+            <ConsultingOnline />
             <WhoWe />
             <TeamSection/>
             <ClientFeedback />
