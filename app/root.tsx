@@ -6,6 +6,8 @@ import {
   Scripts,
   ScrollRestoration, useLocation,
 } from "react-router";
+import SocialFixedIcons from "~/routes/components/social-fixed-icons/SocialFixedIcons";
+
 
 import type { Route } from "./+types/root";
 import "./app.css";
@@ -31,7 +33,6 @@ export const links: Route.LinksFunction = () => [
 import { registerLicense } from "@syncfusion/ej2-base";
 import {Toaster} from "react-hot-toast";
 import {AuthProvider} from "../src/firebase/AuthContext";
-import SocialFixedIcons from "~/routes/components/social-fixed-icons/SocialFixedIcons";
 
 registerLicense(import.meta.env.VITE_SYNCFUSION_LICENSE_KEY)
 
