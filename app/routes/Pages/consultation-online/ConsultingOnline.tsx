@@ -3,6 +3,7 @@ import Lottie from "lottie-react";
 import BuildingConstruction from "/src/animations/BuildingConstruction.json";
 import {Link} from "react-router";
 import {motion} from "framer-motion";
+import {useTranslation} from "react-i18next";
 
 const textVariants = {
     initial: {
@@ -38,30 +39,31 @@ const listVariants = {
 };
 
 const ConsultingOnline = () => {
+    const { t } = useTranslation();
 
     const features = [
         {
             id: 1,
-            title: "Real-time Updates",
-            desc: "Track your consultation status instantly",
+            title: t("online.title-1"),
+            desc: t("online.desc-1"),
             img: "/assets/icons/flame.svg"
         },
         {
             id: 2,
-            title: "Professional Engineers",
-            desc: "Connect with certified experts in UAE",
+            title: t("online.title-2"),
+            desc: t("online.desc-2"),
             img: "/assets/icons/professional.svg"
         },
         {
             id: 3,
-            title: "Secure System",
-            desc: "Your data is fully protected",
+            title: t("online.title-3"),
+            desc: t("online.desc-3"),
             img: "/assets/icons/secure.svg"
         },
         {
             id: 4,
-            title: "Fast Response",
-            desc: "Get answers within minutes.",
+            title: t("online.title-4"),
+            desc: t("online.desc-4"),
             img: "/assets/icons/dialog.svg"
         },
     ];
@@ -77,8 +79,8 @@ const ConsultingOnline = () => {
                     whileInView="animate"
                     viewport={{ once: true, amount: 0.3 }}
                 >
-                    <h1>Get Expert Engineering Consultation Online in Minutes</h1>
-                    <p>Manage your engineering requests through a smart digital platform with real-time updates and professional support from UAE engineers.</p>
+                    <h1>{t("online.address")}</h1>
+                    <p>{t("online.pre")}</p>
                 </motion.div>
 
                 <motion.div
@@ -108,7 +110,7 @@ const ConsultingOnline = () => {
                 >
                    <Link to="/consultationRequest">
                     <button className="primary-btn">
-                        Book Consultation Now
+                        {t("online.btn")}
                         <img
                             src="/assets/icons/right-arrow.png"
                             alt="Go to consultation request page"/>

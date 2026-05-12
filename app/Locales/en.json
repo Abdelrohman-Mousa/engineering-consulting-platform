@@ -224,9 +224,6 @@
     "UsersJoined": "Users Joined",
     "ConsultationReceived": "Consultation Received",
     "Day": "Day"
-
-
-
   },
 
   "alerts": {
@@ -254,7 +251,23 @@
     "MessageEmpty": "Message cannot be empty",
     "FailedMessage": "Failed to send message"
 
+  },
 
+  "online": {
+    "address": "Get Expert Engineering Consultation Online in Minutes",
+    "pre": "Manage your engineering requests through a smart digital platform with real-time updates and professional support from UAE engineers.",
+    "title-1": "Real-time Updates",
+    "desc-1": "Track your consultation status instantly",
 
+    "title-2": "Professional Engineers",
+    "desc-2": "Connect with certified experts in UAE",
+
+    "title-3": "Secure System",
+    "desc-3": "Your data is fully protected",
+
+    "title-4": "Fast Response",
+    "desc-4": "Get answers within minutes.",
+
+    "btn": "Book Consultation Now"
   }
 }
