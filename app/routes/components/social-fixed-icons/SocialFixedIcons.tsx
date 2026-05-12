@@ -1,7 +1,7 @@
 import "./social-fixed-icons.scss";
 
 import whatsapp from "../../../../src/animations/whatsapp.json";
-import instagram from "../../../../src/animations/instagram.json";
+import instagram from "../../../../src/animations/Instagram.json";
 
 import Lottie from "lottie-react";
 
