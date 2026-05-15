@@ -1,30 +1,58 @@
+// import { useEffect, useState } from "react";
+//
+// export const useDarkMode = () => {
+//     const [isDark, setIsDark] = useState(false);
+//
+//     useEffect(() => {
+//         const savedTheme = localStorage.getItem("theme");
+//         if (savedTheme === "dark") {
+//             setIsDark(true);
+//             document.documentElement.classList.add("dark");
+//         } else {
+//             setIsDark(false);
+//             document.documentElement.classList.remove("dark");
+//         }
+//     }, []);
+//
+//     useEffect(() => {
+//         if (isDark) {
+//             document.documentElement.classList.add("dark");
+//             localStorage.setItem("theme", "dark");
+//         } else {
+//             document.documentElement.classList.remove("dark");
+//             localStorage.setItem("theme", "light");
+//         }
+//     }, [isDark]);
+//
+//     const toggleTheme = () => setIsDark(prev => !prev);
+//
+//     return { isDark, toggleTheme };
+// };
+
 import { useEffect, useState } from "react";
 
 export const useDarkMode = () => {
-    const [isDark, setIsDark] = useState(false);
+
+    const [isDark, setIsDark] = useState(() => {
+        return localStorage.getItem("theme") === "dark";
+    });
 
     useEffect(() => {
-        const savedTheme = localStorage.getItem("theme");
-        if (savedTheme === "dark") {
-            setIsDark(true);
-            document.documentElement.classList.add("dark");
-        } else {
-            setIsDark(false);
-            document.documentElement.classList.remove("dark");
-        }
-    }, []);
+        const root = document.documentElement;
 
-    useEffect(() => {
         if (isDark) {
-            document.documentElement.classList.add("dark");
+            root.classList.add("dark");
             localStorage.setItem("theme", "dark");
         } else {
-            document.documentElement.classList.remove("dark");
+            root.classList.remove("dark");
             localStorage.setItem("theme", "light");
         }
+
     }, [isDark]);
 
-    const toggleTheme = () => setIsDark(prev => !prev);
+    const toggleTheme = () => {
+        setIsDark(prev => !prev);
+    };
 
     return { isDark, toggleTheme };
 };
