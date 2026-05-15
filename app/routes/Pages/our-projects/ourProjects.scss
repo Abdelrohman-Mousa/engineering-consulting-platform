@@ -1,0 +1,64 @@
+.our-projects {
+
+  .our-projects-head {
+    padding: 1rem;
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 600;
+
+      span {
+        color: #0069e1;
+      }
+    }
+
+    p {
+      font-size: 1.3rem;
+      font-weight: 400;
+    }
+  }
+
+  .our-projects-toggle {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+
+    button {
+      padding: 0.3rem 1rem;
+      border-radius: 1.2rem;
+      background-color: rgba(70, 70, 78, 0.15);
+      color: #000000;
+      border: 1px solid rgba(110, 110, 112, 0.7);
+
+      font-size: 1.2rem;
+      font-weight: 500;
+
+      cursor: pointer;
+
+      transition: all 0.3s ease;
+      box-shadow:
+              0 4px 10px rgba(0, 0, 0, 0.08),
+              0 8px 20px rgba(0, 105, 225, 0.08);
+
+      &:hover {
+        background-color: #005bb5;
+        color: #ffffff;
+        border: 1px solid #005bb5;
+        transform: translateY(-2px);
+        box-shadow:
+                0 6px 15px rgba(0, 0, 0, 0.12),
+                0 12px 30px rgba(0, 105, 225, 0.22);
+      }
+
+      &.active {
+        background-color: #005bb5;
+        color: #ffffff;
+        border: 1px solid #005bb5;
+
+        box-shadow:
+                0 6px 18px rgba(0, 91, 181, 0.35),
+                0 12px 35px rgba(0, 105, 225, 0.28);
+      }
+    }
+  }
+}
