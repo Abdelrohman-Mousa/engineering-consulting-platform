@@ -16,53 +16,130 @@ export function meta({}: Route.MetaArgs) {
 import "./ourProjects.scss";
 import arrow from "/assets/icons/arrow-modal.svg";
 import {projects} from "./data/projects";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ProjectModal from "~/routes/Pages/our-projects/project-modal/ProjectModal";
-
+import { AnimatePresence, motion } from "framer-motion";
 
 const OurProjects = () => {
     const [activeTab, setActiveTab] = useState("projects");
     const [selectedProject, setSelectedProject] = useState(null);
 
+    useEffect(() => {
+        document.body.style.overflow =
+            selectedProject ? "hidden" : "auto";
+    }, [selectedProject]);
+
     return (
         <div className="our-projects">
-            <div className="our-projects-head">
-                <h2>Engineering <span>Projects</span> & Professional <span>Services</span></h2>
-                <p>Delivering innovative engineering solutions and professional consulting services for residential, commercial, and industrial developments.</p>
-            </div>
+            <motion.div
+                className="our-projects-head"
+
+                initial={{
+                    opacity: 0,
+                    y: 40
+                }}
+                whileInView={{
+                    opacity: 1,
+                    y: 0
+                }}
+                viewport={{
+                    once: true,
+                    amount: 0.3
+                }}
+                transition={{
+                    duration: 0.7,
+                    ease: "easeOut"
+                }}
+            >
+
+                <motion.h2
+                    initial={{
+                        opacity: 0,
+                        y: 20
+                    }}
+                    whileInView={{
+                        opacity: 1,
+                        y: 0
+                    }}
+                    transition={{
+                        delay: 0.2,
+                        duration: 0.6
+                    }}
+                >
+                    Engineering <span>Projects</span> & Professional <span>Services</span>
+                </motion.h2>
+
+                <motion.p
+
+                    initial={{
+                        opacity: 0,
+                        y: 20
+                    }}
+
+                    whileInView={{
+                        opacity: 1,
+                        y: 0
+                    }}
+
+                    transition={{
+                        delay: 0.4,
+                        duration: 0.6
+                    }}
+                >
+                    Delivering innovative engineering solutions and professional consulting services for residential, commercial, and industrial developments.
+                </motion.p>
+
+            </motion.div>
 
             <div className="our-projects-toggle">
                 <div>
-                    <button
+                    <motion.button
                         className={activeTab === "projects" ? "active" : ""}
                         onClick={() => setActiveTab("projects")}
+                        whileTap={{ scale: 0.95 }}
                     >
                         Projects
-                    </button>
+                    </motion.button>
                 </div>
 
                 <div>
-                    <button
+                    <motion.button
                         className={activeTab === "services" ? "active" : ""}
                         onClick={() => setActiveTab("services")}
+                        whileTap={{ scale: 0.95 }}
                     >
                         Services
-                    </button>
+                    </motion.button>
                 </div>
             </div>
 
             {/*==========Cards========*/}
             <div className="our-projects-container">
+                <AnimatePresence mode="wait">
+
 
                 {
                     activeTab === "projects" && (
 
-                        <div className="ourProjects-cards">
+                        <motion.div
+                            className="ourProjects-cards"
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -30 }}
+
+                            transition={{
+                                duration: 0.4,
+                                ease: "easeOut"
+                            }}
+
+                        >
                             {projects.map((project) => (
-                                <div
+                                <motion.div
                                     className="ourProjects-card"
                                     key={project.id}
                                     onClick={() => setSelectedProject(project)}
+
+                                    whileHover={{ y: -5 }}
                                 >
                                     <div className="ourProjects-card-image">
                                         <img src={project.introImage} alt={project.title} />
@@ -73,27 +150,53 @@ const OurProjects = () => {
                                             <h4>{project.desc}</h4>
                                         </div>
                                         <div className="ourProjects-card-info-btn">
-                                            <button onClick={() => setSelectedProject(project)}>
+                                            <button >
                                                 View Project
                                                 <img src={arrow} alt="Arrow" />
                                             </button>
                                         </div>
                                     </div>
-                                </div>
+                                </motion.div>
                             ))}
-                        </div>
+                        </motion.div>
                 )}
+                </AnimatePresence>
 
 
                 {/*=========Services========*/}
 
-                {
-                    activeTab === "services" && (
+                <AnimatePresence mode="wait">
 
-                        <div className="ourServices">
-                            Welcome
-                        </div>
-                    )}
+                    {
+                        activeTab === "services" && (
+
+                            <motion.div
+                                className="ourServices"
+
+                                initial={{
+                                    opacity: 0,
+                                    y: 30
+                                }}
+
+                                animate={{
+                                    opacity: 1,
+                                    y: 0
+                                }}
+
+                                exit={{
+                                    opacity: 0,
+                                    y: -30
+                                }}
+
+                                transition={{
+                                    duration: 0.4
+                                }}
+                            >
+                                Welcome
+                            </motion.div>
+                        )}
+
+                </AnimatePresence>
             </div>
 
             <ProjectModal
