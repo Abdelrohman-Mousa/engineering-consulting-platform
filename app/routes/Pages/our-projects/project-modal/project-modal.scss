@@ -1,0 +1,36 @@
+.project-modal-overlay {
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.7);
+
+  backdrop-filter: blur(8px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 999;
+  padding: 1rem;
+}
+
+.project-modal {
+  width: 100%;
+  max-width: 1400px;
+  height: 85vh;
+
+  background: #ffffff;
+
+  border-radius: 2rem;
+
+  overflow: hidden;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  box-shadow:
+          0 10px 40px rgba(0,0,0,0.2);
+
+}
+
+
