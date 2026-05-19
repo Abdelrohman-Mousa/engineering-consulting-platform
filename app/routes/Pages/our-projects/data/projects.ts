@@ -15,13 +15,18 @@ export const projects = [
         gallery: [
             {
                 id: 1,
-                // image: "/assets/projects/villa/1.jpg",
+                image: "/assets/images/intro-1.jpg",
                 title: "Front Facade View"
             },
             {
                 id: 2,
-                // image: "/assets/projects/villa/1.jpg",
-                title: "Front Facade View"
+                image: "/assets/images/service-1.jpg",
+                title: "Front Facade"
+            },
+            {
+                id: 2,
+                image: "/assets/images/service-1.jpg",
+                title: "Front Facade "
             },
         ],
 

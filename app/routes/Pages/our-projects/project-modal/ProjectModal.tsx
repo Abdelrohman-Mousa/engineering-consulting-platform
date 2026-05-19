@@ -4,6 +4,9 @@ import closed from "/assets/icons/closed.png";
 import sent from "/assets/icons/sent.svg";
 import instagram from "/assets/icons/instagram.svg";
 import whatsapp from "/assets/icons/whatsapp.svg";
+import { CarouselComponent, CarouselItemsDirective, CarouselItemDirective } from "@syncfusion/ej2-react-navigations";
+
+
 
 interface ProjectModalProps {
     selectedProject: any;
@@ -93,7 +96,29 @@ const ProjectModal = (
                                 </div>
 
                                 {/*=======Carousal===========*/}
-                                
+                                <div className="project-carousel">
+                                    <CarouselComponent
+                                        autoPlay={true}
+                                        interval={2000}
+                                        pauseOnHover={true}
+                                        animationEffect="Fade"
+                                        indicators={true}
+                                    >
+                                        <CarouselItemsDirective>
+                                            {selectedProject.gallery.map((item: any) => (
+                                                <CarouselItemDirective
+                                                    key={item.id}
+                                                    template={`
+                                                        <figure class="img-container">
+                                                            <img src="${item.image}" alt="${item.title}" style="height:100%;width:100%;object-fit:cover;" />
+                                                            <figcaption class="img-caption">${item.title}</figcaption>
+                                                        </figure>
+                                                    `}
+                                                />
+                                            ))}
+                                        </CarouselItemsDirective>
+                                    </CarouselComponent>
+                                </div>
                             </div>
                         </div>
                     </motion.div>
