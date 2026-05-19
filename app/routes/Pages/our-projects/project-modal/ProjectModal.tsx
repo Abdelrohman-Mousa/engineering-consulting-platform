@@ -1,5 +1,9 @@
 import "./project-modal.scss";
 import { AnimatePresence, motion } from "framer-motion";
+import closed from "/assets/icons/closed.png";
+import sent from "/assets/icons/sent.svg";
+import instagram from "/assets/icons/instagram.svg";
+import whatsapp from "/assets/icons/whatsapp.svg";
 
 interface ProjectModalProps {
     selectedProject: any;
@@ -57,9 +61,41 @@ const ProjectModal = (
                         onClick={(e) => e.stopPropagation()}
                     >
 
-                        <h3>{selectedProject.title}</h3>
+                        <div className="project-modal-content">
+                            <div className="project-modal-btns">
+                                <button onClick={() => setSelectedProject(null)}>
+                                    <img src={closed} alt="Close" />
+                                </button>
+                                <a href="#" target="_blank" rel="noopener noreferrer">
+                                    <button>
+                                        <img src={sent} alt="Send" />
+                                    </button>
+                                </a>
+                                <a href="#" target="_blank" rel="noopener noreferrer">
+                                    <button>
+                                        <img src={whatsapp} alt="WhatsApp"/>
+                                    </button>
+                                </a>
+                                <a href="#" target="_blank" rel="noopener noreferrer">
+                                    <button>
+                                        <img src={instagram} alt="Instagram" />
+                                    </button>
+                                </a>
+                            </div>
 
+                            <div className="project-modal-info">
+                                <div className="project-modal-info-head">
+                                    <h2>{selectedProject.projectName}</h2>
+                                    <div className="type-location">
+                                        <p>{selectedProject.type}</p> -
+                                        <p>{selectedProject.location}</p>
+                                    </div>
+                                </div>
 
+                                {/*=======Carousal===========*/}
+                                
+                            </div>
+                        </div>
                     </motion.div>
 
                 </motion.div>

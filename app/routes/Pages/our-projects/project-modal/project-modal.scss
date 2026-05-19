@@ -18,18 +18,85 @@
   width: 100%;
   max-width: 1400px;
   height: 85vh;
-
+  position: relative;
   background: #ffffff;
-
   border-radius: 2rem;
-
   overflow: hidden;
-
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-
   box-shadow:
           0 10px 40px rgba(0,0,0,0.2);
+
+
+  .project-modal-content {
+    position: relative;
+    padding: 1rem;
+    overflow-y: auto;
+    height: 100%;
+    scrollbar-width: none;
+
+    .project-modal-btns {
+      position: absolute;
+      padding-top: 1rem;
+      top: 0;
+      right: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      z-index: 1000;
+
+      button {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(0,0,0,0.08);
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        cursor: pointer;
+        transition: 0.3s ease;
+
+        &:hover {
+          transform: scale(1.1);
+          background: #0f172a;
+
+          img {
+            filter: brightness(0) invert(1);
+          }
+        }
+
+        img {
+          width: 30px;
+        }
+      }
+    }
+
+
+    .project-modal-info {
+      .project-modal-info-head {
+        display: flex;
+        flex-direction: column;
+
+        h2 {
+          font-size: 2rem;
+          font-weight: 600;
+        }
+        .type-location {
+          display: flex;
+          gap: 0.5rem;
+          align-items: center;
+
+          p {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: rgba(0, 0, 0, 0.82);
+          }
+        }
+      }
+    }
+  }
 
 }
 
