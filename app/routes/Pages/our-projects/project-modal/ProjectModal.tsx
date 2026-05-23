@@ -5,7 +5,8 @@ import sent from "/assets/icons/sent.svg";
 import instagram from "/assets/icons/instagram.svg";
 import whatsapp from "/assets/icons/whatsapp.svg";
 import { CarouselComponent, CarouselItemsDirective, CarouselItemDirective } from "@syncfusion/ej2-react-navigations";
-
+import arrow from "../../../../../src/animations/arrow.json";
+import Lottie from "lottie-react";
 
 
 interface ProjectModalProps {
@@ -142,6 +143,44 @@ const ProjectModal = (
                                             </div>
                                         ))}
                                     </div>
+                                </div>
+
+                                {/* Challenge & Solution */}
+                                <div className="project-modal-challenge-solution">
+
+                                    <h2>Challenge & Solution</h2>
+
+                                    <div className="arrow-challenge-solution">
+                                        <Lottie
+                                            animationData={arrow}
+                                            loop={true}
+                                            className="arrow-animation"
+                                        />
+                                    </div>
+
+                                    <div className="challenge-solution-wrapper">
+                                        <div className="challenge-card">
+                                            <div className="card-badge challenge">
+                                                Challenge
+                                            </div>
+
+                                            <p>
+                                                {selectedProject.challengeSolution.challenge}
+                                            </p>
+
+                                        </div>
+
+                                        <div className="solution-card">
+                                            <div className="card-badge solution">
+                                                Solution
+                                            </div>
+                                            <p>
+                                                {selectedProject.challengeSolution.solution}
+                                            </p>
+                                        </div>
+
+                                    </div>
+
                                 </div>
                             </div>
                         </div>

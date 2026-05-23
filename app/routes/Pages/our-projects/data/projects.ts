@@ -62,6 +62,32 @@ export const projects = [
                 icon: "/assets/icons/clock.svg"
             }
         ],
+
+        // The Challenges
+        challengeSolution: {
+            challenge: `
+                The main challenge of this modern residential villa project
+                was achieving a balance between luxury aesthetics, functional
+                living spaces, and natural light distribution while maintaining
+                privacy for all family areas.
+
+                Additionally, the client requested a contemporary architectural
+                identity with large glass facades, smart space utilization,
+                and seamless indoor-outdoor connectivity without compromising
+                thermal comfort and energy efficiency.
+            `,
+
+            solution: `
+                Our engineering team developed a modern architectural concept
+                focused on open-plan living, optimized spatial flow, and
+                strategic facade orientation to maximize daylight and ventilation.
+
+                We integrated high-performance materials, smart shading systems,
+                and elegant landscape transitions to create a luxurious,
+                energy-efficient villa experience that combines modern design,
+                comfort, and long-term functionality.
+            `
+        }
     },
 
 ];
