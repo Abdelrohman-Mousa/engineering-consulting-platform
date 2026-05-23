@@ -103,6 +103,7 @@ const ProjectModal = (
                                         pauseOnHover={true}
                                         animationEffect="Fade"
                                         indicators={true}
+                                        loop={true}
                                     >
                                         <CarouselItemsDirective>
                                             {selectedProject.gallery.map((item: any) => (
@@ -118,6 +119,29 @@ const ProjectModal = (
                                             ))}
                                         </CarouselItemsDirective>
                                     </CarouselComponent>
+                                </div>
+
+                                {/* Overview */}
+                                <div className="project-modal-info-overview">
+                                    <h2>Project Overview</h2>
+
+                                    <div className="project-modal-info-overview-cards">
+
+                                        {selectedProject.overview.map((item: any) => (
+                                            <div
+                                                className="project-modal-info-overview-card"
+                                                key={item.id}
+                                            >
+
+                                                <div className="title-icons">
+                                                    <h2>{item.label}</h2>
+                                                    <img src={item.icon} alt={item.label} />
+                                                </div>
+
+                                                <p>{item.value}</p>
+                                            </div>
+                                        ))}
+                                    </div>
                                 </div>
                             </div>
                         </div>

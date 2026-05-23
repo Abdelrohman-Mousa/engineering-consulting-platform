@@ -35,31 +35,31 @@ export const projects = [
                 id: 1,
                 label: "Project Area",
                 value: "850 m²",
-                // icon: "/assets/icons/area.svg"
+                icon: "/assets/icons/clock.svg"
             },
             {
                 id: 2,
                 label: "Implementation Duration",
                 value: "24 Months",
-                // icon: "/assets/icons/calendar.svg"
+                icon: "/assets/icons/clock.svg"
             },
             {
                 id: 3,
                 label: "Service Type",
                 value: "Full Engineering Consultancy",
-                // icon: "/assets/icons/services.svg"
+                icon: "/assets/icons/clock.svg"
             },
             {
                 id: 4,
                 label: "Number of Floors",
                 value: "5 Floors",
-                // icon: "/assets/icons/building.svg"
+                icon: "/assets/icons/clock.svg"
             },
             {
                 id: 5,
                 label: "Completion Year",
                 value: "2025",
-                // icon: "/assets/icons/date.svg"
+                icon: "/assets/icons/clock.svg"
             }
         ],
     },

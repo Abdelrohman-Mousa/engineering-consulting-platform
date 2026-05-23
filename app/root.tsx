@@ -36,6 +36,9 @@ import {Toaster} from "react-hot-toast";
 import {AuthProvider} from "../src/firebase/AuthContext";
 
 registerLicense(import.meta.env.VITE_SYNCFUSION_LICENSE_KEY)
+// registerLicense(
+//     "Ngo9BigBOggjHTQxAR8/V1JHaF5cWWdCf1FpRmJGdld5fUVHYVZUTXxaS00DNHVRdkdlWXxceXZURGZfUkB2X0dWYEo="
+// );
 
 export function Layout({ children }: { children: React.ReactNode }) {
   // قراءة اللغة قبل الـ SSR من localStorage (لو ممكن)
