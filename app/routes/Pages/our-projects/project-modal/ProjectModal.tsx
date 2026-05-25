@@ -205,6 +205,46 @@ const ProjectModal = (
                                         ))}
                                     </div>
                                 </div>
+
+                                {/* CTA */}
+                                <div className="project-modal-cta">
+
+                                    <div className="project-modal-cta-content">
+
+                                        <span>Let’s Build Something Exceptional</span>
+
+                                        <h2>
+                                            Ready to Start Your Dream Project?
+                                        </h2>
+
+                                        <p>
+                                            Our engineering team is ready to transform your vision
+                                            into a modern, functional, and world-class architectural reality.
+                                        </p>
+
+                                        <div className="project-modal-cta-buttons">
+
+                                            <a
+                                                href="#contact"
+                                                className="primary-btn"
+                                            >
+                                                Request Consultation
+                                            </a>
+
+                                            <a
+                                                href="https://wa.me/201000000000"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="secondary-btn"
+                                            >
+                                                Contact on WhatsApp
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
                             </div>
                         </div>
                     </motion.div>
