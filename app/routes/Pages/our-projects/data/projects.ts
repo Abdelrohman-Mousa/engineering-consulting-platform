@@ -87,7 +87,38 @@ export const projects = [
                 energy-efficient villa experience that combines modern design,
                 comfort, and long-term functionality.
             `
-        }
+        },
+
+        // Services Provided
+        servicesProvided: [
+            {
+                id: 1,
+                title: "Architectural Design",
+                description: "Modern villa architectural planning and facade design.",
+                icon: "/assets/icons/architecture.svg"
+            },
+
+            {
+                id: 2,
+                title: "Structural Engineering",
+                description: "Complete structural analysis and reinforced concrete design.",
+                icon: "/assets/icons/structure.svg"
+            },
+
+            {
+                id: 3,
+                title: "Interior Design",
+                description: "Luxury interior concepts with functional space planning.",
+                icon: "/assets/icons/interior.svg"
+            },
+
+            {
+                id: 4,
+                title: "Landscape Design",
+                description: "Outdoor living areas and landscape integration.",
+                icon: "/assets/icons/landscape.svg"
+            }
+        ]
     },
 
 ];

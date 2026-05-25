@@ -178,9 +178,32 @@ const ProjectModal = (
                                                 {selectedProject.challengeSolution.solution}
                                             </p>
                                         </div>
-
                                     </div>
+                                </div>
 
+                                {/* Services Provided */}
+                                <div className="project-modal-services">
+
+                                    <h2>Services Provided</h2>
+
+                                    <div className="project-modal-services-cards">
+
+                                        {selectedProject.servicesProvided.map((service: any) => (
+                                            <div
+                                                className="project-modal-services-card"
+                                                key={service.id}
+                                            >
+                                                <div className="service-icon">
+                                                    <img
+                                                        src={service.icon}
+                                                        alt={service.title}
+                                                    />
+                                                </div>
+                                                <h3>{service.title}</h3>
+                                                <p>{service.description}</p>
+                                            </div>
+                                        ))}
+                                    </div>
                                 </div>
                             </div>
                         </div>
