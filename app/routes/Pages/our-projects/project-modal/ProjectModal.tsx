@@ -7,6 +7,7 @@ import whatsapp from "/assets/icons/whatsapp.svg";
 import { CarouselComponent, CarouselItemsDirective, CarouselItemDirective } from "@syncfusion/ej2-react-navigations";
 import arrow from "../../../../../src/animations/arrow.json";
 import Lottie from "lottie-react";
+import {Link} from "react-router";
 
 
 interface ProjectModalProps {
@@ -135,8 +136,8 @@ const ProjectModal = (
                                             >
 
                                                 <div className="title-icons">
-                                                    <h2>{item.label}</h2>
                                                     <img src={item.icon} alt={item.label} />
+                                                    <h2>{item.label}</h2>
                                                 </div>
 
                                                 <p>{item.value}</p>
@@ -223,13 +224,13 @@ const ProjectModal = (
                                         </p>
 
                                         <div className="project-modal-cta-buttons">
-
-                                            <a
-                                                href="#contact"
-                                                className="primary-btn"
-                                            >
-                                                Request Consultation
-                                            </a>
+                                                    <Link to="/consultationRequest">
+                                                <button
+                                                    className="primary-btn"
+                                                >
+                                                       Request Consultation
+                                                </button>
+                                                    </Link>
 
                                             <a
                                                 href="https://wa.me/201000000000"

@@ -25,8 +25,17 @@ const OurProjects = () => {
     const [selectedProject, setSelectedProject] = useState(null);
 
     useEffect(() => {
-        document.body.style.overflow =
-            selectedProject ? "hidden" : "auto";
+
+        if (selectedProject) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "auto";
+        }
+
+        return () => {
+            document.body.style.overflow = "auto";
+        };
+
     }, [selectedProject]);
 
     return (
