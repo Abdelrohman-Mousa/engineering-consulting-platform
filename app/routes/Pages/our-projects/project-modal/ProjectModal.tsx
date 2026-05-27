@@ -113,7 +113,7 @@ const ProjectModal = (
                                                     key={item.id}
                                                     template={`
                                                         <figure class="img-container">
-                                                            <img src="${item.image}" alt="${item.title}" style="height:100%;width:100%;object-fit:cover;" />
+                                                            <img src="${item.image}" alt="${item.title}" style="height:100%;width:100%;object-fit:cover;object-position: center;" />
                                                             <figcaption class="img-caption">${item.title}</figcaption>
                                                         </figure>
                                                     `}

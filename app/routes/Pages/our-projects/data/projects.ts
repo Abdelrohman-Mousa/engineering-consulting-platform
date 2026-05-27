@@ -15,19 +15,34 @@ export const projects = [
         gallery: [
             {
                 id: 1,
-                image: "/assets/images/intro-1.jpg",
-                title: "Front Facade View"
+                image: "/assets/images/view.jpg",
+                title: "Modern Villa Front Facade"
             },
             {
                 id: 2,
-                image: "/assets/images/service-1.jpg",
-                title: "Front Facade"
+                image: "/assets/images/aerial-view.jpg",
+                title: "Aerial Architectural View"
             },
             {
-                id: 2,
-                image: "/assets/images/service-1.jpg",
-                title: "Front Facade "
+                id: 3,
+                image: "/assets/images/reception.jpg",
+                title: "Luxury Living & Reception Area"
             },
+            {
+                id: 4,
+                image: "/assets/images/kitchen.jpg",
+                title: "Contemporary Kitchen Design"
+            },
+            {
+                id: 5,
+                image: "/assets/images/bedroom.jpg",
+                title: "Modern Master Bedroom"
+            },
+            {
+                id: 6,
+                image: "/assets/images/bathroom.jpg",
+                title: "Luxury Bathroom Interior"
+            }
         ],
 
         overview: [
