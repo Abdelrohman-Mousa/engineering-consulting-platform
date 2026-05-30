@@ -41,10 +41,6 @@
       gap: 1rem;
       z-index: 1000;
 
-      @include mobile {
-
-      }
-
       button {
         width: 44px;
         height: 44px;
@@ -85,6 +81,7 @@
         h2 {
           font-size: 2rem;
           font-weight: 600;
+          color: #111827;
 
           @include mobile {
             font-size: 1.6rem;

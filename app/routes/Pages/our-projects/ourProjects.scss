@@ -212,8 +212,48 @@
             }
           }
         }
+      }
+    }
+  }
+}
 
 
+//Dark Mode
+html.dark {
+  .our-projects {
+    .our-projects-head {
+      h2 {
+        color: #ffffff;
+      }
+      p {
+        color: #ffffff;
+      }
+    }
+    .our-projects-toggle {
+      button {
+        color: #ffffff;
+      }
+    }
+
+    .our-projects-container {
+      .ourProjects-cards {
+        .ourProjects-card {
+          background: linear-gradient(135deg, #155cae, #001f56);
+          box-shadow:
+                    0 4px 10px rgba(0, 0, 0, 0.08),
+                    0 8px 20px rgba(0, 105, 225, 0.08);
+
+          .ourProjects-card-info {
+            .ourProjects-card-info-text {
+              h2 {
+                color: #ffffff;
+              }
+              h4 {
+                color: rgba(255, 255, 255, 0.82);
+              }
+            }
+          }
+        }
       }
     }
   }
