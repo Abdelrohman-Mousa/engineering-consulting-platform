@@ -88,6 +88,11 @@
       grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
       gap: 1rem;
 
+      @include mobile {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        width: 100%;
+      }
+
       .ourProjects-card {
         display: flex;
         flex-direction: column;
