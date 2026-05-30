@@ -160,7 +160,7 @@ const OurProjects = () => {
                                         </div>
                                         <div className="ourProjects-card-info-btn">
                                             <button >
-                                                View Project
+                                                <h5>View Project</h5>
                                                 <img src={arrow} alt="Arrow" />
                                             </button>
                                         </div>
