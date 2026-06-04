@@ -4,12 +4,11 @@
   padding: 2rem 0 0 0;
 
   .footer-content {
-    //background-color: #111827;
     background:
             linear-gradient(
                             135deg,
-                            #0069e1,
-                            #00b4ff
+                            #031c91,
+                            #001143
             );
     color: #ffffff;
     padding: 3rem 2rem 5rem 2rem;
@@ -35,6 +34,7 @@
       display: flex;
       flex-direction: column;
       gap: 1rem;
+      z-index: 5;
       @include mobile {
         align-items: center;
       }
@@ -59,7 +59,12 @@
         color: rgba(255, 255, 255, 0.75);
       }
       .btn {
-        background-color: #16406a;
+        background:
+                linear-gradient(
+                                135deg,
+                                #0e023c,
+                                #003cf1
+                );
         color: #ffffff;
         padding: 0.5rem 1rem;
         border-radius: 1rem;
@@ -74,6 +79,7 @@
         justify-content: center;
         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1),
          0 8px 16px rgba(0, 0, 0, 0.06);
+        z-index: 10;
         &:hover {
           background-color: #011b47;
         }
@@ -234,8 +240,8 @@
     &::after {
       content: "";
       position: absolute;
-      width: 300px;
-      height: 300px;
+      width: 350px;
+      height: 350px;
       background: rgba(255,255,255,0.05);
       border-radius: 50%;
       bottom: -100px;

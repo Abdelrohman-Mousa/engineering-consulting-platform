@@ -215,7 +215,13 @@ html.dark {
       }
 
       .signIn {
-        background-color: #0026FF;
+        //background-color: #0026FF;
+        background:
+                linear-gradient(
+                                135deg,
+                                #0e023c,
+                                #003cf1
+                );
         color: #ffffff;
         box-shadow: 0 20px 40px rgba(244, 244, 244, 0.1),
         0 8px 16px rgba(255, 255, 255, 0.06);
