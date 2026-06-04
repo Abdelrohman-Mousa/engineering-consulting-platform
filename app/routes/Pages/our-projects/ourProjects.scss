@@ -144,7 +144,7 @@
         .ourProjects-card-info {
           display: flex;
           justify-content: space-between;
-          align-items: center;
+          align-items: baseline;
 
           .ourProjects-card-info-text {
             h2 {
@@ -162,6 +162,7 @@
           }
           .ourProjects-card-info-btn {
             display: flex;
+            min-width: fit-content;
             @include mobile {
               max-width: fit-content;
             }

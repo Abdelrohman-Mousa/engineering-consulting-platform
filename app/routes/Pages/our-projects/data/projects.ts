@@ -270,6 +270,139 @@ export const projects = [
                 icon: "/assets/icons/landscape.svg"
             }
         ]
+    },
+
+
+    {
+        id: 3,
+
+        // Card Data
+        title: "Modern Residential Tower",
+        desc: "Architecture, Engineering & Construction",
+        introImage: "/assets/images/intro-3.jpg",
+
+        // Modal Data
+        projectName: "Al Reem Residential Tower",
+        type: "Residential Building",
+        location: "Abu Dhabi, UAE",
+
+        gallery: [
+            {
+                id: 1,
+                image: "/assets/images/intro-3.jpg",
+                title: "Tower Exterior View"
+            },
+            {
+                id: 2,
+                image: "/assets/images/residential.jpg",
+                title: "Main Entrance & Lobby"
+            },
+            {
+                id: 3,
+                image: "/assets/images/Residential-Interior.jpg",
+                title: "Residential Unit Interior"
+            },
+            {
+                id: 4,
+                image: "/assets/images/Apartment-Finishes.jpg",
+                title: "Premium Apartment Finishes"
+            },
+            {
+                id: 5,
+                image: "/assets/images/Living-Spaces.jpg",
+                title: "Modern Living Spaces"
+            },
+            {
+                id: 6,
+                image: "/assets/images/bathroom.jpg",
+                title: "Luxury Residential Amenities"
+            }
+        ],
+
+        overview: [
+            {
+                id: 1,
+                label: "Built-up Area",
+                value: "5,200 m²",
+                icon: "/assets/icons/area.svg"
+            },
+            {
+                id: 2,
+                label: "Construction Duration",
+                value: "24 Months",
+                icon: "/assets/icons/calendar.svg"
+            },
+            {
+                id: 3,
+                label: "Service Type",
+                value: "Design & Construction",
+                icon: "/assets/icons/services-type.svg"
+            },
+            {
+                id: 4,
+                label: "Number of Floors",
+                value: "12 Floors",
+                icon: "/assets/icons/floors.svg"
+            },
+            {
+                id: 5,
+                label: "Residential Units",
+                value: "36 Apartments",
+                icon: "/assets/icons/check.svg"
+            }
+        ],
+
+        challengeSolution: {
+            challenge: `
+        The project required the design and construction of a modern
+        residential tower in Abu Dhabi while maximizing land use,
+        ensuring structural efficiency, and meeting the highest
+        quality and safety standards.
+
+        Additional challenges included integrating parking facilities,
+        optimizing apartment layouts, and creating a contemporary
+        architectural identity that complements the surrounding
+        urban environment.
+        `,
+
+            solution: `
+        Our team delivered a complete architectural, structural,
+        and MEP solution that balanced functionality, aesthetics,
+        and long-term performance.
+
+        Through detailed planning, advanced engineering systems,
+        and premium construction materials, the project was
+        successfully completed as a high-quality residential
+        development offering comfort, durability, and modern living.
+        `
+        },
+
+        servicesProvided: [
+            {
+                id: 1,
+                title: "Architectural Design",
+                description: "Complete architectural planning and facade design.",
+                icon: "/assets/icons/interior.svg"
+            },
+            {
+                id: 2,
+                title: "Structural Engineering",
+                description: "Safe and efficient structural design solutions.",
+                icon: "/assets/icons/structure.svg"
+            },
+            {
+                id: 3,
+                title: "MEP Engineering",
+                description: "Integrated mechanical, electrical, and plumbing systems.",
+                icon: "/assets/icons/architecture.svg"
+            },
+            {
+                id: 4,
+                title: "Construction Management",
+                description: "Full project supervision and execution management.",
+                icon: "/assets/icons/landscape.svg"
+            }
+        ]
     }
 
 ];
