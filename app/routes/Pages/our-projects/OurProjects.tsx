@@ -19,8 +19,12 @@ import {projects} from "./data/projects";
 import { useState, useEffect } from "react";
 import ProjectModal from "~/routes/Pages/our-projects/project-modal/ProjectModal";
 import { AnimatePresence, motion } from "framer-motion";
+import {useTranslation} from "react-i18next";
 
 const OurProjects = () => {
+
+    const { t } = useTranslation();
+
     const [activeTab, setActiveTab] = useState("projects");
     const [selectedProject, setSelectedProject] = useState(null);
 
@@ -75,7 +79,7 @@ const OurProjects = () => {
                         duration: 0.6
                     }}
                 >
-                    Engineering <span>Projects</span> & Professional <span>Services</span>
+                    <span> {t("projects.title.projects")}</span> {t("projects.title.engineering")} & <span>{t("projects.title.services")}</span> {t("projects.title.professional")}
                 </motion.h2>
 
                 <motion.p
@@ -95,7 +99,7 @@ const OurProjects = () => {
                         duration: 0.6
                     }}
                 >
-                    Delivering innovative engineering solutions and professional consulting services for residential, commercial, and industrial developments.
+                    {t("projects.pra")}
                 </motion.p>
 
             </motion.div>
@@ -107,7 +111,7 @@ const OurProjects = () => {
                         onClick={() => setActiveTab("projects")}
                         whileTap={{ scale: 0.95 }}
                     >
-                        Projects
+                        {t("projects.btn-1")}
                     </motion.button>
                 </div>
 
@@ -117,7 +121,7 @@ const OurProjects = () => {
                         onClick={() => setActiveTab("services")}
                         whileTap={{ scale: 0.95 }}
                     >
-                        Services
+                        {t("projects.btn-2")}
                     </motion.button>
                 </div>
             </div>
@@ -160,7 +164,7 @@ const OurProjects = () => {
                                         </div>
                                         <div className="ourProjects-card-info-btn">
                                             <button >
-                                                <h5>View Project</h5>
+                                                <h5>{t("projects.btn-3")}</h5>
                                                 <img src={arrow} alt="Arrow" />
                                             </button>
                                         </div>

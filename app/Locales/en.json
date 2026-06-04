@@ -269,5 +269,22 @@
     "desc-4": "Get answers within minutes.",
 
     "btn": "Book Consultation Now"
+  },
+
+
+  "projects": {
+    "title": {
+      "engineering": "Engineering",
+      "projects": "Projects",
+      "professional": "Professional",
+      "services": "Services"
+    },
+    "pra": "Delivering innovative engineering solutions and professional consulting services for residential, commercial, and industrial developments.",
+
+    "btn-1": "Projects",
+    "btn-2": "Services",
+    "btn-3": "View Project"
   }
+
+
 }
