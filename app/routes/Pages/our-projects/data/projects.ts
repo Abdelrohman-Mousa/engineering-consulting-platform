@@ -403,6 +403,132 @@ export const projects = [
                 icon: "/assets/icons/landscape.svg"
             }
         ]
+    },
+
+    {
+        id: 4,
+
+        // Card Data
+        title: "Modern Commercial Office Interior",
+        desc: "Architecture, Engineering & Interior Design",
+        introImage: "/assets/images/intro-4.jpg",
+
+        // Modal Data
+        projectName: "Business Hub Office Interior Design",
+        type: "Commercial Office Building",
+        location: "Dubai, UAE",
+
+        gallery: [
+            {
+                id: 1,
+                image: "/assets/images/intro-4.jpg",
+                title: "Office Building Interior Overview"
+            },
+            {
+                id: 2,
+                image: "/assets/images/Lobby-Area.jpg",
+                title: "Reception & Lobby Area"
+            },
+            {
+                id: 3,
+                image: "/assets/images/Open-Workspace.jpg",
+                title: "Open Workspace Design"
+            },
+            {
+                id: 4,
+                image: "/assets/images/Meeting-Rooms.jpg",
+                title: "Meeting Rooms Finishes"
+            },
+            {
+                id: 5,
+                image: "/assets/images/Offices-Interior.jpg",
+                title: "Executive Offices Interior"
+            }
+        ],
+
+        overview: [
+            {
+                id: 1,
+                label: "Interior Area",
+                value: "3,500 m²",
+                icon: "/assets/icons/area.svg"
+            },
+            {
+                id: 2,
+                label: "Design Duration",
+                value: "8 Months",
+                icon: "/assets/icons/calendar.svg"
+            },
+            {
+                id: 3,
+                label: "Service Type",
+                value: "Interior Design & Fit-out",
+                icon: "/assets/icons/services-type.svg"
+            },
+            {
+                id: 4,
+                label: "Number of Floors Covered",
+                value: "10 Floors",
+                icon: "/assets/icons/floors.svg"
+            },
+            {
+                id: 5,
+                label: "Project Year",
+                value: "2025",
+                icon: "/assets/icons/check.svg"
+            }
+        ],
+
+        challengeSolution: {
+            challenge: `
+        The project involved designing a modern commercial office
+        interior that enhances productivity, collaboration, and
+        employee comfort.
+
+        The challenge was to create an efficient workspace layout
+        that balances open work areas, private offices, meeting rooms,
+        and relaxation zones while maintaining a premium corporate
+        identity.
+        `,
+
+            solution: `
+        Our team developed a contemporary office interior concept
+        focused on space optimization, functionality, and modern
+        aesthetics.
+
+        Using smart space planning, ergonomic furniture, acoustic
+        treatments, and high-quality materials, we delivered a
+        professional office environment that supports productivity
+        and reflects a strong corporate identity.
+        `
+        },
+
+        servicesProvided: [
+            {
+                id: 1,
+                title: "Interior Space Planning",
+                description: "Efficient layout design for office productivity.",
+                icon: "/assets/icons/interior.svg"
+            },
+            {
+                id: 2,
+                title: "Office Fit-out",
+                description: "Complete interior execution and finishing works.",
+                icon: "/assets/icons/structure.svg"
+            },
+            {
+                id: 3,
+                title: "Lighting Design",
+                description: "Modern lighting solutions for work environments.",
+                icon: "/assets/icons/architecture.svg"
+            },
+            {
+                id: 4,
+                title: "Furniture & Workstations",
+                description: "Custom office furniture and ergonomic setups.",
+                icon: "/assets/icons/landscape.svg"
+            }
+        ]
     }
 
 ];
