@@ -115,133 +115,111 @@ export const projects = [
         id: 2,
 
         // Card Data
-        title: "Luxury Apartment Design & Finishing",
-        desc: "Interior Design & Turnkey Finishing",
+        title: "projects-2.apartment.title",
+        desc: "projects-2.apartment.desc",
         introImage: "/assets/images/intro-2.jpg",
 
         // Modal Data
-        projectName: "Luxury Apartment Design & Finishing",
-        type: "Residential Apartment",
-        location: "Abu Dhabi, UAE",
+        projectName: "projects-2.apartment.projectName",
+        type: "projects-2.apartment.type",
+        location: "projects-2.apartment.location",
 
         gallery: [
             {
                 id: 1,
                 image: "/assets/images/view-kitchen.jpg",
-                title: "Contemporary Kitchen Design"  //Modern Living Room Design
+                title: "projects-2.apartment.gallery.contemporaryKitchen"
             },
             {
                 id: 2,
                 image: "/assets/images/view-kitchen-2.jpg",
-                title: "Contemporary Kitchen Design"
+                title: "projects-2.apartment.gallery.contemporaryKitchen"
             },
             {
                 id: 3,
                 image: "/assets/images/badroom-2.jpg",
-                title: "Master Bedroom Interior"
+                title: "projects-2.apartment.gallery.masterBedroom"
             },
             {
                 id: 4,
                 image: "/assets/images/badroom-3.jpg",
-                title: "Master Bedroom Interior"
+                title: "projects-2.apartment.gallery.masterBedroom"
             },
             {
                 id: 5,
                 image: "/assets/images/bedroom.jpg",
-                title: "Master Bedroom Interior"
+                title: "projects-2.apartment.gallery.masterBedroom"
             },
             {
                 id: 6,
                 image: "/assets/images/bathroom.jpg",
-                title: "Premium Bathroom Finishing"
+                title: "projects-2.apartment.gallery.premiumBathroom"
             }
         ],
 
         overview: [
             {
                 id: 1,
-                label: "Apartment Area",
-                value: "240 m²",
+                label: "projects-2.apartment.overview.area",
+                value: "projects-2.apartment.overview.areaValue",
                 icon: "/assets/icons/area.svg"
             },
             {
                 id: 2,
-                label: "Implementation Duration",
-                value: "5 Months",
+                label: "projects-2.apartment.overview.duration",
+                value: "projects-2.apartment.overview.durationValue",
                 icon: "/assets/icons/calendar.svg"
             },
             {
                 id: 3,
-                label: "Service Type",
-                value: "Design & Full Finishing",
+                label: "projects-2.apartment.overview.serviceType",
+                value: "projects-2.apartment.overview.serviceTypeValue",
                 icon: "/assets/icons/services-type.svg"
             },
             {
                 id: 4,
-                label: "Number of Rooms",
-                value: "4 Rooms",
+                label: "projects-2.apartment.overview.rooms",
+                value: "projects-2.apartment.overview.roomsValue",
                 icon: "/assets/icons/floors.svg"
             },
             {
                 id: 5,
-                label: "Completion Year",
-                value: "2025",
+                label: "projects-2.apartment.overview.year",
+                value: "projects-2.apartment.overview.yearValue",
                 icon: "/assets/icons/check.svg"
             }
         ],
 
-        // The Challenges
+        // Challenge & Solution
         challengeSolution: {
-            challenge: `
-            The main challenge of this residential apartment project
-            was creating a luxurious and functional living environment
-            within the available space while maintaining comfort,
-            elegance, and efficient circulation between rooms.
-
-            The client requested premium finishes, modern interior
-            aesthetics, customized storage solutions, and optimized
-            lighting design to enhance both functionality and visual appeal.
-        `,
-
-            solution: `
-            Our design team developed a comprehensive interior concept
-            focused on maximizing space efficiency and delivering a
-            contemporary luxury lifestyle experience.
-
-            Through careful material selection, custom-designed furniture,
-            integrated lighting systems, and high-end finishing details,
-            we transformed the apartment into a modern, comfortable,
-            and visually striking residence tailored to the client's needs.
-        `
+            challenge: "projects-2.apartment.challenge",
+            solution: "projects-2.apartment.solution"
         },
 
         // Services Provided
         servicesProvided: [
             {
                 id: 1,
-                title: "Interior Design",
-                description: "Complete interior planning and space optimization.",
+                title: "projects-2.apartment.services.interior.title",
+                description: "projects-2.apartment.services.interior.desc",
                 icon: "/assets/icons/interior.svg"
             },
-
             {
                 id: 2,
-                title: "Turnkey Finishing",
-                description: "Comprehensive finishing works with premium materials.",
+                title: "projects-2.apartment.services.finishing.title",
+                description: "projects-2.apartment.services.finishing.desc",
                 icon: "/assets/icons/structure.svg"
             },
-
             {
                 id: 3,
-                title: "Lighting Design",
-                description: "Modern lighting concepts for comfort and aesthetics.",
+                title: "projects-2.apartment.services.lighting.title",
+                description: "projects-2.apartment.services.lighting.desc",
                 icon: "/assets/icons/architecture.svg"
             },
-
             {
                 id: 4,
-                title: "Custom Furniture",
-                description: "Tailored furniture solutions and storage systems.",
+                title: "projects-2.apartment.services.furniture.title",
+                description: "projects-2.apartment.services.furniture.desc",
                 icon: "/assets/icons/landscape.svg"
             }
         ]
@@ -252,129 +230,109 @@ export const projects = [
         id: 3,
 
         // Card Data
-        title: "Modern Residential Tower",
-        desc: "Architecture, Engineering & Construction",
+        title: "projects-3.tower.title",
+        desc: "projects-3.tower.desc",
         introImage: "/assets/images/intro-3.jpg",
 
         // Modal Data
-        projectName: "Al Reem Residential Tower",
-        type: "Residential Building",
-        location: "Abu Dhabi, UAE",
+        projectName: "projects-3.tower.projectName",
+        type: "projects-3.tower.type",
+        location: "projects-3.tower.location",
 
         gallery: [
             {
                 id: 1,
                 image: "/assets/images/intro-3.jpg",
-                title: "Tower Exterior View"
+                title: "projects-3.tower.gallery.exteriorView"
             },
             {
                 id: 2,
                 image: "/assets/images/residential.jpg",
-                title: "Main Entrance & Lobby"
+                title: "projects-3.tower.gallery.mainEntrance"
             },
             {
                 id: 3,
                 image: "/assets/images/Residential-Interior.jpg",
-                title: "Residential Unit Interior"
+                title: "projects-3.tower.gallery.unitInterior"
             },
             {
                 id: 4,
                 image: "/assets/images/Apartment-Finishes.jpg",
-                title: "Premium Apartment Finishes"
+                title: "projects-3.tower.gallery.apartmentFinishes"
             },
             {
                 id: 5,
                 image: "/assets/images/Living-Spaces.jpg",
-                title: "Modern Living Spaces"
+                title: "projects-3.tower.gallery.livingSpaces"
             },
             {
                 id: 6,
                 image: "/assets/images/bathroom.jpg",
-                title: "Luxury Residential Amenities"
+                title: "projects-3.tower.gallery.amenities"
             }
         ],
 
         overview: [
             {
                 id: 1,
-                label: "Built-up Area",
-                value: "5,200 m²",
+                label: "projects-3.tower.overview.area",
+                value: "projects-3.tower.overview.areaValue",
                 icon: "/assets/icons/area.svg"
             },
             {
                 id: 2,
-                label: "Construction Duration",
-                value: "24 Months",
+                label: "projects-3.tower.overview.duration",
+                value: "projects-3.tower.overview.durationValue",
                 icon: "/assets/icons/calendar.svg"
             },
             {
                 id: 3,
-                label: "Service Type",
-                value: "Design & Construction",
+                label: "projects-3.tower.overview.serviceType",
+                value: "projects-3.tower.overview.serviceTypeValue",
                 icon: "/assets/icons/services-type.svg"
             },
             {
                 id: 4,
-                label: "Number of Floors",
-                value: "12 Floors",
+                label: "projects-3.tower.overview.floors",
+                value: "projects-3.tower.overview.floorsValue",
                 icon: "/assets/icons/floors.svg"
             },
             {
                 id: 5,
-                label: "Residential Units",
-                value: "36 Apartments",
+                label: "projects-3.tower.overview.units",
+                value: "projects-3.tower.overview.unitsValue",
                 icon: "/assets/icons/check.svg"
             }
         ],
 
         challengeSolution: {
-            challenge: `
-        The project required the design and construction of a modern
-        residential tower in Abu Dhabi while maximizing land use,
-        ensuring structural efficiency, and meeting the highest
-        quality and safety standards.
-
-        Additional challenges included integrating parking facilities,
-        optimizing apartment layouts, and creating a contemporary
-        architectural identity that complements the surrounding
-        urban environment.
-        `,
-
-            solution: `
-        Our team delivered a complete architectural, structural,
-        and MEP solution that balanced functionality, aesthetics,
-        and long-term performance.
-
-        Through detailed planning, advanced engineering systems,
-        and premium construction materials, the project was
-        successfully completed as a high-quality residential
-        development offering comfort, durability, and modern living.
-        `
+            challenge: "projects-3.tower.challenge",
+            solution: "projects-3.tower.solution"
         },
 
         servicesProvided: [
             {
                 id: 1,
-                title: "Architectural Design",
-                description: "Complete architectural planning and facade design.",
+                title: "projects-3.tower.services.architectural.title",
+                description: "projects-3.tower.services.architectural.desc",
                 icon: "/assets/icons/interior.svg"
             },
             {
                 id: 2,
-                title: "Structural Engineering",
-                description: "Safe and efficient structural design solutions.",
+                title: "projects-3.tower.services.structural.title",
+                description: "projects-3.tower.services.structural.desc",
                 icon: "/assets/icons/structure.svg"
             },
             {
                 id: 3,
-                title: "MEP Engineering",
-                description: "Integrated mechanical, electrical, and plumbing systems.",
+                title: "projects-3.tower.services.mep.title",
+                description: "projects-3.tower.services.mep.desc",
                 icon: "/assets/icons/architecture.svg"
             },
             {
                 id: 4,
-                title: "Construction Management",
-                description: "Full project supervision and execution management.",
+                title: "projects-3.tower.services.construction.title",
+                description: "projects-3.tower.services.construction.desc",
                 icon: "/assets/icons/landscape.svg"
             }
         ]
@@ -384,123 +342,104 @@ export const projects = [
         id: 4,
 
         // Card Data
-        title: "Modern Commercial Office Interior",
-        desc: "Architecture, Engineering & Interior Design",
+        title: "projects-4.office.title",
+        desc: "projects-4.office.desc",
         introImage: "/assets/images/intro-4.jpg",
 
         // Modal Data
-        projectName: "Business Hub Office Interior Design",
-        type: "Commercial Office Building",
-        location: "Dubai, UAE",
+        projectName: "projects-4.office.projectName",
+        type: "projects-4.office.type",
+        location: "projects-4.office.location",
 
         gallery: [
             {
                 id: 1,
                 image: "/assets/images/intro-4.jpg",
-                title: "Office Building Interior Overview"
+                title: "projects-4.office.gallery.overview"
             },
             {
                 id: 2,
                 image: "/assets/images/Lobby-Area.jpg",
-                title: "Reception & Lobby Area"
+                title: "projects-4.office.gallery.lobby"
             },
             {
                 id: 3,
                 image: "/assets/images/Open-Workspace.jpg",
-                title: "Open Workspace Design"
+                title: "projects-4.office.gallery.workspace"
             },
             {
                 id: 4,
                 image: "/assets/images/Meeting-Rooms.jpg",
-                title: "Meeting Rooms Finishes"
+                title: "projects-4.office.gallery.meetingRooms"
             },
             {
                 id: 5,
                 image: "/assets/images/Offices-Interior.jpg",
-                title: "Executive Offices Interior"
+                title: "projects-4.office.gallery.executiveOffices"
             }
         ],
 
         overview: [
             {
                 id: 1,
-                label: "Interior Area",
-                value: "3,500 m²",
+                label: "projects-4.office.overview.area",
+                value: "projects-4.office.overview.areaValue",
                 icon: "/assets/icons/area.svg"
             },
             {
                 id: 2,
-                label: "Design Duration",
-                value: "8 Months",
+                label: "projects-4.office.overview.duration",
+                value: "projects-4.office.overview.durationValue",
                 icon: "/assets/icons/calendar.svg"
             },
             {
                 id: 3,
-                label: "Service Type",
-                value: "Interior Design & Fit-out",
+                label: "projects-4.office.overview.serviceType",
+                value: "projects-4.office.overview.serviceTypeValue",
                 icon: "/assets/icons/services-type.svg"
             },
             {
                 id: 4,
-                label: "Number of Floors Covered",
-                value: "10 Floors",
+                label: "projects-4.office.overview.floors",
+                value: "projects-4.office.overview.floorsValue",
                 icon: "/assets/icons/floors.svg"
             },
             {
                 id: 5,
-                label: "Project Year",
-                value: "2025",
+                label: "projects-4.office.overview.year",
+                value: "projects-4.office.overview.yearValue",
                 icon: "/assets/icons/check.svg"
             }
         ],
 
         challengeSolution: {
-            challenge: `
-        The project involved designing a modern commercial office
-        interior that enhances productivity, collaboration, and
-        employee comfort.
-
-        The challenge was to create an efficient workspace layout
-        that balances open work areas, private offices, meeting rooms,
-        and relaxation zones while maintaining a premium corporate
-        identity.
-        `,
-
-            solution: `
-        Our team developed a contemporary office interior concept
-        focused on space optimization, functionality, and modern
-        aesthetics.
-
-        Using smart space planning, ergonomic furniture, acoustic
-        treatments, and high-quality materials, we delivered a
-        professional office environment that supports productivity
-        and reflects a strong corporate identity.
-        `
+            challenge: "projects-4.office.challenge",
+            solution: "projects-4.office.solution"
         },
 
         servicesProvided: [
             {
                 id: 1,
-                title: "Interior Space Planning",
-                description: "Efficient layout design for office productivity.",
+                title: "projects-4.office.services.spacePlanning.title",
+                description: "projects-4.office.services.spacePlanning.desc",
                 icon: "/assets/icons/interior.svg"
             },
             {
                 id: 2,
-                title: "Office Fit-out",
-                description: "Complete interior execution and finishing works.",
+                title: "projects-4.office.services.fitout.title",
+                description: "projects-4.office.services.fitout.desc",
                 icon: "/assets/icons/structure.svg"
             },
             {
                 id: 3,
-                title: "Lighting Design",
-                description: "Modern lighting solutions for work environments.",
+                title: "projects-4.office.services.lighting.title",
+                description: "projects-4.office.services.lighting.desc",
                 icon: "/assets/icons/architecture.svg"
             },
             {
                 id: 4,
-                title: "Furniture & Workstations",
-                description: "Custom office furniture and ergonomic setups.",
+                title: "projects-4.office.services.furniture.title",
+                description: "projects-4.office.services.furniture.desc",
                 icon: "/assets/icons/landscape.svg"
             }
         ]

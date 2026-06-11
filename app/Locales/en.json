@@ -361,7 +361,170 @@
         }
       }
     }
+  },
+
+  "projects-2": {
+    "apartment": {
+      "title": "Luxury Apartment Design & Finishing",
+      "desc": "Interior Design & Turnkey Finishing",
+      "projectName": "Luxury Apartment Design & Finishing",
+      "type": "Residential Apartment",
+      "location": "Abu Dhabi, UAE",
+
+      "gallery": {
+        "contemporaryKitchen": "Contemporary Kitchen Design",
+        "masterBedroom": "Master Bedroom Interior",
+        "premiumBathroom": "Premium Bathroom Finishing"
+      },
+
+      "overview": {
+        "area": "Apartment Area",
+        "areaValue": "240 m²",
+        "duration": "Implementation Duration",
+        "durationValue": "5 Months",
+        "serviceType": "Service Type",
+        "serviceTypeValue": "Design & Full Finishing",
+        "rooms": "Number of Rooms",
+        "roomsValue": "4 Rooms",
+        "year": "Completion Year",
+        "yearValue": "2025"
+      },
+
+      "challenge": "The main challenge of this residential apartment project was creating a luxurious and functional living environment within the available space while maintaining comfort, elegance, and efficient circulation between rooms. The client requested premium finishes, modern interior aesthetics, customized storage solutions, and optimized lighting design to enhance both functionality and visual appeal.",
+
+      "solution": "Our design team developed a comprehensive interior concept focused on maximizing space efficiency and delivering a contemporary luxury lifestyle experience. Through careful material selection, custom-designed furniture, integrated lighting systems, and high-end finishing details, we transformed the apartment into a modern, comfortable, and visually striking residence tailored to the client's needs.",
+
+      "services": {
+        "interior": {
+          "title": "Interior Design",
+          "desc": "Complete interior planning and space optimization."
+        },
+        "finishing": {
+          "title": "Turnkey Finishing",
+          "desc": "Comprehensive finishing works with premium materials."
+        },
+        "lighting": {
+          "title": "Lighting Design",
+          "desc": "Modern lighting concepts for comfort and aesthetics."
+        },
+        "furniture": {
+          "title": "Custom Furniture",
+          "desc": "Tailored furniture solutions and storage systems."
+        }
+      }
+    }
+  },
+
+  "projects-3": {
+    "tower": {
+      "title": "Modern Residential Tower",
+      "desc": "Architecture, Engineering & Construction",
+      "projectName": "Al Reem Residential Tower",
+      "type": "Residential Building",
+      "location": "Abu Dhabi, UAE",
+
+      "gallery": {
+        "exteriorView": "Tower Exterior View",
+        "mainEntrance": "Main Entrance & Lobby",
+        "unitInterior": "Residential Unit Interior",
+        "apartmentFinishes": "Premium Apartment Finishes",
+        "livingSpaces": "Modern Living Spaces",
+        "amenities": "Luxury Residential Amenities"
+      },
+
+      "overview": {
+        "area": "Built-up Area",
+        "areaValue": "5,200 m²",
+        "duration": "Construction Duration",
+        "durationValue": "24 Months",
+        "serviceType": "Service Type",
+        "serviceTypeValue": "Design & Construction",
+        "floors": "Number of Floors",
+        "floorsValue": "12 Floors",
+        "units": "Residential Units",
+        "unitsValue": "36 Apartments"
+      },
+
+      "challenge": "The project required the design and construction of a modern residential tower in Abu Dhabi while maximizing land use, ensuring structural efficiency, and meeting the highest quality and safety standards. Additional challenges included integrating parking facilities, optimizing apartment layouts, and creating a contemporary architectural identity that complements the surrounding urban environment.",
+
+      "solution": "Our team delivered a complete architectural, structural, and MEP solution that balanced functionality, aesthetics, and long-term performance. Through detailed planning, advanced engineering systems, and premium construction materials, the project was successfully completed as a high-quality residential development offering comfort, durability, and modern living.",
+
+      "services": {
+        "architectural": {
+          "title": "Architectural Design",
+          "desc": "Complete architectural planning and facade design."
+        },
+        "structural": {
+          "title": "Structural Engineering",
+          "desc": "Safe and efficient structural design solutions."
+        },
+        "mep": {
+          "title": "MEP Engineering",
+          "desc": "Integrated mechanical, electrical, and plumbing systems."
+        },
+        "construction": {
+          "title": "Construction Management",
+          "desc": "Full project supervision and execution management."
+        }
+      }
+    }
+  },
+
+  "projects-4": {
+    "office": {
+      "title": "Modern Commercial Office Interior",
+      "desc": "Architecture, Engineering & Interior Design",
+      "projectName": "Business Hub Office Interior Design",
+      "type": "Commercial Office Building",
+      "location": "Dubai, UAE",
+
+      "gallery": {
+        "overview": "Office Building Interior Overview",
+        "lobby": "Reception & Lobby Area",
+        "workspace": "Open Workspace Design",
+        "meetingRooms": "Meeting Rooms Finishes",
+        "executiveOffices": "Executive Offices Interior"
+      },
+
+      "overview": {
+        "area": "Interior Area",
+        "areaValue": "3,500 m²",
+        "duration": "Design Duration",
+        "durationValue": "8 Months",
+        "serviceType": "Service Type",
+        "serviceTypeValue": "Interior Design & Fit-out",
+        "floors": "Number of Floors Covered",
+        "floorsValue": "10 Floors",
+        "year": "Project Year",
+        "yearValue": "2025"
+      },
+
+      "challenge": "The project involved designing a modern commercial office interior that enhances productivity, collaboration, and employee comfort. The challenge was to create an efficient workspace layout that balances open work areas, private offices, meeting rooms, and relaxation zones while maintaining a premium corporate identity.",
+
+      "solution": "Our team developed a contemporary office interior concept focused on space optimization, functionality, and modern aesthetics. Using smart space planning, ergonomic furniture, acoustic treatments, and high-quality materials, we delivered a professional office environment that supports productivity and reflects a strong corporate identity.",
+
+      "services": {
+        "spacePlanning": {
+          "title": "Interior Space Planning",
+          "desc": "Efficient layout design for office productivity."
+        },
+        "fitout": {
+          "title": "Office Fit-out",
+          "desc": "Complete interior execution and finishing works."
+        },
+        "lighting": {
+          "title": "Lighting Design",
+          "desc": "Modern lighting solutions for work environments."
+        },
+        "furniture": {
+          "title": "Furniture & Workstations",
+          "desc": "Custom office furniture and ergonomic setups."
+        }
+      }
+    }
   }
+
+
 
 
 }
