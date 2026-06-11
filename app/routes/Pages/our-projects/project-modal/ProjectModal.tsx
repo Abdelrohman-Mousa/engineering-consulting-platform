@@ -8,6 +8,7 @@ import { CarouselComponent, CarouselItemsDirective, CarouselItemDirective } from
 import arrow from "../../../../../src/animations/arrow.json";
 import Lottie from "lottie-react";
 import {Link} from "react-router";
+import {useTranslation} from "react-i18next";
 
 
 interface ProjectModalProps {
@@ -16,10 +17,14 @@ interface ProjectModalProps {
 }
 
 const ProjectModal = (
+
     {
          selectedProject,
          setSelectedProject
     }: ProjectModalProps) => {
+
+    const { t } = useTranslation();
+
 
     return (
 
@@ -90,10 +95,10 @@ const ProjectModal = (
 
                             <div className="project-modal-info">
                                 <div className="project-modal-info-head">
-                                    <h2>{selectedProject.projectName}</h2>
+                                    <h2>{t(selectedProject.projectName)}</h2>
                                     <div className="type-location">
-                                        <p>{selectedProject.type}</p> -
-                                        <p>{selectedProject.location}</p>
+                                        <p>{t(selectedProject.type)}</p> -
+                                        <p>{t(selectedProject.location)}</p>
                                     </div>
                                 </div>
 
@@ -114,7 +119,7 @@ const ProjectModal = (
                                                     template={`
                                                         <figure class="img-container">
                                                             <img src="${item.image}" alt="${item.title}" style="height:100%;width:100%;object-fit:cover;object-position: center;" />
-                                                            <figcaption class="img-caption">${item.title}</figcaption>
+                                                            <figcaption class="img-caption">${t(item.title)}</figcaption>
                                                         </figure>
                                                     `}
                                                 />
@@ -125,7 +130,7 @@ const ProjectModal = (
 
                                 {/* Overview */}
                                 <div className="project-modal-info-overview">
-                                    <h2>Project Overview</h2>
+                                    <h2>{t("head-projects.ProjectOverview")}</h2>
 
                                     <div className="project-modal-info-overview-cards">
 
@@ -137,10 +142,10 @@ const ProjectModal = (
 
                                                 <div className="title-icons">
                                                     <img src={item.icon} alt={item.label} />
-                                                    <h2>{item.label}</h2>
+                                                    <h2>{t(item.label)}</h2>
                                                 </div>
 
-                                                <p>{item.value}</p>
+                                                <p>{t(item.value)}</p>
                                             </div>
                                         ))}
                                     </div>
@@ -149,7 +154,7 @@ const ProjectModal = (
                                 {/* Challenge & Solution */}
                                 <div className="project-modal-challenge-solution">
 
-                                    <h2>Challenge & Solution</h2>
+                                    <h2>{t("head-projects.Challenge-Solution")}</h2>
 
                                     <div className="arrow-challenge-solution">
                                         <Lottie
@@ -162,21 +167,21 @@ const ProjectModal = (
                                     <div className="challenge-solution-wrapper">
                                         <div className="challenge-card">
                                             <div className="card-badge challenge">
-                                                Challenge
+                                                {t("head-projects.Challenge")}
                                             </div>
 
                                             <p>
-                                                {selectedProject.challengeSolution.challenge}
+                                                {t(selectedProject.challengeSolution.challenge)}
                                             </p>
 
                                         </div>
 
                                         <div className="solution-card">
                                             <div className="card-badge solution">
-                                                Solution
+                                                {t("head-projects.Solution")}
                                             </div>
                                             <p>
-                                                {selectedProject.challengeSolution.solution}
+                                                {t(selectedProject.challengeSolution.solution)}
                                             </p>
                                         </div>
                                     </div>
@@ -185,7 +190,7 @@ const ProjectModal = (
                                 {/* Services Provided */}
                                 <div className="project-modal-services">
 
-                                    <h2>Services Provided</h2>
+                                    <h2>{t("head-projects.Services-Provided")}</h2>
 
                                     <div className="project-modal-services-cards">
 
@@ -197,11 +202,11 @@ const ProjectModal = (
                                                 <div className="service-icon">
                                                     <img
                                                         src={service.icon}
-                                                        alt={service.title}
+                                                        alt={t(service.title)}
                                                     />
                                                 </div>
-                                                <h3>{service.title}</h3>
-                                                <p>{service.description}</p>
+                                                <h3>{t(service.title)}</h3>
+                                                <p>{t(service.description)}</p>
                                             </div>
                                         ))}
                                     </div>
@@ -212,15 +217,14 @@ const ProjectModal = (
 
                                     <div className="project-modal-cta-content">
 
-                                        <span>Let’s Build Something Exceptional</span>
+                                        <span>{t("head-projects.cta.Let’s-Build")}</span>
 
                                         <h2>
-                                            Ready to Start Your Dream Project?
+                                            {t("head-projects.cta.Your-Dream")}
                                         </h2>
 
                                         <p>
-                                            Our engineering team is ready to transform your vision
-                                            into a modern, functional, and world-class architectural reality.
+                                            {t("head-projects.cta.pra")}
                                         </p>
 
                                         <div className="project-modal-cta-buttons">
@@ -228,7 +232,7 @@ const ProjectModal = (
                                                 <button
                                                     className="primary-btn"
                                                 >
-                                                       Request Consultation
+                                                    {t("head-projects.cta.btn-2")}
                                                 </button>
                                                     </Link>
 
@@ -238,7 +242,7 @@ const ProjectModal = (
                                                 rel="noopener noreferrer"
                                                 className="secondary-btn"
                                             >
-                                                Contact on WhatsApp
+                                                {t("head-projects.cta.btn-1")}
                                             </a>
 
                                         </div>

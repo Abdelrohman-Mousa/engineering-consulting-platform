@@ -272,18 +272,95 @@
   },
 
 
-  "projects": {
+  "head-projects": {
     "title": {
       "engineering": "Engineering",
-      "projects": "Projects",
+      "proj": "Projects",
       "professional": "Professional",
       "services": "Services"
     },
+
     "pra": "Delivering innovative engineering solutions and professional consulting services for residential, commercial, and industrial developments.",
 
     "btn-1": "Projects",
     "btn-2": "Services",
-    "btn-3": "View Project"
+    "btn-3": "View Project",
+
+    "ProjectOverview": "Project Overview",
+    "Challenge-Solution": "Challenge & Solution",
+    "Challenge": "Challenge",
+    "Solution": "Solution",
+
+    "Services-Provided": "Services Provided",
+
+    "cta": {
+      "Let’s-Build": "Let’s Build Something Exceptional",
+      "Your-Dream": "Ready to Start Your Dream Project?",
+
+      "pra": "Our engineering team is ready to transform your vision into a modern, functional, and world-class architectural reality.",
+
+      "btn-1": "Contact on WhatsApp",
+      "btn-2": "Request Consultation"
+    }
+  },
+
+  "projects-1": {
+    "villa": {
+      "title": "Modern Residential Villa",
+      "desc": "Architecture & Structural Design",
+      "projectName": "Modern Residential Villa",
+      "type": "Residential Project",
+      "location": "Dubai, UAE",
+
+      "gallery": {
+        "frontFacade": "Modern Villa Front Facade",
+        "aerialView": "Aerial Architectural View",
+        "reception": "Luxury Living & Reception Area",
+        "kitchen": "Contemporary Kitchen Design",
+        "bedroom": "Modern Master Bedroom",
+        "bathroom": "Luxury Bathroom Interior"
+      },
+
+      "overview": {
+        "projectArea": "Project Area",
+        "projectAreaValue": "850 m²",
+
+        "duration": "Implementation Duration",
+        "durationValue": "24 Months",
+
+        "serviceType": "Service Type",
+        "serviceTypeValue": "Full Engineering Consultancy",
+
+        "floors": "Number of Floors",
+        "floorsValue": "5 Floors",
+
+        "year": "Completion Year",
+        "yearValue": "2025"
+      },
+
+      "challenge": "The main challenge of this modern residential villa project was achieving a balance between luxury aesthetics, functional living spaces, and natural light distribution while maintaining privacy for all family areas. Additionally, the client requested a contemporary architectural identity with large glass facades, smart space utilization, and seamless indoor-outdoor connectivity without compromising thermal comfort and energy efficiency.",
+
+      "solution": "Our engineering team developed a modern architectural concept focused on open-plan living, optimized spatial flow, and strategic facade orientation to maximize daylight and ventilation. We integrated high-performance materials, smart shading systems, and elegant landscape transitions to create a luxurious, energy-efficient villa experience.",
+
+      "services": {
+        "architecture": {
+          "title": "Architectural Design",
+          "desc": "Modern villa architectural planning and facade design."
+        },
+        "structure": {
+          "title": "Structural Engineering",
+          "desc": "Complete structural analysis and reinforced concrete design."
+        },
+        "interior": {
+          "title": "Interior Design",
+          "desc": "Luxury interior concepts with functional space planning."
+        },
+        "landscape": {
+          "title": "Landscape Design",
+          "desc": "Outdoor living areas and landscape integration."
+        }
+      }
+    }
   }
 
 

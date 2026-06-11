@@ -3,134 +3,109 @@ export const projects = [
         id: 1,
 
         // Card Data
-        title: "Modern Residential Villa",
-        desc: "Architecture & Structural Design",
+        title: "projects-1.villa.title",
+        desc: "projects-1.villa.desc",
         introImage: "/assets/images/intro-1.jpg",
 
         // Modal Data
-        projectName: "Modern Residential Villa",
-        type: "Residential Project",
-        location: "Dubai, UAE",
+        projectName: "projects-1.villa.projectName",
+        type: "projects-1.villa.type",
+        location: "projects-1.villa.location",
 
         gallery: [
             {
                 id: 1,
                 image: "/assets/images/view.jpg",
-                title: "Modern Villa Front Facade"
+                title: "projects-1.villa.gallery.frontFacade"
             },
             {
                 id: 2,
                 image: "/assets/images/aerial-view.jpg",
-                title: "Aerial Architectural View"
+                title: "projects-1.villa.gallery.aerialView"
             },
             {
                 id: 3,
                 image: "/assets/images/reception.jpg",
-                title: "Luxury Living & Reception Area"
+                title: "projects-1.villa.gallery.reception"
             },
             {
                 id: 4,
                 image: "/assets/images/kitchen.jpg",
-                title: "Contemporary Kitchen Design"
+                title: "projects-1.villa.gallery.kitchen"
             },
             {
                 id: 5,
                 image: "/assets/images/bedroom.jpg",
-                title: "Modern Master Bedroom"
+                title: "projects-1.villa.gallery.bedroom"
             },
             {
                 id: 6,
                 image: "/assets/images/bathroom.jpg",
-                title: "Luxury Bathroom Interior"
+                title: "projects-1.villa.gallery.bathroom"
             }
         ],
 
         overview: [
             {
                 id: 1,
-                label: "Project Area",
-                value: "850 m²",
+                label: "projects-1.villa.overview.projectArea",
+                value: "projects-1.villa.overview.projectAreaValue",
                 icon: "/assets/icons/area.svg"
             },
             {
                 id: 2,
-                label: "Implementation Duration",
-                value: "24 Months",
+                label: "projects-1.villa.overview.duration",
+                value: "projects-1.villa.overview.durationValue",
                 icon: "/assets/icons/calendar.svg"
             },
             {
                 id: 3,
-                label: "Service Type",
-                value: "Full Engineering Consultancy",
+                label: "projects-1.villa.overview.serviceType",
+                value: "projects-1.villa.overview.serviceTypeValue",
                 icon: "/assets/icons/services-type.svg"
             },
             {
                 id: 4,
-                label: "Number of Floors",
-                value: "5 Floors",
+                label: "projects-1.villa.overview.floors",
+                value: "projects-1.villa.overview.floorsValue",
                 icon: "/assets/icons/floors.svg"
             },
             {
                 id: 5,
-                label: "Completion Year",
-                value: "2025",
+                label: "projects-1.villa.overview.year",
+                value: "projects-1.villa.overview.yearValue",
                 icon: "/assets/icons/check.svg"
             }
         ],
 
-        // The Challenges
         challengeSolution: {
-            challenge: `
-                The main challenge of this modern residential villa project
-                was achieving a balance between luxury aesthetics, functional
-                living spaces, and natural light distribution while maintaining
-                privacy for all family areas.
-
-                Additionally, the client requested a contemporary architectural
-                identity with large glass facades, smart space utilization,
-                and seamless indoor-outdoor connectivity without compromising
-                thermal comfort and energy efficiency.
-            `,
-
-            solution: `
-                Our engineering team developed a modern architectural concept
-                focused on open-plan living, optimized spatial flow, and
-                strategic facade orientation to maximize daylight and ventilation.
-
-                We integrated high-performance materials, smart shading systems,
-                and elegant landscape transitions to create a luxurious,
-                energy-efficient villa experience that combines modern design,
-                comfort, and long-term functionality.
-            `
+            challenge: "projects-1.villa.challenge",
+            solution: "projects-1.villa.solution"
         },
 
-        // Services Provided
         servicesProvided: [
             {
                 id: 1,
-                title: "Architectural Design",
-                description: "Modern villa architectural planning and facade design.",
+                title: "projects-1.villa.services.architecture.title",
+                description: "projects-1.villa.services.architecture.desc",
                 icon: "/assets/icons/architecture.svg"
             },
-
             {
                 id: 2,
-                title: "Structural Engineering",
-                description: "Complete structural analysis and reinforced concrete design.",
+                title: "projects-1.villa.services.structure.title",
+                description: "projects-1.villa.services.structure.desc",
                 icon: "/assets/icons/structure.svg"
             },
-
             {
                 id: 3,
-                title: "Interior Design",
-                description: "Luxury interior concepts with functional space planning.",
+                title: "projects-1.villa.services.interior.title",
+                description: "projects-1.villa.services.interior.desc",
                 icon: "/assets/icons/interior.svg"
             },
-
             {
                 id: 4,
-                title: "Landscape Design",
-                description: "Outdoor living areas and landscape integration.",
+                title: "projects-1.villa.services.landscape.title",
+                description: "projects-1.villa.services.landscape.desc",
                 icon: "/assets/icons/landscape.svg"
             }
         ]

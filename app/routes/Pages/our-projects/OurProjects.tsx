@@ -79,7 +79,7 @@ const OurProjects = () => {
                         duration: 0.6
                     }}
                 >
-                    <span> {t("projects.title.projects")}</span> {t("projects.title.engineering")} & <span>{t("projects.title.services")}</span> {t("projects.title.professional")}
+                    <span> {t("head-projects.title.proj")}</span> {t("head-projects.title.engineering")} & <span>{t("head-projects.title.services")}</span> {t("head-projects.title.professional")}
                 </motion.h2>
 
                 <motion.p
@@ -99,7 +99,7 @@ const OurProjects = () => {
                         duration: 0.6
                     }}
                 >
-                    {t("projects.pra")}
+                    {t("head-projects.pra")}
                 </motion.p>
 
             </motion.div>
@@ -111,7 +111,7 @@ const OurProjects = () => {
                         onClick={() => setActiveTab("projects")}
                         whileTap={{ scale: 0.95 }}
                     >
-                        {t("projects.btn-1")}
+                        {t("head-projects.btn-1")}
                     </motion.button>
                 </div>
 
@@ -121,7 +121,7 @@ const OurProjects = () => {
                         onClick={() => setActiveTab("services")}
                         whileTap={{ scale: 0.95 }}
                     >
-                        {t("projects.btn-2")}
+                        {t("head-projects.btn-2")}
                     </motion.button>
                 </div>
             </div>
@@ -159,12 +159,12 @@ const OurProjects = () => {
                                     </div>
                                     <div className="ourProjects-card-info">
                                         <div className="ourProjects-card-info-text">
-                                            <h2>{project.title}</h2>
-                                            <h4>{project.desc}</h4>
+                                            <h2>{t(project.title)}</h2>
+                                            <h4>{t(project.desc)}</h4>
                                         </div>
                                         <div className="ourProjects-card-info-btn">
                                             <button >
-                                                <h5>{t("projects.btn-3")}</h5>
+                                                <h5>{t("head-projects.btn-3")}</h5>
                                                 <img src={arrow} alt="Arrow" />
                                             </button>
                                         </div>

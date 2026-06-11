@@ -41,6 +41,11 @@
       gap: 1rem;
       z-index: 1000;
 
+      [dir="rtl"] & {
+        right: auto;
+        left: 1.5rem;
+      }
+
       button {
         width: 44px;
         height: 44px;
@@ -302,6 +307,9 @@
           @include mobile {
             transform: translate(-13.5%, 1%);
             top: 51%;
+          }
+          [dir="rtl"] & {
+            transform: translate(-83.5%, -35%);
           }
           .arrow-animation {
             width: 30%;
