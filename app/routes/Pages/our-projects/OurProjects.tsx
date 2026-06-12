@@ -16,10 +16,13 @@ export function meta({}: Route.MetaArgs) {
 import "./ourProjects.scss";
 import arrow from "/assets/icons/arrow-modal.svg";
 import {projects} from "./data/projects";
+import {services} from "./data/services";
 import { useState, useEffect } from "react";
 import ProjectModal from "~/routes/Pages/our-projects/project-modal/ProjectModal";
 import { AnimatePresence, motion } from "framer-motion";
 import {useTranslation} from "react-i18next";
+import {Link} from "react-router";
+
 
 const OurProjects = () => {
 
@@ -27,6 +30,8 @@ const OurProjects = () => {
 
     const [activeTab, setActiveTab] = useState("projects");
     const [selectedProject, setSelectedProject] = useState(null);
+    const [activeService, setActiveService] = useState(services[0]);
+
 
     useEffect(() => {
 
@@ -186,26 +191,55 @@ const OurProjects = () => {
                             <motion.div
                                 className="ourServices"
 
-                                initial={{
-                                    opacity: 0,
-                                    y: 30
-                                }}
-
-                                animate={{
-                                    opacity: 1,
-                                    y: 0
-                                }}
-
-                                exit={{
-                                    opacity: 0,
-                                    y: -30
-                                }}
-
-                                transition={{
-                                    duration: 0.4
-                                }}
+                                initial={{ opacity: 0, y: 30 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: -30 }}
+                                transition={{ duration: 0.4 }}
                             >
-                                Welcome
+                                <div className="services-container">
+                                    <div className="server-list">
+
+                                        {services.map((service, index) => (
+                                            <button
+                                                key={service.id}
+                                                onClick={() => setActiveService(service)}
+                                                className={`services-item ${
+                                                    activeService.id === service.id ? "active" : ""
+                                                }`}
+                                            >
+                                                <span className="services-number">
+                                                    {String(index + 1).padStart(2, "0")}
+                                                </span>
+
+                                                <span className="services-name">
+                                                   {service.title}
+                                                </span>
+
+                                            </button>
+                                        ))}
+                                    </div>
+
+                                    {/*Services Content*/}
+                                    <div className="services-content">
+                                        <span className="services-tag">Service</span>
+
+                                        <div className="info">
+                                            <div className="image">
+                                                <img src={activeService.img} alt={activeService.title}/>
+                                            </div>
+                                            <div className="info-1">
+                                                <h3>{activeService.title}</h3>
+
+                                                <p>{activeService.desc}</p>
+                                                <Link to="/consultationRequest">
+                                                   <button className="services-btn">
+                                                      Service Request
+                                                   </button>
+                                                </Link>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </motion.div>
                         )}
 
