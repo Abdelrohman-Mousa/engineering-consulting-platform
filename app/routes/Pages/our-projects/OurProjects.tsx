@@ -212,7 +212,7 @@ const OurProjects = () => {
                                                 </span>
 
                                                 <span className="services-name">
-                                                   {service.title}
+                                                   {t(service.title)}
                                                 </span>
 
                                             </button>
@@ -221,19 +221,19 @@ const OurProjects = () => {
 
                                     {/*Services Content*/}
                                     <div className="services-content">
-                                        <span className="services-tag">Service</span>
+                                        <span className="services-tag">{t("head-projects.service")}</span>
 
                                         <div className="info">
                                             <div className="image">
                                                 <img src={activeService.img} alt={activeService.title}/>
                                             </div>
                                             <div className="info-1">
-                                                <h3>{activeService.title}</h3>
+                                                <h3>{t(activeService.title)}</h3>
 
-                                                <p>{activeService.desc}</p>
+                                                <p>{t(activeService.desc)}</p>
                                                 <Link to="/consultationRequest">
                                                    <button className="services-btn">
-                                                      Service Request
+                                                       {t("head-projects.serviceRequest")}
                                                    </button>
                                                 </Link>
                                             </div>

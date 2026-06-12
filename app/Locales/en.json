@@ -293,6 +293,9 @@
 
     "Services-Provided": "Services Provided",
 
+    "service": "Engineering Service",
+    "serviceRequest": "Service Request",
+
     "cta": {
       "Let’s-Build": "Let’s Build Something Exceptional",
       "Your-Dream": "Ready to Start Your Dream Project?",
@@ -521,6 +524,40 @@
           "desc": "Custom office furniture and ergonomic setups."
         }
       }
+    }
+  },
+
+
+
+  "services": {
+    "architectural": {
+      "title": "Architectural Design",
+      "desc": "We create innovative architectural concepts that combine functionality, aesthetics, and sustainability. Our designs maximize space efficiency while delivering visually striking and modern structures."
+    },
+
+    "structural": {
+      "title": "Structural Engineering",
+      "desc": "We provide safe, efficient, and cost-effective structural engineering solutions that ensure stability, durability, and compliance with international building standards."
+    },
+
+    "interior": {
+      "title": "Interior Design",
+      "desc": "We design elegant and functional interior spaces that reflect client identity, enhance comfort, and optimize spatial flow through modern materials and lighting solutions."
+    },
+
+    "mep": {
+      "title": "MEP Engineering",
+      "desc": "Our MEP engineering services integrate mechanical, electrical, and plumbing systems into efficient, safe, and sustainable building solutions."
+    },
+
+    "construction": {
+      "title": "Construction Management",
+      "desc": "We oversee construction projects from planning to completion, ensuring quality control, cost efficiency, and timely delivery."
+    },
+
+    "landscape": {
+      "title": "Landscape Design",
+      "desc": "We create outdoor environments that blend nature and architecture, delivering attractive and functional landscapes for residential and commercial developments."
     }
   }
 
