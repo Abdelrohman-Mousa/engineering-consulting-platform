@@ -462,7 +462,26 @@ html.dark {
             }
           }
         }
+
       }
+        .ourServices {
+          .services-container {
+            background: linear-gradient(135deg, #011c3c, #02122e);
+            box-shadow:
+                       0 4px 10px rgba(0, 0, 0, 0.08),
+                       0 8px 20px rgba(0, 105, 225, 0.08);
+            .info {
+              .info-1 {
+                h3 {
+                  color: #ffffff;
+                }
+                p {
+                  color: rgba(255, 255, 255, 0.82);
+                }
+              }
+            }
+          }
+        }
     }
   }
 }
