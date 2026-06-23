@@ -223,21 +223,31 @@ const OurProjects = () => {
                                     <div className="services-content">
                                         <span className="services-tag">{t("head-projects.service")}</span>
 
-                                        <div className="info">
-                                            <div className="image">
-                                                <img src={activeService.img} alt={activeService.title}/>
-                                            </div>
-                                            <div className="info-1">
-                                                <h3>{t(activeService.title)}</h3>
+                                        <AnimatePresence mode="wait">
+                                            <motion.div
+                                                key={activeService.id}
+                                                className="info"
+                                                initial={{ opacity: 0, x: 30 }}
+                                                animate={{ opacity: 1, x: 0 }}
+                                                exit={{ opacity: 0, x: -30 }}
+                                                transition={{ duration: 0.4 }}
+                                            >
+                                                <div className="image">
+                                                    <img src={activeService.img} alt={activeService.title}/>
+                                                </div>
 
-                                                <p>{t(activeService.desc)}</p>
-                                                <Link to="/consultationRequest">
-                                                   <button className="services-btn">
-                                                       {t("head-projects.serviceRequest")}
-                                                   </button>
-                                                </Link>
-                                            </div>
-                                        </div>
+                                                <div className="info-1">
+                                                    <h3>{t(activeService.title)}</h3>
+                                                    <p>{t(activeService.desc)}</p>
+
+                                                    <Link to="/consultationRequest">
+                                                        <button className="services-btn">
+                                                            {t("head-projects.serviceRequest")}
+                                                        </button>
+                                                    </Link>
+                                                </div>
+                                            </motion.div>
+                                        </AnimatePresence>
                                     </div>
                                 </div>
                             </motion.div>
