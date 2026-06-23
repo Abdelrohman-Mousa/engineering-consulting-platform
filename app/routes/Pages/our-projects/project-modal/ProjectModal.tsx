@@ -9,6 +9,7 @@ import arrow from "../../../../../src/animations/arrow.json";
 import Lottie from "lottie-react";
 import {Link} from "react-router";
 import {useTranslation} from "react-i18next";
+// import i18n from "i18next";
 
 
 interface ProjectModalProps {
@@ -23,7 +24,7 @@ const ProjectModal = (
          setSelectedProject
     }: ProjectModalProps) => {
 
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
 
 
     return (
@@ -105,6 +106,8 @@ const ProjectModal = (
                                 {/*=======Carousal===========*/}
                                 <div className="project-carousel">
                                     <CarouselComponent
+                                        key={`${selectedProject.id}-${i18n.language}`}
+                                        enableRtl={i18n.language === "ar"}
                                         autoPlay={true}
                                         interval={2000}
                                         pauseOnHover={true}
