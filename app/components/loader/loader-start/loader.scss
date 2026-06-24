@@ -1,0 +1,69 @@
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background:
+          radial-gradient(circle at center,
+                  #08213f 0%,
+                  #03101f 50%,
+                  #000000 100%);
+}
+
+.loader-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo {
+  width: 220px;
+  margin-bottom: 20px;
+
+  filter:
+          drop-shadow(0 0 10px rgba(0,105,225,.5))
+          drop-shadow(0 0 20px rgba(0,105,225,.3));
+}
+
+.loader h1 {
+  color: white;
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.subtitle {
+  color: rgba(255,255,255,.6);
+  margin-top: .5rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.progress {
+  width: 260px;
+  height: 4px;
+  margin-top: 2rem;
+
+  background: rgba(255,255,255,.1);
+  border-radius: 50px;
+  overflow: hidden;
+}
+
+.progress-line {
+  height: 100%;
+  background: linear-gradient(
+                  90deg,
+                  #005bb5,
+                  #4fa3ff
+  );
+
+  box-shadow:
+          0 0 10px #005bb5,
+          0 0 20px #005bb5;
+}
+
+

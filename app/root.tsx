@@ -15,7 +15,8 @@ import Navbar from "~/routes/components/navbar/Navbar";
 import Footer from "~/routes/components/footer/Footer";
 import "./i18n/config"
 import {useTranslation} from "react-i18next";
-import { useEffect } from "react";
+import { useState ,useEffect } from "react";
+import Loader from "app/components/loader/loader-start/Loader";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -36,9 +37,6 @@ import {Toaster} from "react-hot-toast";
 import {AuthProvider} from "../src/firebase/AuthContext";
 
 registerLicense(import.meta.env.VITE_SYNCFUSION_LICENSE_KEY)
-// registerLicense(
-//     "Ngo9BigBOggjHTQxAR8/V1JHaF5cWWdCf1FpRmJGdld5fUVHYVZUTXxaS00DNHVRdkdlWXxceXZURGZfUkB2X0dWYEo="
-// );
 
 export function Layout({ children }: { children: React.ReactNode }) {
   // قراءة اللغة قبل الـ SSR من localStorage (لو ممكن)
@@ -81,9 +79,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  // 📍 تحديد الصفحة الحالية
+
   const location = useLocation();
-  const { i18n } = useTranslation(); // 👈 استخدام i18n
+
+  const { i18n } = useTranslation();
+
+  const [loading, setLoading] = useState(true);
 
   // 2️⃣ مراقبة تغيير اللغة وتحديث الـ DOM
   useEffect(() => {
@@ -99,6 +100,28 @@ export default function App() {
   const hideLayout = hideLayoutRoutes.some(route =>
       location.pathname.startsWith(route)
   );
+
+    // Loading
+    useEffect(() => {
+        const handleLoad = () => {
+            setTimeout(() => {
+                setLoading(false);
+            }, 1700);
+        };
+
+        if (document.readyState === "complete") {
+            handleLoad();
+        } else {
+            window.addEventListener("load", handleLoad);
+        }
+
+        return () => {
+            window.removeEventListener("load", handleLoad);
+        };
+    }, []);
+    if (loading) {
+        return <Loader />;
+    }
 
   return (
       <>
