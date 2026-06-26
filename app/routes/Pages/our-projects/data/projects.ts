@@ -5,7 +5,7 @@ export const projects = [
         // Card Data
         title: "projects-1.villa.title",
         desc: "projects-1.villa.desc",
-        introImage: "/assets/images/intro-1.jpg",
+        introImage: "/assets/images/intro-1.webp",
 
         // Modal Data
         projectName: "projects-1.villa.projectName",
@@ -15,32 +15,32 @@ export const projects = [
         gallery: [
             {
                 id: 1,
-                image: "/assets/images/view.jpg",
+                image: "/assets/images/view.webp",
                 title: "projects-1.villa.gallery.frontFacade"
             },
             {
                 id: 2,
-                image: "/assets/images/aerial-view.jpg",
+                image: "/assets/images/aerial-view.webp",
                 title: "projects-1.villa.gallery.aerialView"
             },
             {
                 id: 3,
-                image: "/assets/images/reception.jpg",
+                image: "/assets/images/reception.webp",
                 title: "projects-1.villa.gallery.reception"
             },
             {
                 id: 4,
-                image: "/assets/images/kitchen.jpg",
+                image: "/assets/images/kitchen.webp",
                 title: "projects-1.villa.gallery.kitchen"
             },
             {
                 id: 5,
-                image: "/assets/images/bedroom.jpg",
+                image: "/assets/images/bedroom.webp",
                 title: "projects-1.villa.gallery.bedroom"
             },
             {
                 id: 6,
-                image: "/assets/images/bathroom.jpg",
+                image: "/assets/images/bathroom.webp",
                 title: "projects-1.villa.gallery.bathroom"
             }
         ],
@@ -117,7 +117,7 @@ export const projects = [
         // Card Data
         title: "projects-2.apartment.title",
         desc: "projects-2.apartment.desc",
-        introImage: "/assets/images/intro-2.jpg",
+        introImage: "/assets/images/intro-2.webp",
 
         // Modal Data
         projectName: "projects-2.apartment.projectName",
@@ -127,32 +127,37 @@ export const projects = [
         gallery: [
             {
                 id: 1,
-                image: "/assets/images/view-kitchen.jpg",
+                image: "/assets/images/view-kitchen.webp",
                 title: "projects-2.apartment.gallery.contemporaryKitchen"
             },
             {
                 id: 2,
-                image: "/assets/images/view-kitchen-2.jpg",
+                image: "/assets/images/view-kitchen-2.webp",
                 title: "projects-2.apartment.gallery.contemporaryKitchen"
             },
             {
                 id: 3,
-                image: "/assets/images/badroom-2.jpg",
+                image: "/assets/images/badroom-2.webp",
                 title: "projects-2.apartment.gallery.masterBedroom"
             },
             {
                 id: 4,
-                image: "/assets/images/badroom-3.jpg",
+                image: "/assets/images/who-2.webp",
                 title: "projects-2.apartment.gallery.masterBedroom"
             },
             {
                 id: 5,
-                image: "/assets/images/bedroom.jpg",
+                image: "/assets/images/badroom-3.webp",
                 title: "projects-2.apartment.gallery.masterBedroom"
             },
             {
                 id: 6,
-                image: "/assets/images/bathroom.jpg",
+                image: "/assets/images/bedroom.webp",
+                title: "projects-2.apartment.gallery.masterBedroom"
+            },
+            {
+                id: 7,
+                image: "/assets/images/bathroom.webp",
                 title: "projects-2.apartment.gallery.premiumBathroom"
             }
         ],
@@ -232,7 +237,7 @@ export const projects = [
         // Card Data
         title: "projects-3.tower.title",
         desc: "projects-3.tower.desc",
-        introImage: "/assets/images/intro-3.jpg",
+        introImage: "/assets/images/intro-3.webp",
 
         // Modal Data
         projectName: "projects-3.tower.projectName",
@@ -242,32 +247,32 @@ export const projects = [
         gallery: [
             {
                 id: 1,
-                image: "/assets/images/intro-3.jpg",
+                image: "/assets/images/intro-3.webp",
                 title: "projects-3.tower.gallery.exteriorView"
             },
             {
                 id: 2,
-                image: "/assets/images/residential.jpg",
+                image: "/assets/images/residential.webp",
                 title: "projects-3.tower.gallery.mainEntrance"
             },
             {
                 id: 3,
-                image: "/assets/images/Residential-Interior.jpg",
+                image: "/assets/images/Residential-Interior.webp",
                 title: "projects-3.tower.gallery.unitInterior"
             },
             {
                 id: 4,
-                image: "/assets/images/Apartment-Finishes.jpg",
+                image: "/assets/images/Apartment-Finishes.webp",
                 title: "projects-3.tower.gallery.apartmentFinishes"
             },
             {
                 id: 5,
-                image: "/assets/images/Living-Spaces.jpg",
+                image: "/assets/images/Living-Spaces.webp",
                 title: "projects-3.tower.gallery.livingSpaces"
             },
             {
                 id: 6,
-                image: "/assets/images/bathroom.jpg",
+                image: "/assets/images/bathroom.webp",
                 title: "projects-3.tower.gallery.amenities"
             }
         ],
@@ -344,7 +349,7 @@ export const projects = [
         // Card Data
         title: "projects-4.office.title",
         desc: "projects-4.office.desc",
-        introImage: "/assets/images/intro-4.jpg",
+        introImage: "/assets/images/intro-4.webp",
 
         // Modal Data
         projectName: "projects-4.office.projectName",
@@ -354,27 +359,27 @@ export const projects = [
         gallery: [
             {
                 id: 1,
-                image: "/assets/images/intro-4.jpg",
+                image: "/assets/images/intro-4.webp",
                 title: "projects-4.office.gallery.overview"
             },
             {
                 id: 2,
-                image: "/assets/images/Lobby-Area.jpg",
+                image: "/assets/images/Lobby-Area.webp",
                 title: "projects-4.office.gallery.lobby"
             },
             {
                 id: 3,
-                image: "/assets/images/Open-Workspace.jpg",
+                image: "/assets/images/Open-Workspace.webp",
                 title: "projects-4.office.gallery.workspace"
             },
             {
                 id: 4,
-                image: "/assets/images/Meeting-Rooms.jpg",
+                image: "/assets/images/Meeting-Rooms.webp",
                 title: "projects-4.office.gallery.meetingRooms"
             },
             {
                 id: 5,
-                image: "/assets/images/Offices-Interior.jpg",
+                image: "/assets/images/Offices-Interior.webp",
                 title: "projects-4.office.gallery.executiveOffices"
             }
         ],

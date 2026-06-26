@@ -1,6 +1,6 @@
 import './clientFeedback.scss';
-import client1 from "/assets/images/man.png";
-import client2 from "/assets/images/woman.png";
+import client1 from "/assets/images/man.webp";
+import client2 from "/assets/images/woman.webp";
 import {useTranslation} from "react-i18next";
 import {motion} from "framer-motion";
 import HalfRating from "~/routes/components/material-ui/HalfRating";

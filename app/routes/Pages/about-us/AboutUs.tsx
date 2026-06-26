@@ -15,13 +15,13 @@ export function meta({}: Route.MetaArgs) {
 
 import './aboutUs.scss';
 import video from "/assets/video/about-2.mp4";
-import office1 from "/assets/images/office.jpg";
-import office2 from "/assets/images/office-2.jpg";
-import service1 from "/assets/images/service-1.jpg";
-import service2 from "/assets/images/service-2.jpg";
-import service3 from "/assets/images/service-3.jpg";
-import service4 from "/assets/images/servise-4.jpg";
-import service5 from "/assets/images/service-5.jpg";
+import office1 from "/assets/images/office.webp";
+import office2 from "/assets/images/office-2.webp";
+import service1 from "/assets/images/service-1.webp";
+import service2 from "/assets/images/service-2.webp";
+import service3 from "/assets/images/service-3.webp";
+import service4 from "/assets/images/servise-4.webp";
+import service5 from "/assets/images/service-5.webp";
 import {NumberTicker} from "~/components/ui/number-ticker";
 import {useTranslation} from "react-i18next";
 import {motion} from "framer-motion";

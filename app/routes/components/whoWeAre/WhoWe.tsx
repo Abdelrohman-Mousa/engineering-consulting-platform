@@ -1,10 +1,10 @@
 import "./whoWe.scss";
 import {ShinyButton} from "~/components/ui/shiny-button";
-import imgOne from "/assets/images/who-1.jpg";
-import people1 from "/assets/images/people-1.jpg";
-import people2 from "/assets/images/people-2.jpg";
-import people3 from "/assets/images/people-3.jpg";
-import imgThree from "/assets/images/who-3.jpg";
+import imgOne from "/assets/images/who-1.webp";
+import people1 from "/assets/images/people-1.webp";
+import people2 from "/assets/images/people-2.webp";
+import people3 from "/assets/images/people-3.webp";
+import imgThree from "/assets/images/who-3.webp";
 import HalfRating from "~/routes/components/material-ui/HalfRating";
 import {useTranslation} from "react-i18next";
 import {motion} from "framer-motion";

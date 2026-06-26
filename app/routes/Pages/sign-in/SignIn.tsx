@@ -1,6 +1,6 @@
 import "./signIn.scss";
-import signIn from "/assets/icons/signIn-icon.png";
-import google from "/assets/icons/google.png";
+import signIn from "/assets/icons/signIn-icon.webp";
+import google from "/assets/icons/google.webp";
 import {useTranslation} from "react-i18next";
 import {useState} from "react";
 import {signup} from "../../../../src/firebase/authService";
