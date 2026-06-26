@@ -528,8 +528,6 @@
     }
   },
 
-
-
   "services": {
     "architectural": {
       "title": "Architectural Design",
@@ -561,8 +559,4 @@
       "desc": "We create outdoor environments that blend nature and architecture, delivering attractive and functional landscapes for residential and commercial developments."
     }
   }
-
-
-
-
 }
