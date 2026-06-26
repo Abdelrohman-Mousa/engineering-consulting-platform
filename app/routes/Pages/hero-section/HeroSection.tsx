@@ -1,6 +1,6 @@
 import "./heroSection.scss";
 import arrow from "/assets/icons/right-arrow.png";
-import video from "/assets/video/video-build.mp4"
+import video from "/assets/video/build.mp4"
 import {ShinyButton} from "~/components/ui/shiny-button";
 import {Link} from "react-router";
 import Marquee from "~/components/marquee/Marquee";
@@ -103,13 +103,15 @@ const HeroSection = () => {
                    viewport={{ once: true, amount: 0.3 }}
                >
                    <video
+                       className="video-hero-section"
                        autoPlay
                        loop
                        muted
                        playsInline
-                       className="video-hero-section"
+                       preload="metadata"
+                       poster="/assets/images/Architectural.webp"
                    >
-                       <source src={video} type="video/mp4"/>
+                       <source src={video} type="video/mp4" />
                    </video>
 
                    <div className="description">
