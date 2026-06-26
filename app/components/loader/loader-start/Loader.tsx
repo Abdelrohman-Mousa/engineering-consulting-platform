@@ -1,8 +1,12 @@
 import "./loader.scss";
 import { motion } from "framer-motion";
 import loader from "/assets/icons/logoProjects.png";
+import {useTranslation} from "react-i18next";
 
 const Loader = () => {
+
+    const { t } = useTranslation();
+
     return (
         <div className="loader">
 
@@ -41,7 +45,7 @@ const Loader = () => {
                         duration: 1
                     }}
                 >
-                    ADVANCE
+                    {t("navbar.logo")}
                 </motion.h1>
 
                 <motion.span
@@ -52,7 +56,7 @@ const Loader = () => {
                         delay: 0.8
                     }}
                 >
-                    Architecture & Construction
+                    {t("navbar.start-loader")}
                 </motion.span>
 
                 <div className="progress">
