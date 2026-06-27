@@ -73,12 +73,12 @@ const TeamSection = () => {
                     </div>
                 </div>
                 <div className="teamSection-btn">
-                    <Link to="/consultationRequest">
+                    <Link to="/consultation-request">
                       <ShinyButton>
                          <h3 className="teamSection-button">{t("Team.btn-1")}</h3>
                       </ShinyButton>
                     </Link>
-                    <Link to="/contactUs">
+                    <Link to="/contact-us">
                       <ShinyButton>
                           <h3 className="teamSection-button">{t("Team.btn-2")}</h3>
                       </ShinyButton>

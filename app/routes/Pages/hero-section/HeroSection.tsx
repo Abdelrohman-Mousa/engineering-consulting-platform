@@ -82,7 +82,7 @@ const HeroSection = () => {
                        <div className="description-hero-section">
                            <p>{t("HeroSection.para")}</p>
                        </div>
-                       <Link to="/contactUs">
+                       <Link to="/contact-us">
                            <ShinyButton>
                              <div className="buttons-hero-section">
                                  <h3>{t("HeroSection.btn")}</h3>

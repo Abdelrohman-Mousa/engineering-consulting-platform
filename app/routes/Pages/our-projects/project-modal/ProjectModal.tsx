@@ -9,8 +9,6 @@ import arrow from "../../../../../src/animations/arrow.json";
 import Lottie from "lottie-react";
 import {Link} from "react-router";
 import {useTranslation} from "react-i18next";
-// import i18n from "i18next";
-
 
 interface ProjectModalProps {
     selectedProject: any;
@@ -231,7 +229,7 @@ const ProjectModal = (
                                         </p>
 
                                         <div className="project-modal-cta-buttons">
-                                                    <Link to="/consultationRequest">
+                                                    <Link to="/consultation-request">
                                                 <button
                                                     className="primary-btn"
                                                 >

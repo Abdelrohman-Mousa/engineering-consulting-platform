@@ -108,7 +108,7 @@ const ConsultingOnline = () => {
                     whileInView="animate"
                     viewport={{ once: true, amount: 0.3 }}
                 >
-                   <Link to="/consultationRequest">
+                   <Link to="/consultation-request">
                     <button className="primary-btn">
                         {t("online.btn")}
                         <img

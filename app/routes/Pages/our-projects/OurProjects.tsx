@@ -239,7 +239,7 @@ const OurProjects = () => {
                                                     <h3>{t(activeService.title)}</h3>
                                                     <p>{t(activeService.desc)}</p>
 
-                                                    <Link to="/consultationRequest">
+                                                    <Link to="/consultation-request">
                                                         <button className="services-btn">
                                                             {t("head-projects.serviceRequest")}
                                                         </button>

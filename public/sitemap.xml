@@ -20,13 +20,13 @@
     </url>
 
     <url>
-        <loc>https://engineering-consulting-platform.vercel.app/consultationRequest</loc>
+        <loc>https://engineering-consulting-platform.vercel.app/consultation-request</loc>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
-        <loc>https://engineering-consulting-platform.vercel.app/contactUs</loc>
+        <loc>https://engineering-consulting-platform.vercel.app/contact-us</loc>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>

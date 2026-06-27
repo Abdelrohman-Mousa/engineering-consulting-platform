@@ -22,7 +22,7 @@ const Footer = () => {
                         <img src="/assets/icons/logoProjects.png" alt="logo" />
                     </div>
                     <h2 className="pra">{t("footer.pra")}</h2>
-                 <Link to="/consultationRequest" style={{width: "fit-content"}}>
+                 <Link to="/consultation-request" style={{width: "fit-content"}}>
                   <ShinyButton style={{width: "fit-content"}}>
                     <div className="btn">
                         <h3>{t("footer.btn")}</h3>
@@ -43,13 +43,13 @@ const Footer = () => {
                             <Link to="/about">
                                 <li>{t("footer.link-2")}</li>
                             </Link>
-                            <Link to="/consultationRequest">
+                            <Link to="/consultation-request">
                                 <li>{t("footer.link-3")}</li>
                             </Link>
                             <Link to="/projects">
                                 <li>{t("footer.link-4")}</li>
                             </Link>
-                            <Link to="/contactUs">
+                            <Link to="/contact-us">
                                 <li>{t("footer.link-5")}</li>
                             </Link>
                         </ul>

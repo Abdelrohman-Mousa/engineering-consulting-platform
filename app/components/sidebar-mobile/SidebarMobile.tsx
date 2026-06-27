@@ -33,9 +33,9 @@ export default function SidebarMobile() {
     const menuItems = [
         { text: t('navbar.home'), path: '/' },
         { text: t('navbar.about'), path: '/about' },
-        { text: t('navbar.request'), path: "/consultationRequest" },
+        { text: t('navbar.request'), path: "/consultation-request" },
         { text: t('navbar.projects'), path: '/projects' },
-        { text: t('navbar.contact'), path: '/contactUs' },
+        { text: t('navbar.contact'), path: '/contact-us' },
     ];
 
     const DrawerList = (
