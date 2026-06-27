@@ -1,0 +1,8 @@
+User-agent: *
+
+Allow: /
+
+Disallow: /dashboard/
+Disallow: /signIn
+
+Sitemap: https://engineering-consulting-platform.vercel.app/sitemap.xml
