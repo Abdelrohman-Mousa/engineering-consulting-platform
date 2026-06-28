@@ -14,7 +14,7 @@ const Loader = () => {
 
                 <motion.img
                     src={loader}
-                    alt="ADVANCE"
+                    alt="Advance Engineering Consultancy"
                     className="logo"
                     initial={{
                         opacity: 0,
@@ -41,7 +41,7 @@ const Loader = () => {
                         letterSpacing: "0.15rem"
                     }}
                     transition={{
-                        delay: 0.4,
+                        delay: 0.2,
                         duration: 1
                     }}
                 >
@@ -53,7 +53,7 @@ const Loader = () => {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{
-                        delay: 0.8
+                        delay: 0.4
                     }}
                 >
                     {t("navbar.start-loader")}
