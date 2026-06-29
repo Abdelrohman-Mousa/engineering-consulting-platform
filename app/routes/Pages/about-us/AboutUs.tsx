@@ -1,15 +1,91 @@
-import type {Route} from "../../+types/home"
+export function meta() {
+    const url = "https://engineering-consulting-platform.vercel.app/about";
+    const image = "https://engineering-consulting-platform.vercel.app/og-image.jpg";
 
-export function meta({}: Route.MetaArgs) {
     return [
         {
-            title: "About Us | Engineering Consultancy UAE"
+            title:
+                "About Us | Advance Engineering Consultancy UAE",
         },
         {
             name: "description",
             content:
-                "A modern engineering consultancy platform providing online consultation services and a powerful management dashboard. We help clients in the UAE connect with professional engineers, submit requests online, and manage consultations efficiently through a seamless digital experience."
-        }
+                "Learn more about Advance Engineering Consultancy. We provide architectural design, structural engineering, project management, and online engineering consultation services across the UAE.",
+        },
+        {
+            name: "keywords",
+            content:
+                "about engineering consultancy, UAE engineering company, architecture company UAE, project management, structural engineering",
+        },
+        {
+            name: "robots",
+            content: "index, follow",
+        },
+
+        {
+            property: "og:title",
+            content: "About Advance Engineering Consultancy",
+        },
+        {
+            property: "og:description",
+            content:
+                "Discover our engineering expertise, professional team, and commitment to delivering innovative engineering solutions in the UAE.",
+        },
+        {
+            property: "og:type",
+            content: "website",
+        },
+        {
+            property: "og:url",
+            content: url,
+        },
+        {
+            property: "og:image",
+            content: image,
+        },
+
+        {
+            name: "twitter:card",
+            content: "summary_large_image",
+        },
+        {
+            name: "twitter:title",
+            content: "About Advance Engineering Consultancy",
+        },
+        {
+            name: "twitter:description",
+            content:
+                "Professional engineering consultancy serving clients across the UAE.",
+        },
+        {
+            name: "twitter:image",
+            content: image,
+        },
+        {
+            property: "og:site_name",
+            content: "Advance Engineering Consultancy",
+        },
+        {
+            property: "og:locale",
+            content: "en_US",
+        },
+        {
+            property: "og:image:alt",
+            content: "Advance Engineering Consultancy",
+        },
+        {
+            name: "twitter:image:alt",
+            content: "Advance Engineering Consultancy",
+        },
+    ];
+}
+
+export function links() {
+    return [
+        {
+            rel: "canonical",
+            href: "https://engineering-consulting-platform.vercel.app/about",
+        },
     ];
 }
 
@@ -102,6 +178,7 @@ const AboutUs = () => {
                     muted
                     playsInline
                     className="video-hero-section"
+                    poster="/assets/images/Architectural.webp"
                 >
                     <source src={video} type="video/mp4"/>
                 </video>
@@ -141,10 +218,20 @@ const AboutUs = () => {
                     viewport={{ once: true, amount: 0.3 }}
                 >
                    <div className="about-left-img-1">
-                       <img src={office2} alt="office" />
+                       <img
+                           src={office2}
+                           alt="Engineering Consultation Team"
+                           loading="lazy"
+                           decoding="async"
+                       />
                    </div>
                     <div className="about-left-img-2">
-                       <img src={office1} alt="office" />
+                       <img
+                           src={office1}
+                           alt="Advance Engineering Consultancy Office in UAE"
+                           loading="lazy"
+                           decoding="async"
+                       />
                     </div>
                 </motion.div
                 >
@@ -169,7 +256,7 @@ const AboutUs = () => {
                         whileInView="animate"
                         viewport={{ once: true, amount: 0.3 }}
                     >
-                        <h1 className="about-title">{t("about.title-2")}</h1>
+                        <h2 className="about-title">{t("about.title-2")}</h2>
                         <div className="about-para">
                             <p>{t("about.pra-4")}</p>
                             <p>{t("about.pra-5")}</p>
@@ -188,7 +275,7 @@ const AboutUs = () => {
                         <path d="M0 400 Q 300 500 600 400 T 1000 450" />
                     </svg>
                 </div>
-                <h1 className="services-title">{t("about.service")}</h1>
+                <h2 className="services-title">{t("about.service")}</h2>
 
                 <div className="about-services-container">
                     {services.map((service, index) => (
@@ -201,7 +288,12 @@ const AboutUs = () => {
                             viewport={{ once: true, amount: 0.3 }}
                         >
                             <div className="image-service">
-                                <img src={service.image} alt={service.title} />
+                                <img
+                                    src={service.image}
+                                    alt={service.title}
+                                    loading="lazy"
+                                    decoding="async"
+                                />
                             </div>
                             <h3>{service.title}</h3>
                         </motion.div>
