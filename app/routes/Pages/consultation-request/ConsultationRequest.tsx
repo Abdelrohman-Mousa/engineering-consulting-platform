@@ -1,15 +1,98 @@
-import type {Route} from "../../+types/home"
+export function meta() {
+    const url =
+        "https://engineering-consulting-platform.vercel.app/consultation-request";
 
-export function meta({}: Route.MetaArgs) {
+    const image =
+        "https://engineering-consulting-platform.vercel.app/og-image.jpg";
+
     return [
         {
-            title: "Request Engineering Consultation"
+            title:
+                "Request Engineering Consultation | Advance Engineering Consultancy UAE",
         },
         {
             name: "description",
             content:
-                "Submit your engineering consultation request online in the UAE and get expert engineering support. Fast, reliable, and professional consultation services tailored for your project needs."
-        }
+                "Submit your engineering consultation request online. Get professional architectural, structural engineering, and project management support from experienced engineers across the UAE.",
+        },
+        {
+            name: "keywords",
+            content:
+                "engineering consultation UAE, consultation request, engineering services UAE, architecture consultation, structural engineering",
+        },
+        {
+            name: "robots",
+            content: "index, follow",
+        },
+
+        // Open Graph
+        {
+            property: "og:title",
+            content:
+                "Request Engineering Consultation | Advance Engineering Consultancy",
+        },
+        {
+            property: "og:description",
+            content:
+                "Submit your engineering consultation online and receive professional engineering support across the UAE.",
+        },
+        {
+            property: "og:type",
+            content: "website",
+        },
+        {
+            property: "og:url",
+            content: url,
+        },
+        {
+            property: "og:image",
+            content: image,
+        },
+        {
+            property: "og:image:alt",
+            content: "Advance Engineering Consultancy",
+        },
+        {
+            property: "og:site_name",
+            content: "Advance Engineering Consultancy",
+        },
+        {
+            property: "og:locale",
+            content: "en_US",
+        },
+
+        // Twitter
+        {
+            name: "twitter:card",
+            content: "summary_large_image",
+        },
+        {
+            name: "twitter:title",
+            content:
+                "Request Engineering Consultation | Advance Engineering Consultancy",
+        },
+        {
+            name: "twitter:description",
+            content:
+                "Submit your engineering consultation request online in the UAE.",
+        },
+        {
+            name: "twitter:image",
+            content: image,
+        },
+        {
+            name: "twitter:image:alt",
+            content: "Advance Engineering Consultancy",
+        },
+    ];
+}
+
+export function links() {
+    return [
+        {
+            rel: "canonical",
+            href: "https://engineering-consulting-platform.vercel.app/consultation-request",
+        },
     ];
 }
 
@@ -219,15 +302,21 @@ const ConsultationRequest = () => {
                         />
                     </div>
 
-                    <div
+                    <button
                         className="btn-submit"
                         onClick={!loading ? handleSubmit : undefined}
                         style={{ opacity: loading ? 0.5 : 1, pointerEvents: loading ? "none" : "auto" }}
-                    >                         <div className="btn-submit-image">
-                            <img src={sent} alt="send" />
+                    >
+
+                        <div className="btn-submit-image">
+                            <img
+                                src={sent}
+                                alt=""
+                                aria-hidden="true"
+                            />
                          </div>
-                        <h3>{loading ? <PulseLoader /> : t("request.btn")}</h3>
-                    </div>
+                        <span>{loading ? <PulseLoader /> : t("request.btn")}</span>
+                    </button>
                 </motion.div>
             </div>
 
