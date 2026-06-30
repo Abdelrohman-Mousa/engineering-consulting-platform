@@ -1,15 +1,98 @@
-import type {Route} from "../../+types/home"
+export function meta() {
+    const url =
+        "https://engineering-consulting-platform.vercel.app/contact-us";
 
-export function meta({}: Route.MetaArgs) {
+    const image =
+        "https://engineering-consulting-platform.vercel.app/og-image.jpg";
+
     return [
         {
-            title: "Contact Us"
+            title:
+                "Contact Us | Advance Engineering Consultancy UAE",
         },
         {
             name: "description",
             content:
-                "Get in touch with our engineering consultancy team in the UAE. We are ready to assist you with your projects, questions, and technical support needs."
-        }
+                "Contact Advance Engineering Consultancy in the UAE for architectural design, structural engineering, project management, and engineering consultation services.",
+        },
+        {
+            name: "keywords",
+            content:
+                "contact engineering consultancy UAE, engineering company UAE, architecture consultation UAE, contact engineers, project management UAE",
+        },
+        {
+            name: "robots",
+            content: "index, follow",
+        },
+
+        // Open Graph
+        {
+            property: "og:title",
+            content:
+                "Contact Advance Engineering Consultancy",
+        },
+        {
+            property: "og:description",
+            content:
+                "Get in touch with our engineering experts for professional consultation and project support across the UAE.",
+        },
+        {
+            property: "og:type",
+            content: "website",
+        },
+        {
+            property: "og:url",
+            content: url,
+        },
+        {
+            property: "og:image",
+            content: image,
+        },
+        {
+            property: "og:image:alt",
+            content: "Advance Engineering Consultancy",
+        },
+        {
+            property: "og:site_name",
+            content: "Advance Engineering Consultancy",
+        },
+        {
+            property: "og:locale",
+            content: "en_US",
+        },
+
+        // Twitter
+        {
+            name: "twitter:card",
+            content: "summary_large_image",
+        },
+        {
+            name: "twitter:title",
+            content:
+                "Contact Advance Engineering Consultancy",
+        },
+        {
+            name: "twitter:description",
+            content:
+                "Reach our engineering consultancy team for professional engineering services in the UAE.",
+        },
+        {
+            name: "twitter:image",
+            content: image,
+        },
+        {
+            name: "twitter:image:alt",
+            content: "Advance Engineering Consultancy",
+        },
+    ];
+}
+
+export function links() {
+    return [
+        {
+            rel: "canonical",
+            href: "https://engineering-consulting-platform.vercel.app/contact-us",
+        },
     ];
 }
 
@@ -143,7 +226,11 @@ const ContactUs = () => {
                           disabled={loading}
                       >
                           <div className="image">
-                              <img src={send} alt="Send Message" />
+                              <img
+                                  src={send}
+                                  alt=""
+                                  aria-hidden="true"
+                              />
                           </div>
                           {loading ? <PulseLoader /> : t("contact-us.btn")}
                       </button>
@@ -156,19 +243,31 @@ const ContactUs = () => {
 
                         <div className="contact-phone-icon">
                             <div className="icon-phone">
-                                <img src={phone} alt="phone" />
+                                <img
+                                    src={phone}
+                                    alt=""
+                                    aria-hidden="true"
+                                />
                             </div>
                             <p>+ 050-37 0 27 59</p>
                         </div>
                         <div className="contact-phone-icon">
                             <div className="icon-phone">
-                                <img src={email} alt="phone" />
+                                <img
+                                    src={email}
+                                    alt=""
+                                    aria-hidden="true"
+                                />
                             </div>
                             <p>advance.consultant@yahoo.com</p>
                         </div>
                         <div className="contact-phone-icon">
                             <div className="icon-phone">
-                                <img src={oclock} alt="phone" />
+                                <img
+                                    src={oclock}
+                                    alt=""
+                                    aria-hidden="true"
+                                />
                             </div>
                             <p>{t("contact-us.time")}</p>
                         </div>
