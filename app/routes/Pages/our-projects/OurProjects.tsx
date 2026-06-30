@@ -1,15 +1,100 @@
-import type {Route} from "../../+types/home"
+export function meta() {
+    const url =
+        "https://engineering-consulting-platform.vercel.app/projects";
 
-export function meta({}: Route.MetaArgs) {
+    const image =
+        "https://engineering-consulting-platform.vercel.app/og-image.jpg";
+
     return [
         {
-            title: "Engineering Services"
+            title:
+                "Engineering Projects & Services | Advance Engineering Consultancy UAE",
         },
         {
             name: "description",
             content:
-                "Explore our engineering services including structural, architectural, and technical consultancy. Submit your project online and get expert feedback from qualified engineers in the UAE."
-        }
+                "Explore our engineering projects and professional services including architectural design, structural engineering, project management, construction supervision, and engineering consultation across the UAE.",
+        },
+        {
+            name: "keywords",
+            content:
+                "engineering projects UAE, engineering services UAE, architecture services, structural engineering, construction supervision, project management UAE",
+        },
+        {
+            name: "robots",
+            content: "index, follow",
+        },
+
+        // Open Graph
+
+        {
+            property: "og:title",
+            content:
+                "Engineering Projects & Services | Advance Engineering Consultancy",
+        },
+        {
+            property: "og:description",
+            content:
+                "Discover our completed engineering projects and comprehensive engineering services delivered by experienced professionals across the UAE.",
+        },
+        {
+            property: "og:type",
+            content: "website",
+        },
+        {
+            property: "og:url",
+            content: url,
+        },
+        {
+            property: "og:image",
+            content: image,
+        },
+        {
+            property: "og:image:alt",
+            content: "Advance Engineering Consultancy",
+        },
+        {
+            property: "og:site_name",
+            content: "Advance Engineering Consultancy",
+        },
+        {
+            property: "og:locale",
+            content: "en_US",
+        },
+
+        // Twitter
+
+        {
+            name: "twitter:card",
+            content: "summary_large_image",
+        },
+        {
+            name: "twitter:title",
+            content:
+                "Engineering Projects & Services | Advance Engineering Consultancy",
+        },
+        {
+            name: "twitter:description",
+            content:
+                "Explore engineering projects, architecture, structural engineering and project management services across the UAE.",
+        },
+        {
+            name: "twitter:image",
+            content: image,
+        },
+        {
+            name: "twitter:image:alt",
+            content: "Advance Engineering Consultancy",
+        },
+    ];
+}
+
+export function links() {
+    return [
+        {
+            rel: "canonical",
+            href: "https://engineering-consulting-platform.vercel.app/projects",
+        },
     ];
 }
 
@@ -70,7 +155,7 @@ const OurProjects = () => {
                 }}
             >
 
-                <motion.h2
+                <motion.h1
                     initial={{
                         opacity: 0,
                         y: 20
@@ -85,7 +170,7 @@ const OurProjects = () => {
                     }}
                 >
                     <span> {t("head-projects.title.proj")}</span> {t("head-projects.title.engineering")} & <span>{t("head-projects.title.services")}</span> {t("head-projects.title.professional")}
-                </motion.h2>
+                </motion.h1>
 
                 <motion.p
 
@@ -159,7 +244,12 @@ const OurProjects = () => {
                                     whileHover={{ y: -5 }}
                                 >
                                     <div className="ourProjects-card-image">
-                                        <img src={project.introImage} alt={project.title} />
+                                        <img
+                                            src={project.introImage}
+                                            alt={t(project.title)}
+                                            loading="lazy"
+                                            decoding="async"
+                                        />
                                     </div>
                                     <div className="ourProjects-card-info">
                                         <div className="ourProjects-card-info-text">
@@ -168,8 +258,12 @@ const OurProjects = () => {
                                         </div>
                                         <div className="ourProjects-card-info-btn">
                                             <button >
-                                                <h5>{t("head-projects.btn-3")}</h5>
-                                                <img src={arrow} alt="Arrow" />
+                                                <span>{t("head-projects.btn-3")}</span>
+                                                <img
+                                                    src={arrow}
+                                                    alt=""
+                                                    aria-hidden="true"
+                                                />
                                             </button>
                                         </div>
                                     </div>
@@ -232,7 +326,12 @@ const OurProjects = () => {
                                                 transition={{ duration: 0.4 }}
                                             >
                                                 <div className="image">
-                                                    <img src={activeService.img} alt={activeService.title}/>
+                                                    <img
+                                                        src={activeService.img}
+                                                        alt={t(activeService.title)}
+                                                        loading="lazy"
+                                                        decoding="async"
+                                                    />
                                                 </div>
 
                                                 <div className="info-1">
