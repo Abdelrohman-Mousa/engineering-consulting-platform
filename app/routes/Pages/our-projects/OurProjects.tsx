@@ -103,10 +103,15 @@ import arrow from "/assets/icons/arrow-modal.svg";
 import {projects} from "./data/projects";
 import {services} from "./data/services";
 import { useState, useEffect } from "react";
-import ProjectModal from "~/routes/Pages/our-projects/project-modal/ProjectModal";
 import { AnimatePresence, motion } from "framer-motion";
 import {useTranslation} from "react-i18next";
 import {Link} from "react-router";
+
+import { lazy, Suspense } from "react";
+
+const ProjectModal = lazy(
+    () => import("~/routes/Pages/our-projects/project-modal/ProjectModal")
+);
 
 
 const OurProjects = () => {
@@ -354,10 +359,14 @@ const OurProjects = () => {
                 </AnimatePresence>
             </div>
 
-            <ProjectModal
-                selectedProject={selectedProject}
-                setSelectedProject={setSelectedProject}
-            />
+            <Suspense fallback={null}>
+                {selectedProject && (
+                    <ProjectModal
+                        selectedProject={selectedProject}
+                        setSelectedProject={setSelectedProject}
+                    />
+                )}
+            </Suspense>
         </div>
     )
 }

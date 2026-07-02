@@ -1,4 +1,14 @@
 import { Outlet } from "react-router";
+
+import dashboardStyles from "./dashboard.css?url";
+
+export const links = () => [
+    {
+        rel: "stylesheet",
+        href: dashboardStyles,
+    },
+];
+
 import {SidebarComponent} from "@syncfusion/ej2-react-navigations";
 import NavItems from "~/routes/dashboard/components/navitems-dashboard/NavItems";
 import MobileSidebar from "~/routes/dashboard/components/sidebar-mobile/MobileSidebar";

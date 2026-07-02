@@ -3,12 +3,6 @@
 @import "shadcn/tailwind.css";
 @import "@fontsource-variable/geist";
 
-/* اختيار ثيم Fluent أو Tailwind للمواكبة مع تصميمك */
-@import "../node_modules/@syncfusion/ej2-base/styles/tailwind.css";
-@import "../node_modules/@syncfusion/ej2-buttons/styles/tailwind.css";
-@import "../node_modules/@syncfusion/ej2-react-grids/styles/tailwind.css";
-@import "../node_modules/@syncfusion/ej2-react-calendars/styles/tailwind.css";
-@import "../node_modules/@syncfusion/ej2-react-navigations/styles/tailwind.css";
 
 @custom-variant dark (&:is(.dark *));
 

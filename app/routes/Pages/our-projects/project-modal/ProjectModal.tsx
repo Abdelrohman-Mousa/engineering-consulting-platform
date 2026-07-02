@@ -1,3 +1,7 @@
+import "@syncfusion/ej2-base/styles/material.css";
+import "@syncfusion/ej2-react-navigations/styles/material.css";
+
+
 import "./project-modal.scss";
 import { AnimatePresence, motion } from "framer-motion";
 import closed from "/assets/icons/closed.png";

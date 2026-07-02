@@ -30,8 +30,7 @@ export const links: Route.LinksFunction = () => [
     href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
   },
 ];
-import "@syncfusion/ej2-base/styles/material.css";
-import "@syncfusion/ej2-react-navigations/styles/material.css";
+
 import { registerLicense } from "@syncfusion/ej2-base";
 import {Toaster} from "react-hot-toast";
 import {AuthProvider} from "../src/firebase/AuthContext";
@@ -103,7 +102,7 @@ export default function App() {
         const handleLoad = () => {
             setTimeout(() => {
                 setLoading(false);
-            }, 500);
+            }, 1000);
         };
 
         if (document.readyState === "complete") {
